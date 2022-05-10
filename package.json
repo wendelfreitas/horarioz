@@ -1,7 +1,11 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "stellar-cultures",
   "version": "0.0.0",
   "private": true,
+  "author": {
+    "name": "Wendel Freitas",
+    "email": "wendelfreitasbranco@gmai.com"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -10,10 +14,14 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/jest": "^27.5.0",
+    "jest": "^28.1.0",
     "prettier": "latest",
+    "ts-jest": "^28.0.2",
     "turbo": "latest"
   },
   "engines": {

@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-custom": "*",
+    "@stellar-cultures/eslint-config": "*",
     "next-transpile-modules": "9.0.0",
     "tsconfig": "*",
     "@types/node": "^17.0.12",

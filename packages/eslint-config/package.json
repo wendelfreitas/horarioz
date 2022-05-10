@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-custom",
+  "name": "@stellar-cultures/eslint-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -10,5 +10,11 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-testing-library": "^5.4.0"
   }
 }

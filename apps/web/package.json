@@ -1,24 +1,25 @@
 {
-  "name": "web",
+  "name": "@stellar-cultures/web",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "ui": "*"
+    "@stellar-cultures/ui": "*"
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-custom": "*",
+    "@stellar-cultures/eslint-config": "*",
     "next-transpile-modules": "9.0.0",
-    "tsconfig": "*",
+    "@stellar-cultures/tsconfig": "*",
     "@types/node": "^17.0.12",
     "@types/react": "17.0.37",
     "typescript": "^4.5.3"

@@ -13,16 +13,17 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "storybook": "turbo run storybook --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/jest": "^27.5.0",
+    "@types/jest": "^27.5.1",
     "jest": "^28.1.0",
     "prettier": "latest",
-    "ts-jest": "^28.0.2",
-    "turbo": "latest"
+    "ts-jest": "^28.0.3",
+    "turbo": "1.2.14"
   },
   "engines": {
     "npm": ">=7.0.0",

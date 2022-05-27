@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@stellar-cultures/eslint-config'],
+  extends: ['next', 'next/core-web-vitals', '@stellar-cultures/eslint-config'],
 };

@@ -19,11 +19,11 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/jest": "^27.5.1",
-    "jest": "^28.1.0",
-    "prettier": "latest",
-    "ts-jest": "^28.0.3",
-    "turbo": "1.2.14"
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "prettier": "2.7.1",
+    "ts-jest": "^28.0.7",
+    "turbo": "1.4.2"
   },
   "engines": {
     "npm": ">=7.0.0",

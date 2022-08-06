@@ -1,0 +1,17 @@
+{
+  "name": "@stellar-cultures/i18n",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "files": [
+    "./src/index.ts"
+  ],
+  "scripts": {
+    "lint": "eslint src --max-warnings=0"
+  },
+  "dependencies": {
+    "i18next": "^21.8.16",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "react-i18next": "^11.18.3"
+  }
+}

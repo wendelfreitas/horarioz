@@ -1,3 +1,5 @@
+import { Button as DefaultButton } from '@chakra-ui/react';
+
 export const Button = () => {
-  return <button>Boop</button>;
+  return <DefaultButton>Boop</DefaultButton>;
 };

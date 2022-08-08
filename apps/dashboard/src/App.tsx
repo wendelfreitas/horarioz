@@ -19,9 +19,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
         <br />
-        <Heading>{t('@HelloWorld')}</Heading>
+        <Heading color="primary.500">{t('@HelloWorld')}</Heading>
         <div className="card">
-          <Button />
+          <Button onClick={() => console.log(2)}>Hello Dash</Button>
         </div>
       </Box>
     </Container>

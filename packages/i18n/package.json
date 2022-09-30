@@ -10,8 +10,8 @@
     "lint": "eslint src --max-warnings=0"
   },
   "dependencies": {
-    "i18next": "^21.8.16",
-    "i18next-browser-languagedetector": "^6.1.4",
-    "react-i18next": "^11.18.3"
+    "i18next": "^21.9.1",
+    "i18next-browser-languagedetector": "^6.1.5",
+    "react-i18next": "^11.18.6"
   }
 }

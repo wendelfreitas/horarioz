@@ -1,30 +1,25 @@
 import reactLogo from './assets/react.svg';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@stellar-cultures/ui';
-import { Box, Container, Heading } from '@chakra-ui/react';
 
 function App() {
   const { t } = useTranslation();
 
   return (
-    <Container
-      alignItems="center"
-      justifyContent="center"
-      flex="1"
-      display="flex"
-      flexDirection="column"
-    >
-      <Box justifyContent="center" alignItems="center" textAlign="center">
+    <div>
+      <div>
         <a href="https://reactjs.org" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
         <br />
-        <Heading color="primary.500">{t('@HelloWorld')}</Heading>
+        <p>{t('@HelloWorld')}</p>
         <div className="card">
           <Button onClick={() => console.log(2)}>Hello Dash</Button>
+
+          <Button onClick={() => console.log('void')}>Test</Button>
         </div>
-      </Box>
-    </Container>
+      </div>
+    </div>
   );
 }
 

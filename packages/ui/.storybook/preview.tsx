@@ -1,18 +1,11 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from '../src';
-
+import { ThemeProvider } from '../src/components/ThemeProvider/ThemeProvider';
+import '../src/styles/index.css';
 // Global decorator to apply the styles to all stories
 export const decorators = [
   (Story) => (
-    <ChakraProvider theme={theme}>
+    <ThemeProvider>
       <Story />
-    </ChakraProvider>
+    </ThemeProvider>
   ),
 ];
-
-export const parameters = {
-  chakra: {
-    theme,
-  },
-};

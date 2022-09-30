@@ -1,8 +1,3 @@
-import {
-  Button as DefaultButton,
-  ButtonProps as DefaultButtonProps,
-} from '@chakra-ui/react';
-
 type ButtonVariantsType = 'primary' | 'secondary';
 
 export type ButtonProps = {
@@ -13,7 +8,7 @@ export type ButtonProps = {
   /**
    * on click handle.
    */
-  onClick: DefaultButtonProps['onClick'];
+  onClick: () => void;
   children: React.ReactNode;
 };
 
@@ -23,13 +18,8 @@ export const Button = ({
   onClick,
 }: ButtonProps) => {
   return (
-    <DefaultButton
-      background={variant}
-      color="white"
-      _hover={{ background: `${variant}_hover` }}
-      onClick={onClick}
-    >
+    <button className="bg-red-700" onClick={onClick}>
       {children}
-    </DefaultButton>
+    </button>
   );
 };

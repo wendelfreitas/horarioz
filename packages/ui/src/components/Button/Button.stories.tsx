@@ -7,6 +7,9 @@ export default {
   component: Button,
 } as Meta;
 
-export const Default: Story<ButtonProps> = (args) => (
-  <Button {...args}>Hello Storybook</Button>
-);
+export const Default: Story<ButtonProps> = (args) => <Button {...args} />;
+
+Default.args = {
+  variant: 'primary',
+  children: 'Hello World',
+};

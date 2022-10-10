@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from '../src/components/ThemeProvider/ThemeProvider';
+import { ThemeProvider } from '../src/styles/ThemeProvider/ThemeProvider';
 import './global.css';
 
 // Global decorator to apply the styles to all stories

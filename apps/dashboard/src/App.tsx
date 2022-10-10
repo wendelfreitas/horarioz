@@ -12,12 +12,12 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
         <br />
-        <p>{t('@HelloWorld')}</p>
-        <div className="card">
-          <Button onClick={() => console.log(2)}>Hello Dash</Button>
-
-          <Button onClick={() => console.log('void')}>Test</Button>
+        <div className="ml-10">
+          <Button variant="primary" onClick={() => console.log(2)}>
+            Hello Dash
+          </Button>
         </div>
+        <p>{t('@HelloWorld')}</p>
       </div>
     </div>
   );

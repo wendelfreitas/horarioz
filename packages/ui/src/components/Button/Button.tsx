@@ -18,7 +18,7 @@ export const Button = ({
   onClick,
 }: ButtonProps) => {
   return (
-    <button className="bg-red-700" onClick={onClick}>
+    <button className="bg-blue-500" onClick={onClick}>
       {children}
     </button>
   );

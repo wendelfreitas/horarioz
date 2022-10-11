@@ -11,6 +11,8 @@ module.exports = {
           600: '#473ea8',
           700: '#3f3795',
         },
+        content: '#FAFAFA',
+        white: '#FFFFFF',
       },
     },
   },

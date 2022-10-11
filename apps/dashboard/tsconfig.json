@@ -1,5 +1,8 @@
 {
   "extends": "@stellar-cultures/tsconfig/base.json",
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./src/locales", "./src/configs/i18n.ts"],
+  "compilerOptions": {
+    "resolveJsonModule": true
+  }
 }

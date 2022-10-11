@@ -1,9 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Button } from '@stellar-cultures/ui';
 
 function App() {
-  const { t } = useTranslation();
-
   return (
     <div className="w-100 h-screen flex">
       <div className="bg-white w-1/4 h-screen p-10 border-r-2 border-gray-100">

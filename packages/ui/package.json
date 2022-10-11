@@ -5,8 +5,9 @@
   "types": "./src/index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src --max-warnings=0",
     "storybook": "start-storybook -p 6006 -s public",
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "jest",
     "test:watch": "yarn test --watch",
     "build-storybook": "build-storybook -s public"

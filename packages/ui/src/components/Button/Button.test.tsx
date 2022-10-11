@@ -41,6 +41,6 @@ describe('<Button />', () => {
 
     const button = screen.getByText('Hello World');
 
-    expect(button).toHaveClass('bg-red-300');
+    expect(button).toHaveClass('bg-transparent');
   });
 });

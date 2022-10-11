@@ -1,4 +1,3 @@
-import reactLogo from './assets/react.svg';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@stellar-cultures/ui';
 
@@ -6,18 +5,23 @@ function App() {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <div>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="w-100 h-screen flex">
+      <div className="bg-white w-1/4 h-screen p-10 border-r-2 border-gray-100">
+        <p>Menu</p>
+      </div>
+      <div className="bg-content w-full h-screen p-10">
+        <p className="font-sans">Content</p>
+      </div>
+      <div className="bg-white w-1/3 h-screen p-10 border-l-2 border-gray-100">
+        <p></p>
+        <Button variant="primary" onClick={() => console.log(2)}>
+          RightBar
+        </Button>
         <br />
-        <div className="ml-10">
-          <Button variant="primary" onClick={() => console.log(2)}>
-            Hello Dash
-          </Button>
-        </div>
-        <p>{t('@HelloWorld')}</p>
+        <br />
+        <Button variant="secondary" onClick={() => console.log(2)}>
+          Secondary Button
+        </Button>
       </div>
     </div>
   );

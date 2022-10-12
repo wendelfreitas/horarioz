@@ -1,7 +1,13 @@
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
 export type AvatarProps = {
+  /**
+   * The full name of user, we will get the initials from this prop.
+   */
   name: string;
+  /**
+   * Image source, we will use this image as avatar, if it is not provided, we will use the initials.
+   */
   src?: string;
 };
 

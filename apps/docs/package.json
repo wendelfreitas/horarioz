@@ -1,26 +1,13 @@
 {
-  "name": "docs",
+  "name": "@stellar-cultures/docs",
   "version": "0.0.0",
-  "private": true,
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev --port 3001",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "ui": "*"
+    "dev": "docsify serve ./"
   },
   "devDependencies": {
-    "@stellar-cultures/eslint-config": "*",
-    "@types/node": "^18.8.3",
-    "@types/react": "18.0.21",
-    "eslint": "8.25.0",
-    "next-transpile-modules": "9.0.0",
-    "tsconfig": "*",
-    "typescript": "^4.8.4"
+    "docsify": "^4.12.2"
   }
 }

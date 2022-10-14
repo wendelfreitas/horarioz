@@ -7,7 +7,7 @@ function App() {
         <p>Menu</p>
       </div>
       <div className="bg-content w-full h-screen p-10">
-        <p className="font-sans">Content</p>
+        <p>Content</p>
       </div>
       <div className="bg-white w-1/3 h-screen p-10 border-l-2 border-gray-100">
         <p></p>

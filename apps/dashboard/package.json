@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
   },
   "dependencies": {

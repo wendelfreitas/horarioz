@@ -1,7 +1,6 @@
 ---
 to: <%= absPath %>/<%= component_name %>.test.tsx
 ---
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { <%= component_name %> } from '.';
 

@@ -8,6 +8,7 @@ module.exports = {
     '!src/pages/**/*.tsx',
     '!src/styles/**/*.ts(x)?',
     '!src/stories/**',
+    '!src/configs/**',
     '!src/main.tsx',
     '!src/index.css',
     '!src/App.tsx',

@@ -16,7 +16,7 @@ export type ButtonProps = {
 };
 
 const Variants = {
-  primary: 'bg-primary-500 hover:bg-primary-700 text-white ',
+  primary: 'bg-primary-500 hover:bg-primary-600 text-white ',
   secondary:
     'bg-transparent hover:bg-gray-100/50 text-black border boder-gray-100/50',
 };
@@ -31,7 +31,7 @@ export const Button = ({
   };
 
   const getClass = () => {
-    return `rounded-lg px-5 py-2.5 text-sm font-semibold ${getVariant()}`;
+    return `rounded-lg px-5 py-3 text-sm font-semibold ${getVariant()}`;
   };
 
   return (

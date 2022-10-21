@@ -1,7 +1,7 @@
-import { Layout } from './components/Layout/Layout';
+import { Routes } from './routes/Routes';
 
 function App() {
-  return <Layout />;
+  return <Routes />;
 }
 
 export default App;

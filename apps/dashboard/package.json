@@ -1,5 +1,5 @@
 {
-  "name": "@stellar-cultures/dashboard",
+  "name": "@suwilo/dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
-    "@stellar-cultures/ui": "*",
+    "@suwilo/ui": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.6",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@stellar-cultures/eslint-config": "*",
+    "@suwilo/eslint-config": "*",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-docs": "^6.5.12",

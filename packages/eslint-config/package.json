@@ -1,5 +1,5 @@
 {
-  "name": "@stellar-cultures/eslint-config",
+  "name": "@suwilo/eslint-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

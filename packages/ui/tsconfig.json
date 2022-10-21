@@ -1,5 +1,5 @@
 {
-  "extends": "@stellar-cultures/tsconfig/react-library.json",
+  "extends": "@suwilo/tsconfig/react-library.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }

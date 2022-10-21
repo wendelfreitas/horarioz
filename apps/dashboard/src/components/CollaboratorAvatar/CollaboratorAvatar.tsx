@@ -1,4 +1,4 @@
-import { Avatar } from '@stellar-cultures/ui';
+import { Avatar } from '@suwilo/ui';
 
 export type CollaboratorAvatarProps = {
   /**

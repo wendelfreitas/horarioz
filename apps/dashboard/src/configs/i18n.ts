@@ -1,4 +1,4 @@
-import { i18n } from '@stellar-cultures/i18n';
+import { i18n } from '@suwilo/i18n';
 
 import ptbr from '../locales/ptbr/translation.json';
 

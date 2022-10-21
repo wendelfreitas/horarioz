@@ -4,7 +4,7 @@ import { Login } from './Login';
 describe('<Login />', () => {
   it('renders page successfully', () => {
     render(<Login />);
-    const text = screen.getByText('Welcome to Stellar Cultures 🚀');
+    const text = screen.getByText('Welcome to Suwilo 🚀');
 
     expect(text).toBeInTheDocument();
   });

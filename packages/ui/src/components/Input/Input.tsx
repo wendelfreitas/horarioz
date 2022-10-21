@@ -75,9 +75,7 @@ export const Input = ({ label, name, error, helper, ...props }: InputProps) => {
       'text-sm',
       'peer-focus:top-0',
       'peer-focus:text-xs',
-      'peer-focus:ml-0',
-      '[&>:not(:placeholder-shown)]:bg-red-300',
-      'peer-placeholder-shown:text-xs'
+      'peer-focus:ml-0'
     );
 
     if (props.placeholder) {

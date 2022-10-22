@@ -71,11 +71,14 @@ WithHelper.args = {
   label: 'Full name',
   placeholder: 'Testing',
   helper: 'This is a helper text',
+  name: 'fullname',
 };
 
 export const WithoutPlaceholder: Story<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
-    <Input {...args} />
+    <Input {...args} placeholder="Address" name="address" />
+    <br />
+    <Input {...args} placeholder="With Placeholder" />
   </div>
 );
 

@@ -10,110 +10,112 @@ export type InputProps = {
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = ({ label, name, error, helper, ...props }: InputProps) => {
-  const getLabelClasses = () => {
-    const styles = {
-      error: cn('border-red-500'),
-      default: cn('focus-within:border-black', 'border-gray-200'),
-    };
-
+  const getInputClasses = () => {
     let style = cn(
-      'relative',
       'block',
-      'rounded-md',
+      'px-4',
+      'pb-2.5',
+      'pt-4',
+      'w-full',
+      'text-sm',
+      'bg-transparent',
+      'rounded-lg',
       'border',
-      'px-3',
-      'pt-3',
-      'hover:cursor-text',
-      error ? styles.error : styles.default
+      'appearance-none',
+      'focus:outline-none',
+      'peer'
     );
 
     if (props.disabled) {
       style = cn(style, 'bg-gray-100', 'hover:cursor-not-allowed');
     }
 
-    return style;
-  };
-
-  const getInputClasses = () => {
-    let style = cn(
-      'peer',
-      'h-8',
-      'w-full',
-      'border-none',
-      'bg-transparent',
-      'pb-2',
-      'p-0',
-      'px-1',
-      'focus:border-transparent',
-      'autofill:bg-transparent',
-      'focus:outline-none',
-      'focus:ring-0',
-      'sm:text-sm'
-    );
-
-    if (props.disabled) {
-      style = cn(style, 'hover:cursor-not-allowed');
-    }
-
     if (error) {
-      return cn(style, 'text-red-500');
+      return cn(style, 'text-red-500', 'border-red-500');
     }
 
-    return style;
+    return cn(style, 'text-gray-900', 'border-gray-200', 'focus:border-black');
   };
 
   const getSpanClasses = () => {
     let style = cn(
-      'bg-white',
+      'hover:cursor-text',
+      'select-none',
       'absolute',
-      'px-1',
-      'left-3',
-      '-translate-y-1/2',
-      'text-xs',
-      'transition-all',
-      'top-1/2',
-      'text-sm',
-      'peer-focus:top-0',
-      'peer-focus:text-xs',
-      'peer-focus:ml-0'
+      'text-base',
+      'duration-300',
+      'transform',
+      '-translate-y-4',
+      'scale-75',
+      'top-[0.25rem]',
+      'z-1',
+      'origin-[0]',
+      'ml-2',
+      'left-1',
+      'px-2',
+      'peer-focus:px-2',
+      'peer-placeholder-shown:scale-100',
+      'peer-placeholder-shown:-translate-y-1/2',
+      'peer-placeholder-shown:top-1/2',
+      'peer-placeholder-shown:py-0.5',
+      'peer-placeholder-shown:text-sm',
+      'peer-focus:top-[0.12rem]',
+      'peer-focus:py-0.5',
+      'peer-focus:scale-75',
+      'peer-focus:-translate-y-4',
+      'peer-focus:text-base'
     );
 
-    if (props.placeholder) {
+    if (props.placeholder !== label) {
       style = cn(
-        'top-0',
-        'bg-white',
+        'hover:cursor-text',
+        'select-none',
         'absolute',
-        'px-1',
-        'left-3',
-        '-translate-y-1/2',
-        'text-xs',
-        'transition-all',
-        'top-0',
-        'text-sm',
-        'peer-focus:top-0',
-        'peer-focus:text-xs',
-        'peer-focus:ml-0'
+        'text-base',
+        'duration-300',
+        'transform',
+        '-translate-y-4',
+        'scale-75',
+        'top-[0.25rem]',
+        'z-1',
+        'origin-[0]',
+        'ml-2',
+        'left-1',
+        'px-2',
+        'peer-focus:px-2',
+        'peer-focus:top-[0.25rem]',
+        'peer-focus:py-0',
+        'peer-focus:scale-75',
+        'peer-focus:-translate-y-4',
+        'peer-focus:text-base'
       );
     }
 
     if (props.disabled) {
-      style = cn(style, 'bg-gray-100', 'rounded', 'hover:cursor-not-allowed');
+      return cn(
+        style,
+        'bg-gray-100',
+        'rounded',
+        'hover:cursor-not-allowed',
+        'text-gray-400'
+      );
     }
 
     if (error) {
-      return cn(style, 'text-red-500');
+      return cn(style, 'text-red-500', 'bg-white');
     }
 
-    return cn(style, 'text-gray-500', 'peer-focus:text-black');
+    return cn(style, 'text-gray-500', 'peer-focus:text-black', 'bg-white');
   };
 
   return (
     <div>
-      <label htmlFor={name} className={getLabelClasses()}>
+      <div className="relative">
         <input id={name} className={getInputClasses()} {...props} />
-
-        <span className={getSpanClasses()}>{label}</span>
-      </label>
+        <label htmlFor={name} className={getSpanClasses()}>
+          {label}
+        </label>
+      </div>
       {error && (
         <p className={cn('text-red-500', 'text-xs', 'mt-2', 'ml-2')}>{error}</p>
       )}

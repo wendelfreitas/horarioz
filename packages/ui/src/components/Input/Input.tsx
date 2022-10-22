@@ -2,14 +2,26 @@ import { InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 export type InputProps = {
+  /**
+   * Add a text with color red to the input
+   */
   error?: string;
+  /**
+   * Add a helper text below the input.
+   */
   helper?: string;
+  /**
+   * The input label, if the label and placeholder have same value this label will be a floating label.
+   */
   label?: string;
   icon?: React.ReactNode;
+  /**
+   * If the button is disabled.
+   */
   disabled?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = ({ label, name, error, helper, ...props }: InputProps) => {
+export const Input = ({ label, error, helper, ...props }: InputProps) => {
   const getInputClasses = () => {
     let style = cn(
       'block',
@@ -23,8 +35,13 @@ export const Input = ({ label, name, error, helper, ...props }: InputProps) => {
       'border',
       'appearance-none',
       'focus:outline-none',
-      'peer'
+      'peer',
+      'placeholder:text-white'
     );
+
+    if (props.placeholder !== label) {
+      style = cn(style, 'placeholder:text-gray-400');
+    }
 
     if (props.disabled) {
       style = cn(style, 'bg-gray-100', 'hover:cursor-not-allowed');
@@ -111,8 +128,8 @@ export const Input = ({ label, name, error, helper, ...props }: InputProps) => {
   return (
     <div>
       <div className="relative">
-        <input id={name} className={getInputClasses()} {...props} />
-        <label htmlFor={name} className={getSpanClasses()}>
+        <input id={props.id} className={getInputClasses()} {...props} />
+        <label htmlFor={props.id} className={getSpanClasses()}>
           {label}
         </label>
       </div>

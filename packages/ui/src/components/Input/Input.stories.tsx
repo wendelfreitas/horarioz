@@ -76,15 +76,21 @@ WithHelper.args = {
 
 export const WithoutPlaceholder: Story<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
-    <Input {...args} placeholder="Address" name="address" />
+    <Input
+      {...args}
+      placeholder="Address without placeholder"
+      id="address"
+      label="Address without placeholder"
+    />
     <br />
-    <Input {...args} placeholder="With Placeholder" />
+    <Input
+      {...args}
+      placeholder="With"
+      id="with"
+      label="Address with placeholder"
+    />
   </div>
 );
-
-WithoutPlaceholder.args = {
-  label: 'Address',
-};
 
 export const MultipleFields: Story<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>

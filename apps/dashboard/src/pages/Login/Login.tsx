@@ -29,9 +29,10 @@ export const Login = () => {
             <form action="#" className="mt-8 grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
                 <Input
-                  type="text"
+                  type="password"
                   id="FirstName"
                   label="First Name"
+                  placeholder="Type your first name"
                   name="first_name"
                 />
               </div>
@@ -41,6 +42,7 @@ export const Login = () => {
                   type="text"
                   id="LastName"
                   label="Last Name"
+                  placeholder="Last Name"
                   name="last_name"
                 />
               </div>

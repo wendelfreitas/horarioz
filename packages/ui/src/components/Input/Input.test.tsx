@@ -29,7 +29,7 @@ describe('<Input />', () => {
   });
 
   it('should be change label color when have error', () => {
-    render(<Input label="Name" error="Name required" />);
+    render(<Input label="Name" error="Name required" name="Name" />);
     const text = screen.getByText('Name');
 
     const input = screen.getByRole('textbox', { name: 'Name' });
@@ -40,7 +40,7 @@ describe('<Input />', () => {
   });
 
   it('should be with background gray when input is disabled', () => {
-    render(<Input label="Name" error="Name required" disabled />);
+    render(<Input label="Name" error="Name required" disabled name="Name" />);
     const text = screen.getByText('Name');
 
     const input = screen.getByRole('textbox', { name: 'Name' });
@@ -51,14 +51,21 @@ describe('<Input />', () => {
   });
 
   it('should change input when have placeholder', () => {
-    render(<Input label="Name" error="Name required" placeholder="E-mail" />);
+    render(
+      <Input
+        label="Name"
+        error="Name required"
+        placeholder="E-mail"
+        name="Name"
+      />
+    );
     const text = screen.getByText('Name');
 
     const input = screen.getByRole('textbox', { name: 'Name' });
 
     fireEvent.focus(input);
 
-    expect(text).toHaveClass('top-0');
+    expect(text).toHaveClass('duration-300');
   });
 
   it('input should be focussed when user press', async () => {
@@ -73,7 +80,7 @@ describe('<Input />', () => {
 
   it('input should be not call function when not pass onFocus', async () => {
     const spyOnFocus = jest.fn();
-    render(<Input label="Name" />);
+    render(<Input label="Name" name="Name" />);
 
     const text = screen.getByRole('textbox', { name: 'Name' });
 
@@ -84,7 +91,7 @@ describe('<Input />', () => {
 
   it('input should be not focussed when user press onBlur', async () => {
     const spyOnFocus = jest.fn();
-    render(<Input label="Name" onBlur={spyOnFocus} />);
+    render(<Input label="Name" onBlur={spyOnFocus} name="Name" />);
 
     const text = screen.getByRole('textbox', { name: 'Name' });
 
@@ -95,7 +102,7 @@ describe('<Input />', () => {
 
   it('input should be not call function when not pass onBlur', async () => {
     const spyOnFocus = jest.fn();
-    render(<Input label="Name" />);
+    render(<Input label="Name" name="Name" />);
 
     const text = screen.getByRole('textbox', { name: 'Name' });
 

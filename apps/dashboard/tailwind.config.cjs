@@ -9,5 +9,5 @@ module.exports = {
     '../../packages/ui/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: tailwind.theme,
-  plugins: [],
+  plugins: tailwind.plugins,
 };

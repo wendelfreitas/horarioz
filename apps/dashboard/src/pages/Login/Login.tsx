@@ -1,4 +1,4 @@
-import { Button, Input } from '@suwilo/ui';
+import { Button, Input, Checkbox } from '@suwilo/ui';
 
 export const Login = () => {
   return (
@@ -32,7 +32,7 @@ export const Login = () => {
                   type="password"
                   id="FirstName"
                   label="First Name"
-                  placeholder="Type your first name"
+                  placeholder="First Name"
                   name="first_name"
                 />
               </div>
@@ -71,6 +71,14 @@ export const Login = () => {
 
               <div className="col-span-6">
                 <label htmlFor="MarketingAccept" className="flex gap-4">
+                  <Checkbox
+                    id="MarketingAccept"
+                    disabled
+                    name="marketing_accept"
+                    label=" I want to receive emails about events, product updates and
+                    company announcements."
+                  />
+
                   <input
                     type="checkbox"
                     id="MarketingAccept"

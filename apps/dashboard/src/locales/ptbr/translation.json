@@ -1,3 +1,19 @@
 {
-  "@HelloWorld": "Hello Suwilo"
+  "@HelloWorld": "Hello Suwilo",
+  "@SignInForm": {
+    "email": "E-mail",
+    "password": "Senha",
+    "sign-in": "Entrar",
+    "forgot-password": "Esqueceu sua senha?",
+    "email-invalid": "E-mail inválido",
+    "email-required": "O e-mail é obrigatório",
+    "password-required": "A senha é obrigatória"
+  },
+  "@Login": {
+    "sign-in-with-github": "Entrar com Github"
+  },
+  "firebase": {
+    "auth/user-not-found": "Nenhum usuário com este e-mail foi encontrado.",
+    "auth/password-wrong": "A senha está inválida ou não corresponde ao e-mail digitado."
+  }
 }

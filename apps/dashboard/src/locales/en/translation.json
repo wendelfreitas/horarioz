@@ -1,0 +1,14 @@
+{
+  "@HelloWorld": "Hello Suwilo",
+  "@SignInForm": {
+    "email-validation": "Please enter a valid e-mail address",
+    "email-required": "Please enter your e-mail address",
+    "password-required": "Please enter your password"
+  },
+  "@Login": {
+    "sign-in-with-github": "Entrar com Github"
+  },
+  "firebase": {
+    "auth/user-not-found": "The user specified by the email address does not exist."
+  }
+}

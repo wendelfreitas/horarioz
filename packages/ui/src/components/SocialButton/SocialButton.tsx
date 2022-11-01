@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { HTMLAttributes } from 'react';
 
 export type SocialButtonProps = {
   /**
@@ -9,16 +10,22 @@ export type SocialButtonProps = {
    * The type of button according to the social network.
    */
   network: 'github';
-};
+} & HTMLAttributes<HTMLAnchorElement>;
 
-export const SocialButton = ({ title, network }: SocialButtonProps) => {
+export const SocialButton = ({
+  title,
+  network,
+  ...props
+}: SocialButtonProps) => {
   const networks = {
     github: (
       <a
+        {...props}
         className={cn(
           'inline-flex',
           'items-center',
           'rounded-lg',
+          'justify-center',
           'border-2',
           'border-[#171515]',
           'bg-[#171515]',
@@ -29,10 +36,12 @@ export const SocialButton = ({ title, network }: SocialButtonProps) => {
           'text-white',
           'transition-colors',
           'hover:bg-transparent',
+          'hover:cursor-pointer',
           'hover:text-[#171515]',
           'focus:outline-none',
           'focus:ring',
-          'active:opacity-75'
+          'active:opacity-75',
+          props.className
         )}
         rel="noreferrer"
       >

@@ -1,27 +1,22 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { Login } from './Login';
+
+import { renderWrapper } from '../../utils/tests/helpers';
 
 describe('<Login />', () => {
   it('renders page successfully', () => {
-    render(<Login />);
-    const text = screen.getByText('Welcome to Suwilo 🚀');
+    renderWrapper(<Login />);
+    const text = screen.getByText('Sign in into Suwilo ☀️');
 
     expect(text).toBeInTheDocument();
   });
 
   it('should render all inputs on login page', () => {
-    render(<Login />);
+    renderWrapper(<Login />);
     const email = screen.getByText('E-mail');
-    const password = screen.getByText('Password');
+    const password = screen.getByText('Senha');
 
     expect(email).toBeInTheDocument();
     expect(password).toBeInTheDocument();
-  });
-
-  it('should render login button', () => {
-    render(<Login />);
-    const button = screen.getByText('Sign In');
-
-    expect(button).toBeInTheDocument();
   });
 });

@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from 'react';
+import { Transition } from '@headlessui/react';
 import cn from 'classnames';
 
 export type InputProps = {
@@ -133,9 +134,17 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
           {label}
         </label>
       </div>
-      {error && (
+      <Transition
+        show={Boolean(error)}
+        enter="transition-opacity duration-500"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
         <p className={cn('text-red-500', 'text-xs', 'mt-2', 'ml-2')}>{error}</p>
-      )}
+      </Transition>
       {helper && <p className={cn('text-xs', 'mt-2', 'ml-2')}>{helper}</p>}
     </div>
   );

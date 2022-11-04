@@ -58,6 +58,7 @@
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-label": "^2.0.0",
+    "react-spinners": "^0.13.6",
     "tailwindcss-radix": "^2.6.1"
   }
 }

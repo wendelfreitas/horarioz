@@ -37,7 +37,7 @@ export const Checkbox = ({
       'radix-state-checked:bg-primary-500',
       'focus:outline-none',
       'focus-visible:ring',
-      'focus-visible:ring-purple-500',
+      'focus-visible:ring-primary-500',
       'focus-visible:ring-opacity-75',
       'radix-disabled:bg-gray-50',
       'radix-disabled:cursor-not-allowed'
@@ -48,8 +48,8 @@ export const Checkbox = ({
       'ml-3',
       'select-none',
       'text-sm',
-      'font-light',
-      'cursor-pointer'
+      'cursor-pointer',
+      'text-gray-500'
     );
     return props.disabled
       ? cn(style, 'text-gray-400', 'cursor-not-allowed')

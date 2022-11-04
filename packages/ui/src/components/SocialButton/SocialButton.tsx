@@ -7,43 +7,47 @@ export type SocialButtonProps = {
    */
   title: string;
   /**
-   * The type of button according to the social network.
+   * The type of button according to the social network (github).
    */
   network: 'github';
-} & HTMLAttributes<HTMLAnchorElement>;
+
+  /**
+   * The button loading state.
+   */
+  isLoading?: boolean;
+} & HTMLAttributes<HTMLButtonElement>;
 
 export const SocialButton = ({
   title,
   network,
+  isLoading = false,
   ...props
 }: SocialButtonProps) => {
   const networks = {
     github: (
-      <a
+      <button
         {...props}
+        disabled={isLoading}
         className={cn(
           'inline-flex',
           'items-center',
           'rounded-lg',
           'justify-center',
           'border-2',
-          'border-[#171515]',
-          'bg-[#171515]',
           'px-5',
-          'py-3',
+          'min-h-[3rem]',
           'text-sm',
           'font-medium',
           'text-white',
           'transition-colors',
-          'hover:bg-transparent',
-          'hover:cursor-pointer',
-          'hover:text-[#171515]',
           'focus:outline-none',
           'focus:ring',
           'active:opacity-75',
+          isLoading
+            ? 'hover:cursor-not-allowed border-[#171515] text-[#171515]'
+            : 'hover:cursor-pointer border-[#171515] bg-[#171515] hover:bg-transparent hover:text-[#171515]',
           props.className
         )}
-        rel="noreferrer"
       >
         {title}
         <svg
@@ -58,7 +62,7 @@ export const SocialButton = ({
             clipRule="evenodd"
           ></path>
         </svg>
-      </a>
+      </button>
     ),
   };
 

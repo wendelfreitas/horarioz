@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { User } from '@firebase/auth';
-import * as firebase from '../../services/firebase';
 import { createContext, useContextSelector } from 'use-context-selector';
+import { auth } from '../../services/firebase';
+import { useAuthUser } from '@react-query-firebase/auth';
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -9,6 +10,7 @@ type AuthProviderProps = {
 
 type AuthContextProps = {
   user?: User;
+  isLoading?: boolean;
 };
 
 export const AuthContextDefaultValues = {
@@ -18,24 +20,13 @@ export const AuthContextDefaultValues = {
 const AuthContext = createContext<AuthContextProps>(AuthContextDefaultValues);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<User>();
-
-  useEffect(() => {
-    const unsubscribe = firebase.auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(undefined);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
+  const { data: user, isLoading } = useAuthUser('user', auth);
 
   return (
     <AuthContext.Provider
       value={{
         user,
+        isLoading,
       }}
     >
       {children}

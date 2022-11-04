@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { ButtonHTMLAttributes } from 'react';
+import PropagateLoader from 'react-spinners/PropagateLoader';
 
 type ButtonVariantsType = 'primary' | 'secondary';
 
@@ -44,7 +45,7 @@ export const Button = ({
   };
 
   const getClass = () => {
-    let style = `rounded-lg px-5 py-3 text-sm font-semibold ${getVariant()} ${
+    let style = `relative rounded-lg min-h-[3rem] text-sm font-semibold text-center px-5 ${getVariant()} ${
       props.className
     }`;
 
@@ -61,7 +62,16 @@ export const Button = ({
       className={getClass()}
       disabled={isLoading || props.disabled}
     >
-      {children}
+      {isLoading ? (
+        <PropagateLoader
+          size={10}
+          color="white"
+          className="pb-2"
+          data-testid="loading-indicator"
+        />
+      ) : (
+        children
+      )}
     </button>
   );
 };

@@ -7,9 +7,25 @@ export default {
   component: Button,
 } as Meta;
 
-export const Default: Story<ButtonProps> = (args) => <Button {...args} />;
+export const Default: Story<ButtonProps> = (args) => (
+  <div className="grid grid-cols-6 gap-6">
+    <Button {...args} className="w-full" />
+  </div>
+);
 
 Default.args = {
   variant: 'primary',
   children: 'Hello World',
+};
+
+export const Loading: Story<ButtonProps> = (args) => (
+  <div className="grid grid-cols-6 gap-6">
+    <Button {...args} className="w-full py-5" />
+  </div>
+);
+
+Loading.args = {
+  variant: 'primary',
+  children: 'Hello World',
+  isLoading: true,
 };

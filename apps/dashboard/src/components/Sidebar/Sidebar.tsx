@@ -1,6 +1,10 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '../../hooks/use-auth/use-auth';
+import { Avatar } from '@suwilo/ui';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../services/firebase';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -11,6 +15,7 @@ function classNames(...classes: string[]) {
 }
 
 export const Sidebar = () => {
+  const { user } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -120,16 +125,12 @@ export const Sidebar = () => {
               <div className="flex flex-shrink-0 items-center px-6">
                 <a href="#" className="group block w-full flex-shrink-0">
                   <div className="flex items-center">
-                    <div>
-                      <img
-                        className="inline-block h-12 w-12 rounded-full"
-                        src="https://avatars.githubusercontent.com/u/34070817?v=4"
-                        alt="Wendel Freitas"
-                      />
-                    </div>
+                    {user?.displayName && user.photoURL && (
+                      <Avatar name={user?.displayName} src={user?.photoURL} />
+                    )}
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                        Wendel Freitas
+                        {user?.displayName}
                       </p>
                       <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
                         Software Engineer
@@ -167,25 +168,19 @@ export const Sidebar = () => {
               </nav>
             </div>
             <div className="flex flex-shrink-0 border-t border-gray-200 p-5">
-              <a href="#" className="group block w-full flex-shrink-0">
+              <div
+                className="group block w-full flex-shrink-0 hover:cursor-pointer"
+                onClick={() => signOut(auth)}
+              >
                 <div className="flex items-center">
-                  <div>
-                    <img
-                      className="inline-block h-9 w-9 rounded-lg"
-                      src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png"
-                      alt="Slack"
-                    />
-                  </div>
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                      Slack
-                    </p>
-                    <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-                      Team Communication
+                    <p className="text-sm font-medium text-gray-700 ">Logout</p>
+                    <p className="text-xs font-medium text-gray-500 ">
+                      See you soon!
                     </p>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>

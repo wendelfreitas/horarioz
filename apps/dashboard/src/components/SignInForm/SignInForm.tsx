@@ -2,10 +2,10 @@ import { Button } from '@suwilo/ui';
 import { AuthError, EmailAuthProvider } from 'firebase/auth';
 import { useSignInWithEmail } from '../../hooks/use-sign-in-with-email/use-sign-in-with-email';
 import { Form, Formik, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { Input } from '../Input/Input';
 import { useNavigate } from 'react-router-dom';
+import * as Yup from 'yup';
 
 type SignInFormProps = { email: string; password: string };
 
@@ -68,7 +68,7 @@ export const SignInForm = () => {
           <div className="col-span-6">
             <Input
               type="email"
-              id="Email"
+              id="email"
               name="email"
               required
               label={t('@SignInForm.email')}
@@ -79,7 +79,7 @@ export const SignInForm = () => {
           <div className="col-span-6">
             <Input
               type="password"
-              id="Password"
+              id="password"
               required
               name="password"
               label={t('@SignInForm.password')}

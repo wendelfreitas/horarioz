@@ -43,4 +43,18 @@ describe('<Button />', () => {
 
     expect(button).toHaveClass('bg-transparent');
   });
+
+  it('should render a spinner when button is loading', () => {
+    const onClick = jest.fn();
+
+    render(
+      <Button variant="secondary" onClick={onClick} isLoading>
+        Hello World
+      </Button>
+    );
+
+    const loading = screen.getByTestId('loading-indicator');
+
+    expect(loading).toBeDefined();
+  });
 });

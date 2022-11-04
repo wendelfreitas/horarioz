@@ -37,7 +37,8 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
       'appearance-none',
       'focus:outline-none',
       'peer',
-      'placeholder:text-white'
+      'placeholder:text-white',
+      'focus:ring-0'
     );
 
     if (props.placeholder !== label) {
@@ -49,7 +50,12 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
     }
 
     if (error) {
-      return cn(style, 'text-red-500', 'border-red-500');
+      return cn(
+        style,
+        'text-red-500',
+        'border-red-500',
+        'focus:border-red-500'
+      );
     }
 
     return cn(style, 'text-gray-900', 'border-gray-200', 'focus:border-black');
@@ -143,9 +149,13 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <p className={cn('text-red-500', 'text-xs', 'mt-2', 'ml-2')}>{error}</p>
+        <legend className={cn('text-red-500', 'text-xs', 'mt-2', 'ml-2')}>
+          {error}
+        </legend>
       </Transition>
-      {helper && <p className={cn('text-xs', 'mt-2', 'ml-2')}>{helper}</p>}
+      {helper && (
+        <legend className={cn('text-xs', 'mt-2', 'ml-2')}>{helper}</legend>
+      )}
     </div>
   );
 };

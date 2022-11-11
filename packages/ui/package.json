@@ -54,6 +54,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
     "@radix-ui/react-avatar": "^1.0.1",
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-icons": "^1.1.1",

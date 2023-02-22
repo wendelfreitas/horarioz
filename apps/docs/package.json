@@ -8,6 +8,6 @@
     "dev": "docsify serve ./ --port 3005"
   },
   "devDependencies": {
-    "docsify": "^4.12.2"
+    "docsify": "^4.13.0"
   }
 }

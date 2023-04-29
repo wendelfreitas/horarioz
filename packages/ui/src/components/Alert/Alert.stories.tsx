@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { AlertProps, Alert } from './Alert';
 
@@ -7,7 +7,7 @@ export default {
   component: Alert,
 } as Meta;
 
-export const Default: Story<AlertProps> = (args) => <Alert {...args} />;
+export const Default: StoryFn<AlertProps> = (args) => <Alert {...args} />;
 
 Default.args = {
   title: 'Warning Alert',
@@ -20,14 +20,14 @@ Default.args = {
   ),
 };
 
-export const NoContent: Story<AlertProps> = (args) => <Alert {...args} />;
+export const NoContent: StoryFn<AlertProps> = (args) => <Alert {...args} />;
 
 NoContent.args = {
   title: 'No content here!',
   type: 'danger',
 };
 
-export const Success: Story<AlertProps> = (args) => <Alert {...args} />;
+export const Success: StoryFn<AlertProps> = (args) => <Alert {...args} />;
 
 Success.args = {
   title: 'Success Alert',
@@ -38,7 +38,7 @@ Success.args = {
   distinctio, fuga repellat.`,
 };
 
-export const Warning: Story<AlertProps> = (args) => <Alert {...args} />;
+export const Warning: StoryFn<AlertProps> = (args) => <Alert {...args} />;
 
 Warning.args = {
   title: 'Warning Alert',
@@ -49,7 +49,7 @@ Warning.args = {
   distinctio, fuga repellat.`,
 };
 
-export const Danger: Story<AlertProps> = (args) => <Alert {...args} />;
+export const Danger: StoryFn<AlertProps> = (args) => <Alert {...args} />;
 
 Danger.args = {
   title: 'Warning Alert',

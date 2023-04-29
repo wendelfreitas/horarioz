@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Sidebar } from './Sidebar';
 
@@ -7,4 +7,4 @@ export default {
   component: Sidebar,
 } as Meta;
 
-export const Default: Story = () => <Sidebar />;
+export const Default: StoryFn = () => <Sidebar />;

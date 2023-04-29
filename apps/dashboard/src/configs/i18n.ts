@@ -9,6 +9,7 @@ const resources = {
 };
 
 i18n.init({
+  returnNull: false,
   resources,
   lng: 'ptbr',
   fallbackLng: 'ptbr',

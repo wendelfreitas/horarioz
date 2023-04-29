@@ -1,17 +1,9 @@
 import { SocialButton } from '@suwilo/ui';
-import { GithubAuthProvider } from 'firebase/auth';
-import { useSignInWithGithub } from '../../hooks/use-sign-in-with-github/use-sign-in-with-github';
 import { useTranslation } from 'react-i18next';
 import { SignInForm } from '../../components/SignInForm/SignInForm';
 
 export const Login = () => {
-  const { mutate, isLoading } = useSignInWithGithub();
   const { t } = useTranslation();
-
-  const handleOnSignInWithGithub = () =>
-    mutate({
-      provider: new GithubAuthProvider(),
-    });
 
   return (
     <section className="bg-white">
@@ -43,10 +35,8 @@ export const Login = () => {
             <div className="col-span-6 mt-5">
               <SocialButton
                 network="github"
-                isLoading={isLoading}
                 title={t('@Login.sign-in-with-github')}
                 className="w-full"
-                onClick={handleOnSignInWithGithub}
               />
             </div>
           </div>

@@ -1,5 +1,4 @@
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../hooks/use-auth/use-auth';
 import HashLoader from 'react-spinners/HashLoader';
 
 type PublicRouteProps = {
@@ -7,7 +6,7 @@ type PublicRouteProps = {
 };
 
 export const PublicRoute = ({ children }: PublicRouteProps) => {
-  const { user, isLoading } = useAuth();
+  const { user, isLoading } = { user: null, isLoading: false };
 
   if (isLoading) {
     return (

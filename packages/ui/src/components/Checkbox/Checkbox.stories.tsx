@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { CheckboxProps, Checkbox } from './Checkbox';
 
@@ -7,14 +7,16 @@ export default {
   component: Checkbox,
 } as Meta;
 
-export const Default: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
+export const Default: StoryFn<CheckboxProps> = (args) => <Checkbox {...args} />;
 
 Default.args = {
   name: 'terms',
   label: 'Accept terms',
 };
 
-export const Disabled: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
+export const Disabled: StoryFn<CheckboxProps> = (args) => (
+  <Checkbox {...args} />
+);
 
 Disabled.args = {
   name: 'terms',

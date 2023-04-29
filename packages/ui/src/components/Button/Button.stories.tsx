@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Button, ButtonProps } from './Button';
 
@@ -7,7 +7,7 @@ export default {
   component: Button,
 } as Meta;
 
-export const Default: Story<ButtonProps> = (args) => (
+export const Default: StoryFn<ButtonProps> = (args) => (
   <div className="grid grid-cols-6 gap-6">
     <Button {...args} className="w-full" />
   </div>
@@ -18,7 +18,7 @@ Default.args = {
   children: 'Hello World',
 };
 
-export const Loading: Story<ButtonProps> = (args) => (
+export const Loading: StoryFn<ButtonProps> = (args) => (
   <div className="grid grid-cols-6 gap-6">
     <Button {...args} className="w-full py-5" />
   </div>

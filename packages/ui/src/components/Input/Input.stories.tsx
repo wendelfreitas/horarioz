@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { InputProps, Input } from './Input';
 
@@ -24,7 +24,7 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<InputProps> = (args) => (
+export const Default: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input {...args} />
   </div>
@@ -36,7 +36,7 @@ Default.args = {
   required: true,
 };
 
-export const Disabled: Story<InputProps> = (args) => (
+export const Disabled: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input {...args} />
   </div>
@@ -49,7 +49,7 @@ Disabled.args = {
   disabled: true,
 };
 
-export const WithError: Story<InputProps> = (args) => (
+export const WithError: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input {...args} />
   </div>
@@ -61,7 +61,7 @@ WithError.args = {
   error: 'Error text',
 };
 
-export const WithHelper: Story<InputProps> = (args) => (
+export const WithHelper: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input {...args} />
   </div>
@@ -74,7 +74,7 @@ WithHelper.args = {
   name: 'fullname',
 };
 
-export const WithoutPlaceholder: Story<InputProps> = (args) => (
+export const WithoutPlaceholder: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input
       {...args}
@@ -92,7 +92,7 @@ export const WithoutPlaceholder: Story<InputProps> = (args) => (
   </div>
 );
 
-export const MultipleFields: Story<InputProps> = (args) => (
+export const MultipleFields: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input {...args} />
     <br />

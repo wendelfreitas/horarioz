@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Login } from './Login';
 
@@ -7,4 +7,4 @@ export default {
   component: Login,
 } as Meta;
 
-export const Default: Story = () => <Login />;
+export const Default: StoryFn = () => <Login />;

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { SocialButtonProps, SocialButton } from './SocialButton';
 
@@ -7,7 +7,7 @@ export default {
   component: SocialButton,
 } as Meta;
 
-export const Github: Story<SocialButtonProps> = () => (
+export const Github: StoryFn<SocialButtonProps> = () => (
   <div className="w-full">
     <SocialButton network="github" title="Conecte-se com github" />
   </div>

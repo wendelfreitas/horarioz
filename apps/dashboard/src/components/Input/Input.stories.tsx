@@ -1,7 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { InputProps, Input } from '@suwilo/ui';
-import { Form, Formik } from 'formik';
 
 export default {
   title: 'Forms/Input',
@@ -25,18 +24,9 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<InputProps> = (args) => (
+export const Default: StoryFn<InputProps> = (args: InputProps) => (
   <div style={{ marginTop: 20 }}>
-    <Formik
-      initialValues={{
-        name: '',
-      }}
-      onSubmit={() => console.log('submited')}
-    >
-      <Form>
-        <Input {...args} />
-      </Form>
-    </Formik>
+    <Input {...args} />
   </div>
 );
 
@@ -46,18 +36,9 @@ Default.args = {
   required: true,
 };
 
-export const Disabled: Story<InputProps> = (args) => (
+export const Disabled: StoryFn<InputProps> = (args: InputProps) => (
   <div style={{ marginTop: 20 }}>
-    <Formik
-      initialValues={{
-        name: '',
-      }}
-      onSubmit={() => console.log('submited')}
-    >
-      <Form>
-        <Input {...args} />
-      </Form>
-    </Formik>
+    <Input {...args} />
   </div>
 );
 

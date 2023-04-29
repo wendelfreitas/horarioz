@@ -3,6 +3,8 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "./src/locales", "./src/configs/i18n.ts"],
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "resolveJsonModule": true
   }
 }

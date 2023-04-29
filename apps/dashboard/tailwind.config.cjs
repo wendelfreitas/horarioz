@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const tailwind = require('@suwilo/ui/tailwind.config');
+const tailwind = require('@soloquiz/ui/tailwind.config');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

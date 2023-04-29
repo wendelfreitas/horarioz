@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@suwilo/eslint-config'],
+  extends: ['@soloquiz/eslint-config'],
 };

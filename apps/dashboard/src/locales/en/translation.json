@@ -1,5 +1,5 @@
 {
-  "@HelloWorld": "Hello Suwilo",
+  "@HelloWorld": "Hello Soloquiz",
   "@SignInForm": {
     "email-validation": "Please enter a valid e-mail address",
     "email-required": "Please enter your e-mail address",

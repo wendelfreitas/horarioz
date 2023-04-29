@@ -13,7 +13,7 @@ describe('<Routes />', () => {
         </I18nextProvider>
       </QueryClientProvider>
     );
-    const text = screen.getByText('Sign in into Suwilo ☀️');
+    const text = screen.getByText('Sign in into Soloquiz ☀️');
 
     expect(text).toBeInTheDocument();
   });

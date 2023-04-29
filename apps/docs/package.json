@@ -1,5 +1,5 @@
 {
-  "name": "@suwilo/docs",
+  "name": "@soloquiz/docs",
   "version": "0.0.0",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",

@@ -1,5 +1,5 @@
 {
-  "name": "@suwilo/eslint-config",
+  "name": "@soloquiz/eslint-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

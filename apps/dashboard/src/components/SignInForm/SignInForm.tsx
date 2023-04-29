@@ -1,4 +1,4 @@
-import { Button } from '@suwilo/ui';
+import { Button } from '@soloquiz/ui';
 import { useTranslation } from 'react-i18next';
 import { Input } from '../Input/Input';
 import * as Yup from 'yup';

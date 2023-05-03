@@ -30,6 +30,9 @@ jobs:
         run: |
           yarn install
           yarn lint
+      - name: Run typecheck
+        run: |
+          yarn typecheck
       - name: Run tests
         run: |
           yarn test

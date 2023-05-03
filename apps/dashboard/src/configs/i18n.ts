@@ -1,4 +1,4 @@
-import { i18n } from '@soloquiz/i18n';
+import { i18n } from '@horarioz/i18n';
 
 import ptbr from '../locales/ptbr/translation.json';
 

@@ -1,5 +1,5 @@
 {
-  "name": "@soloquiz/i18n",
+  "name": "@horarioz/i18n",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "license": "MIT",

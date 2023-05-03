@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@soloquiz/eslint-config', 'plugin:storybook/recommended'],
+  extends: ['@horarioz/eslint-config', 'plugin:storybook/recommended'],
 };

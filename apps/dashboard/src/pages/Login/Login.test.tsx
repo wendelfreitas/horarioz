@@ -6,7 +6,7 @@ import { renderWrapper } from '../../utils/tests/helpers';
 describe('<Login />', () => {
   it('renders page successfully', () => {
     renderWrapper(<Login />);
-    const text = screen.getByText('Sign in into Soloquiz ☀️');
+    const text = screen.getByText('Sign in into Horarioz ☀️');
 
     expect(text).toBeInTheDocument();
   });

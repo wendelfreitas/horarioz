@@ -1,5 +1,5 @@
 {
-  "name": "@soloquiz/dashboard",
+  "name": "@horarioz/dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,7 +19,7 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
     "@react-query-firebase/auth": "^1.0.0-dev.2",
-    "@soloquiz/ui": "*",
+    "@horarioz/ui": "*",
     "@supabase/supabase-js": "^2.21.0",
     "formik": "^2.2.9",
     "react": "^18.2.0",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.5",
-    "@soloquiz/eslint-config": "*",
+    "@horarioz/eslint-config": "*",
     "@storybook/addon-a11y": "^7.0.7",
     "@storybook/addon-actions": "^7.0.7",
     "@storybook/addon-docs": "^7.0.7",

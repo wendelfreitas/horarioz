@@ -1,5 +1,5 @@
 {
-  "extends": "@soloquiz/tsconfig/base.json",
+  "extends": "@horarioz/tsconfig/base.json",
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "./src/locales", "./src/configs/i18n.ts"],
   "compilerOptions": {

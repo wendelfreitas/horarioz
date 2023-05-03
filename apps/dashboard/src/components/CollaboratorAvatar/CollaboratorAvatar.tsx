@@ -1,4 +1,4 @@
-import { Avatar } from '@soloquiz/ui';
+import { Avatar } from '@horarioz/ui';
 
 export type CollaboratorAvatarProps = {
   /**

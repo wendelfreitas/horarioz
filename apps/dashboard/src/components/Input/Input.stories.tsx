@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from '@storybook/react';
 
-import { InputProps, Input } from '@soloquiz/ui';
+import { InputProps, Input } from '@horarioz/ui';
 
 export default {
   title: 'Forms/Input',

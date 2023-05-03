@@ -1,4 +1,4 @@
-import { Button } from '@soloquiz/ui';
+import { Button } from '@horarioz/ui';
 import { useTranslation } from 'react-i18next';
 import { Input } from '../Input/Input';
 

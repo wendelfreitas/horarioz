@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@soloquiz/eslint-config'],
+  extends: ['@horarioz/eslint-config'],
 };

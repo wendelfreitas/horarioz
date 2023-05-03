@@ -1,5 +1,5 @@
 {
-  "name": "@soloquiz/ui",
+  "name": "@horarioz/ui",
   "version": "0.0.0",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",
@@ -26,8 +26,8 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.0.7",
     "@storybook/testing-library": "^0.1.0",
-    "@soloquiz/eslint-config": "*",
-    "@soloquiz/tsconfig": "*",
+    "@horarioz/eslint-config": "*",
+    "@horarioz/tsconfig": "*",
     "@tailwindcss/forms": "^0.5.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",

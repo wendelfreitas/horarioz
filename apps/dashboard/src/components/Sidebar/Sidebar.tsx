@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Avatar } from '@soloquiz/ui';
+import { Avatar } from '@horarioz/ui';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },

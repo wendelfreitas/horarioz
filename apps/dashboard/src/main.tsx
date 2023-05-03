@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@soloquiz/ui';
+import { ThemeProvider } from '@horarioz/ui';
 import { I18nextProvider } from 'react-i18next';
 import React from 'react';
 import ReactDOM from 'react-dom/client';

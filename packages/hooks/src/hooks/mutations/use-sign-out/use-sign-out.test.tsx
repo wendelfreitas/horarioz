@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useSignOut } from './use-sign-out';
 import { supabase } from '@horarioz/supabase';
-import { AuthError, User, Session } from '@supabase/supabase-js';
 
 const queryClient = new QueryClient({
   defaultOptions: {

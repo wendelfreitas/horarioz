@@ -1,0 +1,12 @@
+{
+  "name": "@horarioz/supabase",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "files": [
+    "./src/index.ts"
+  ],
+  "scripts": {
+    "lint": "eslint src --max-warnings=0"
+  }
+}

@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWrapper } from '../../utils/tests/helpers';
 import { Sidebar } from './Sidebar';
 
 describe('<Sidebar />', () => {
   it('renders component successfully', () => {
-    render(<Sidebar />);
+    renderWrapper(<Sidebar />);
     const text = screen.getByText('Logout');
 
     expect(text).toBeInTheDocument();

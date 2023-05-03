@@ -18,18 +18,15 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
-    "@react-query-firebase/auth": "^1.0.0-dev.2",
+    "@horarioz/hooks": "*",
     "@horarioz/ui": "*",
     "@supabase/supabase-js": "^2.21.0",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.2",
-    "react-query": "^3.39.3",
     "react-router-dom": "^6.11.0",
     "react-spinners": "^0.13.8",
-    "scheduler": "^0.23.0",
-    "use-context-selector": "^1.4.1",
     "yup": "^1.1.1"
   },
   "devDependencies": {

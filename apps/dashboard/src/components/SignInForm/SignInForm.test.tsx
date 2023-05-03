@@ -2,7 +2,9 @@ import { screen, waitFor, act } from '@testing-library/react';
 import fireEvent from '@testing-library/user-event';
 import { SignInForm } from './SignInForm';
 import { renderWrapper } from '../../utils/tests/helpers';
-import nock from 'nock';
+import { supabase } from '@horarioz/supabase';
+import { AuthError, Session, User } from '@supabase/supabase-js';
+import { useAuthStore } from '@horarioz/hooks';
 
 describe('<SignInForm />', () => {
   beforeEach(() => {
@@ -42,29 +44,11 @@ describe('<SignInForm />', () => {
     });
   });
 
-  it.skip('should click on submit and dispatch login mutate and return some error on screen', async () => {
-    nock('https://identitytoolkit.googleapis.com/v1')
-      .post(
-        '/accounts:signInWithPassword?key=AIzaSyBJ-Dgk5ekBcSjiV7CKhQZGDHu0VoicyEw',
-        {
-          email: 'invalid@email.com',
-          password: 'invalid@email',
-          returnSecureToken: true,
-        }
-      )
-      .reply(400, {
-        error: {
-          code: 400,
-          message: 'EMAIL_NOT_FOUND',
-          errors: [
-            {
-              message: 'EMAIL_NOT_FOUND',
-              domain: 'global',
-              reason: 'invalid',
-            },
-          ],
-        },
-      });
+  it('should click on submit and dispatch login mutate and return some error on screen', async () => {
+    jest.spyOn(supabase.auth, 'signInWithPassword').mockResolvedValueOnce({
+      data: { user: null, session: null },
+      error: new AuthError('Invalid login credentials', 400),
+    });
 
     renderWrapper(<SignInForm />);
 
@@ -80,12 +64,26 @@ describe('<SignInForm />', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText('Nenhum usuário com este e-mail foi encontrado.')
+        screen.getByText(
+          'Esse e-mail não está cadastrado ou a senha está incorreta.'
+        )
       ).toBeInTheDocument();
     });
   });
 
-  it.skip('should click on submit and dispatch login mutate and redirect to /', async () => {
+  it('should click on submit and dispatch login mutate and redirect to /', async () => {
+    jest.spyOn(supabase.auth, 'signInWithPassword').mockResolvedValueOnce({
+      data: {
+        user: {
+          email: 'wendel@horarioz.com',
+        } as User,
+        session: {
+          access_token: 'BLAZIKEN IS THE BEST POKEMON',
+        } as Session,
+      },
+      error: null,
+    });
+
     renderWrapper(<SignInForm />);
 
     const button = screen.getByText('Entrar');
@@ -93,13 +91,19 @@ describe('<SignInForm />', () => {
     const password = screen.getByText('Senha');
 
     await act(async () => {
-      await fireEvent.type(email, 'test@gmail.com');
+      await fireEvent.type(email, 'wendel@horarioz.com');
       await fireEvent.type(password, 'test-password');
       await fireEvent.click(button);
     });
 
+    useAuthStore.setState({
+      user: {
+        email: 'wendel@horarioz.com',
+      } as User,
+    });
+
     await waitFor(() => {
-      expect(screen.getByText('Logado')).toBeInTheDocument();
+      expect(useAuthStore.getState().user?.email).toBe('wendel@horarioz.com');
     });
   });
 });

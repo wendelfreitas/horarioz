@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Avatar } from '@horarioz/ui';
+import { useAuthStore, useSignOut } from '@horarioz/hooks';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -12,6 +13,8 @@ function classNames(...classes: string[]) {
 }
 
 export const Sidebar = () => {
+  const { user } = useAuthStore();
+  const { mutate: signOut } = useSignOut();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -129,7 +132,7 @@ export const Sidebar = () => {
                         Wendel Freitas
                       </p>
                       <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-                        Software Engineer
+                        {user?.email}
                       </p>
                     </div>
                   </div>
@@ -166,9 +169,14 @@ export const Sidebar = () => {
             <div className="flex flex-shrink-0 border-t border-gray-200 p-5">
               <div className="group block w-full flex-shrink-0 hover:cursor-pointer">
                 <div className="flex items-center">
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-700 ">Logout</p>
-                    <p className="text-xs font-medium text-gray-500 ">
+                  <div
+                    className="ml-3"
+                    onClick={() => {
+                      signOut();
+                    }}
+                  >
+                    <p className="text-sm font-medium text-gray-700">Logout</p>
+                    <p className="text-xs font-medium text-gray-500">
                       See you soon!
                     </p>
                   </div>

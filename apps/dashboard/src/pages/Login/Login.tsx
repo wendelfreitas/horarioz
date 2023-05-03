@@ -26,8 +26,7 @@ export const Login = () => {
             </h1>
 
             <p className="mt-4 text-sm text-gray-500">
-              Improve your skills, increase your knowledge, achieve your goals.
-              Look for mentors who are willing to make you better every day.
+              This could be the start of something really big.
             </p>
 
             <SignInForm />

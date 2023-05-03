@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '../Input/Input';
 
 import * as Yup from 'yup';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
+import { useSignIn } from '@horarioz/hooks';
 
 type Inputs = {
   email: string;
@@ -12,12 +13,13 @@ type Inputs = {
 
 export const SignInForm = () => {
   const { t } = useTranslation();
+  const { mutate: login, isLoading } = useSignIn();
 
   const schema = Yup.object().shape({
     email: Yup.string()
       .email(t('@SignInForm.email-invalid'))
       .trim()
-      .required(t('@SignInForm.email-required')),
+      .required(t('teste')),
     password: Yup.string().required(t('@SignInForm.password-required')).trim(),
   });
 
@@ -26,7 +28,20 @@ export const SignInForm = () => {
     password: '',
   };
 
-  const onSubmit = (values: Inputs) => console.log(values);
+  const onSubmit = (
+    { email, password }: Inputs,
+    actions: FormikHelpers<Inputs>
+  ) =>
+    login(
+      { email, password },
+      {
+        onSuccess: ({ data, error }) => {
+          if (error) {
+            return actions.setErrors({ email: t(error.message) });
+          }
+        },
+      }
+    );
 
   return (
     <Formik
@@ -64,7 +79,11 @@ export const SignInForm = () => {
             </a>
           </div>
           <div className="col-span-6">
-            <Button className="w-full" type="submit" disabled={!isValid}>
+            <Button
+              className="w-full"
+              type="submit"
+              disabled={!isValid || isLoading}
+            >
               {t('@SignInForm.sign-in')}
             </Button>
           </div>

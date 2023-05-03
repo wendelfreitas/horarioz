@@ -1,6 +1,6 @@
 import { render, RenderResult } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MemoryRouter as Router } from 'react-router-dom';
 import i18n from '../../configs/i18n';
 

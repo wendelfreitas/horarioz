@@ -1,0 +1,20 @@
+{
+  "name": "@horarioz/hooks",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "files": [
+    "./src/index.ts"
+  ],
+  "scripts": {
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "jest --detectOpenHandles",
+    "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "@horarioz/supabase": "*",
+    "@tanstack/react-query": "^4.29.5"
+  }
+}

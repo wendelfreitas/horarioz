@@ -1,5 +1,5 @@
 # Name of our action
-name: Run lint, typecheck and tests
+name: Run lint and tests
 
 # The event that will trigger the action
 on: pull_request

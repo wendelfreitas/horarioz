@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWrapper } from '../../utils/tests/helpers';
 import { AuthMiddleware } from './AuthMiddleware';
 
 describe('<AuthMiddleware />', () => {
   it('renders component successfully', () => {
-    render(
+    renderWrapper(
       <AuthMiddleware>
         <p>Hello Horarioz</p>
       </AuthMiddleware>

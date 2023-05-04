@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "dotenv -- turbo run dev --parallel",
     "storybook": "turbo run storybook --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
@@ -53,6 +53,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.21.0",
     "@tanstack/react-query": "^4.29.5",
+    "dotenv-cli": "^7.2.1",
     "zustand": "^4.3.7"
   }
 }

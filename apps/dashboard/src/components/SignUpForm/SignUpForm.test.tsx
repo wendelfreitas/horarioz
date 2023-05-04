@@ -1,8 +1,7 @@
 import { screen, waitFor, act } from '@testing-library/react';
 import fireEvent from '@testing-library/user-event';
 import { SignUpForm } from './SignUpForm';
-import { renderWrapper } from '../../utils/tests/helpers';
-import { supabase } from '@horarioz/supabase';
+import { renderWrapper, supabase } from '../../utils/tests/helpers';
 import { AuthError, Session, User } from '@supabase/supabase-js';
 import { useAuthStore } from '@horarioz/hooks';
 

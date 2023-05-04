@@ -1,5 +1,5 @@
 import { useAuthStore } from '@horarioz/hooks';
-import { supabase } from '@horarioz/supabase';
+import { useSupabase } from '@horarioz/hooks';
 import { Fragment, useEffect } from 'react';
 
 export type AuthMiddlewareProps = {
@@ -13,6 +13,7 @@ enum AuthEvents {
 
 export const AuthMiddleware = ({ children }: AuthMiddlewareProps) => {
   const { setUser } = useAuthStore();
+  const supabase = useSupabase();
 
   useEffect(() => {
     const {
@@ -28,7 +29,7 @@ export const AuthMiddleware = ({ children }: AuthMiddlewareProps) => {
     });
 
     return () => subscription.unsubscribe();
-  }, [setUser]);
+  }, [setUser, supabase]);
 
   return <Fragment>{children}</Fragment>;
 };

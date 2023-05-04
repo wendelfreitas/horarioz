@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { AuthMiddlewareProps, AuthMiddleware } from './AuthMiddleware';
 
@@ -7,4 +7,6 @@ export default {
   component: AuthMiddleware,
 } as Meta;
 
-export const Default: Story<AuthMiddlewareProps> = () => <AuthMiddleware />;
+export const Default: StoryFn<AuthMiddlewareProps> = () => (
+  <AuthMiddleware>Hello Horarioz</AuthMiddleware>
+);

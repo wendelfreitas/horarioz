@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import {
   CollaboratorAvatar,
@@ -10,7 +10,7 @@ export default {
   component: CollaboratorAvatar,
 } as Meta;
 
-export const Default: Story<CollaboratorAvatarProps> = (args) => (
+export const Default: StoryFn<CollaboratorAvatarProps> = (args) => (
   <CollaboratorAvatar {...args} />
 );
 
@@ -19,7 +19,7 @@ Default.args = {
   src: 'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80',
 };
 
-export const NoImage: Story<CollaboratorAvatarProps> = (args) => (
+export const NoImage: StoryFn<CollaboratorAvatarProps> = (args) => (
   <CollaboratorAvatar {...args} />
 );
 

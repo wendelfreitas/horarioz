@@ -1,10 +1,10 @@
-import React from 'react';
 import { renderHook, waitFor, act } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useSignUp } from './use-sign-up';
-import { supabase } from '@horarioz/supabase';
+import { supabase as createClient } from '@horarioz/supabase';
 import { AuthError, User, Session } from '@supabase/supabase-js';
+import { SupabaseProvider } from '../../services/use-supabase/use-supabase';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,8 +14,12 @@ const queryClient = new QueryClient({
   },
 });
 
+const supabase = createClient('https://example.com', 'some.api.key');
+
 const wrapper = ({ children }: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  <SupabaseProvider value={supabase}>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  </SupabaseProvider>
 );
 
 describe('useSignUp', () => {

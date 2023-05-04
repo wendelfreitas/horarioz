@@ -1,6 +1,6 @@
 import { useMutation, MutateOptions } from '@tanstack/react-query';
 import { AuthResponse } from '@supabase/gotrue-js';
-import useSupabase from '../../use-supabase';
+import { useSupabase } from '../../services/use-supabase/use-supabase';
 
 type SignInInput = {
   email: string;

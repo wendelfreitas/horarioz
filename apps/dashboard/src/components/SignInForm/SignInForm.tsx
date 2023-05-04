@@ -19,7 +19,7 @@ export const SignInForm = () => {
     email: Yup.string()
       .email(t('@SignInForm.email-invalid'))
       .trim()
-      .required(t('teste')),
+      .required(t('@SignInForm.email-required')),
     password: Yup.string().required(t('@SignInForm.password-required')).trim(),
   });
 

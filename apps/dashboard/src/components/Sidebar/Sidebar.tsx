@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Avatar } from '@horarioz/ui';
 import { useAuthStore, useSignOut } from '@horarioz/hooks';
 
 const navigation = [

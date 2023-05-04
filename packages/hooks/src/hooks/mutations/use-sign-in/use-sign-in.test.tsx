@@ -41,13 +41,11 @@ describe('useSignIn', () => {
     });
 
     await waitFor(() => {
-      return result.current.isSuccess;
+      return result.current.isError;
     });
 
-    expect(result.current.isSuccess).toBe(true);
-    expect(result.current.data?.error?.message).toBe(
-      'Invalid login credentials'
-    );
+    expect(result.current.isError).toBe(true);
+    expect(result.current.error?.message).toBe('Invalid login credentials');
   });
 
   it('should load a request', async () => {

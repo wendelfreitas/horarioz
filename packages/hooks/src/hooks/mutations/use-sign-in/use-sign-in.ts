@@ -1,6 +1,6 @@
 import { useMutation, MutateOptions } from '@tanstack/react-query';
-import { supabase } from '@horarioz/supabase';
 import { AuthResponse } from '@supabase/gotrue-js';
+import useSupabase from '../../use-supabase';
 
 type SignInInput = {
   email: string;
@@ -10,10 +10,25 @@ type SignInInput = {
 export const useSignIn = (
   options?: MutateOptions<AuthResponse, Error, SignInInput>
 ) => {
+  const supabase = useSupabase();
+
   return useMutation(
     ['sign-in'],
-    ({ email, password }: SignInInput) =>
-      supabase.auth.signInWithPassword({ email, password }),
+    async ({ email, password }: SignInInput) => {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      return {
+        data,
+        error,
+      };
+    },
     options
   );
 };

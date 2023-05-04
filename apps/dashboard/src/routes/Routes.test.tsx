@@ -7,12 +7,6 @@ import { PrivateRoute } from './PrivateRoute';
 import { User } from '@supabase/supabase-js';
 import i18n from '../configs/i18n';
 import { PublicRoute } from './PublicRoute';
-import {
-  BrowserRouter,
-  MemoryRouter,
-  Route,
-  Routes as Router,
-} from 'react-router-dom';
 
 describe('<Routes />', () => {
   beforeEach(() => {

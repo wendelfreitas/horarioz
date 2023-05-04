@@ -35,7 +35,7 @@ export const SignInForm = () => {
     login(
       { email, password },
       {
-        onSuccess: ({ data, error }) => {
+        onSuccess: ({ error }) => {
           if (error) {
             return actions.setErrors({ email: t(error.message) });
           }

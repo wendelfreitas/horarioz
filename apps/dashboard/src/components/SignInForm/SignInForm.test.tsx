@@ -10,6 +10,7 @@ describe('<SignInForm />', () => {
   beforeEach(() => {
     jest.spyOn(console, 'error').mockImplementation(() => null);
   });
+
   it('should render all inputs on login page', () => {
     renderWrapper(<SignInForm />);
     const email = screen.getByText('E-mail');

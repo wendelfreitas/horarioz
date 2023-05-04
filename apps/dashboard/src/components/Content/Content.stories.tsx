@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { ContentProps, Content } from './Content';
 
@@ -7,6 +7,6 @@ export default {
   component: Content,
 } as Meta;
 
-export const Default: Story<ContentProps> = () => (
+export const Default: StoryFn<ContentProps> = () => (
   <Content>Hello World</Content>
 );

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Layout } from './Layout';
 
@@ -7,7 +7,7 @@ export default {
   component: Layout,
 } as Meta;
 
-export const Default: Story = () => (
+export const Default: StoryFn = () => (
   <div className="h-screen">
     <Layout />
   </div>

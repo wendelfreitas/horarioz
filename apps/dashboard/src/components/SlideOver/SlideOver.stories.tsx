@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { SlideOverProps, SlideOver } from './SlideOver';
 
@@ -7,7 +7,7 @@ export default {
   component: SlideOver,
 } as Meta;
 
-export const Default: Story<SlideOverProps> = () => (
+export const Default: StoryFn<SlideOverProps> = () => (
   <SlideOver>
     <p>Hello World</p>
   </SlideOver>

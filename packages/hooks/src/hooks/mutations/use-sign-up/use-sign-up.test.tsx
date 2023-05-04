@@ -2,7 +2,7 @@ import React from 'react';
 import { renderHook, waitFor, act } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useSignIn } from './use-sign-in';
+import { useSignUp } from './use-sign-up';
 import { supabase } from '@horarioz/supabase';
 import { AuthError, User, Session } from '@supabase/supabase-js';
 
@@ -18,18 +18,18 @@ const wrapper = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
-describe('useSignIn', () => {
+describe('useSignUp', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should return invalid credentials with non-existent user', async () => {
-    jest.spyOn(supabase.auth, 'signInWithPassword').mockResolvedValueOnce({
+  it('should create new user', async () => {
+    jest.spyOn(supabase.auth, 'signUp').mockResolvedValueOnce({
       data: { user: null, session: null },
       error: new AuthError('Invalid login credentials', 400),
     });
 
-    const { result } = renderHook(() => useSignIn(), {
+    const { result } = renderHook(() => useSignUp(), {
       wrapper: wrapper,
     });
 
@@ -37,6 +37,7 @@ describe('useSignIn', () => {
       result.current.mutate({
         email: 'invalid-user@horarioz.com',
         password: '1234356',
+        name: 'Invalid User',
       });
     });
 
@@ -49,7 +50,7 @@ describe('useSignIn', () => {
   });
 
   it('should load a request', async () => {
-    const { result } = renderHook(() => useSignIn(), {
+    const { result } = renderHook(() => useSignUp(), {
       wrapper: wrapper,
     });
 
@@ -57,6 +58,7 @@ describe('useSignIn', () => {
       result.current.mutate({
         email: 'invalid-user@horarioz.com',
         password: '1234356',
+        name: 'Invalid User',
       });
     });
 
@@ -68,7 +70,7 @@ describe('useSignIn', () => {
   });
 
   it('should sign in the user', async () => {
-    jest.spyOn(supabase.auth, 'signInWithPassword').mockResolvedValueOnce({
+    jest.spyOn(supabase.auth, 'signUp').mockResolvedValueOnce({
       data: {
         user: {
           email: 'wendel@horarioz.com',
@@ -80,13 +82,14 @@ describe('useSignIn', () => {
       error: null,
     });
 
-    const { result } = renderHook(() => useSignIn(), {
+    const { result } = renderHook(() => useSignUp(), {
       wrapper: wrapper,
     });
 
     const input = {
       email: 'wendel@horarioz.com',
       password: '1',
+      name: 'Wendel Freitas',
     };
 
     act(() => {

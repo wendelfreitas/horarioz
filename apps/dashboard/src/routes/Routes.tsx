@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout/Layout';
 import { Login } from '../pages/Login/Login';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { SignUp } from '../pages/SignUp/SignUp';
 
 export const Routes = () => {
   return (
@@ -13,6 +14,14 @@ export const Routes = () => {
           element={
             <PublicRoute>
               <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/sign-up"
+          element={
+            <PublicRoute>
+              <SignUp />
             </PublicRoute>
           }
         />

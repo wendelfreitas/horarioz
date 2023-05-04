@@ -123,12 +123,9 @@ export const Sidebar = () => {
               <div className="flex flex-shrink-0 items-center px-6">
                 <a href="#" className="group block w-full flex-shrink-0">
                   <div className="flex items-center">
-                    {/* {user?.displayName && user.photoURL && (
-                      <Avatar name={user?.displayName} src={user?.photoURL} />
-                    )} */}
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                        Wendel Freitas
+                        {user?.user_metadata.name}
                       </p>
                       <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
                         {user?.email}

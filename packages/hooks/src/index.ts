@@ -1,5 +1,6 @@
 // Mutations
 export * from './hooks/mutations/use-sign-in/use-sign-in';
+export * from './hooks/mutations/use-sign-up/use-sign-up';
 export * from './hooks/mutations/use-sign-out/use-sign-out';
 
 // Stores

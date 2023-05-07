@@ -24,7 +24,7 @@ describe('<Routes />', () => {
         </QueryClientProvider>
       </SupabaseProvider>
     );
-    const text = screen.getByText('Faça login com sua conta');
+    const text = screen.getByText('Sign in to your account');
 
     expect(text).toBeInTheDocument();
   });

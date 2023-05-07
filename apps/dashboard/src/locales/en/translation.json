@@ -1,8 +1,44 @@
 {
   "@HelloWorld": "Hello Horarioz",
   "@SignInForm": {
-    "email-validation": "Please enter a valid e-mail address",
-    "email-required": "Please enter your e-mail address",
-    "password-required": "Please enter your password"
+    "email": "Email",
+    "password": "Password",
+    "sign-in": "Sign In",
+    "forgot-password": "Forgot Password?",
+    "email-invalid": "Invalid email",
+    "email-required": "Email is required",
+    "password-required": "Password is required",
+    "or-continue-with": "Or Continue With"
+  },
+  "@SignIn": {
+    "sign-in-your-account": "Sign in to your account",
+    "not-registered": "Not registered? ",
+    "register-now": "Register now"
+  },
+  "@SignUp": {
+    "email": "Email",
+    "password": "Password",
+    "sign-in": "Sign In",
+    "forgot-password": "Forgot Password?",
+    "email-invalid": "Invalid email",
+    "email-required": "Email is required",
+    "password-required": "Password is required",
+    "register-your-account": "Register your account",
+    "already-registered": "Already registered? ",
+    "sign-in-now": "Sign In Now"
+  },
+  "@SignUpForm": {
+    "name": "Full Name",
+    "name-required": "Name is required",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "passwords-not-match": "Passwords do not match",
+    "sign-in": "Sign In",
+    "sign-up": "Sign Up",
+    "forgot-password": "Forgot Password?",
+    "email-invalid": "Invalid email",
+    "email-required": "Email is required",
+    "password-required": "Password is required"
   }
 }

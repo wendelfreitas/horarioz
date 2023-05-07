@@ -14,6 +14,7 @@ const resources = {
   en: {
     translation: {
       ...en,
+      ...locales.en,
     },
   },
 };
@@ -21,6 +22,7 @@ const resources = {
 i18n.init({
   returnNull: false,
   resources,
+  lng: 'en',
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,

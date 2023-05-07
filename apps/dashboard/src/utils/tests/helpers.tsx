@@ -10,8 +10,10 @@ const queryClient = new QueryClient();
 
 export const supabase = createClient('https://example.com', 'some.api.key');
 
-export const renderWrapper = (children: React.ReactNode): RenderResult =>
-  render(
+i18n.changeLanguage('en');
+
+export const renderWrapper = (children: React.ReactNode): RenderResult => {
+  return render(
     <Router>
       <SupabaseProvider value={supabase}>
         <QueryClientProvider client={queryClient}>
@@ -20,3 +22,4 @@ export const renderWrapper = (children: React.ReactNode): RenderResult =>
       </SupabaseProvider>
     </Router>
   );
+};

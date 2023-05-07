@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { SignInForm } from '../../components/SignInForm/SignInForm';
-import i18n from '../../configs/i18n';
 
 export const SignIn = () => {
   const { t } = useTranslation();
@@ -12,7 +11,6 @@ export const SignIn = () => {
       <div className="flex min-h-full flex-1 flex-col justify-center py-5 md:py-16 sm:px-6 lg:px-8 bg-white sm:bg-gray-100">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
-            onClick={() => i18n.changeLanguage('en')}
             className="mx-auto h-10 w-auto"
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
             alt="Horarioz"

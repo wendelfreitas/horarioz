@@ -12,14 +12,14 @@ describe('<SignUpForm />', () => {
 
   it('should render all inputs on login page', () => {
     renderWrapper(<SignUpForm />);
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
     expect(email).toBeInTheDocument();
     expect(password).toBeInTheDocument();
   });
   it('should render login button', () => {
     renderWrapper(<SignUpForm />);
-    const button = screen.getByText('Criar minha conta');
+    const button = screen.getByText('Sign Up');
 
     expect(button).toBeInTheDocument();
   });
@@ -27,11 +27,11 @@ describe('<SignUpForm />', () => {
   it('should render input errors when click login button after fill invalid e-mail', async () => {
     renderWrapper(<SignUpForm />);
 
-    const button = screen.getByText('Criar minha conta');
-    const name = screen.getByText('Nome completo');
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
-    const confirmPassword = screen.getByText('Confirmar Senha');
+    const button = screen.getByText('Sign Up');
+    const name = screen.getByText('Full Name');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
+    const confirmPassword = screen.getByText('Confirm Password');
 
     await act(async () => {
       await fireEvent.type(email, 'Invalid Email');
@@ -41,7 +41,7 @@ describe('<SignUpForm />', () => {
       fireEvent.click(button);
     });
 
-    const message = screen.getByText('E-mail inválido');
+    const message = screen.getByText('Invalid email');
 
     await waitFor(() => {
       expect(message).toBeInTheDocument();
@@ -56,11 +56,11 @@ describe('<SignUpForm />', () => {
 
     renderWrapper(<SignUpForm />);
 
-    const button = screen.getByText('Criar minha conta');
-    const name = screen.getByText('Nome completo');
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
-    const confirmPassword = screen.getByText('Confirmar Senha');
+    const button = screen.getByText('Sign Up');
+    const name = screen.getByText('Full Name');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
+    const confirmPassword = screen.getByText('Confirm Password');
 
     await act(async () => {
       await fireEvent.type(name, 'Wendel Freitas');
@@ -90,10 +90,10 @@ describe('<SignUpForm />', () => {
 
     renderWrapper(<SignUpForm />);
 
-    const button = screen.getByText('Criar minha conta');
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
-    const confirmPassword = screen.getByText('Confirmar Senha');
+    const button = screen.getByText('Sign Up');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
+    const confirmPassword = screen.getByText('Confirm Password');
 
     await act(async () => {
       await fireEvent.type(email, 'wendel@horarioz.com');

@@ -12,14 +12,14 @@ describe('<SignInForm />', () => {
 
   it('should render all inputs on login page', () => {
     renderWrapper(<SignInForm />);
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
     expect(email).toBeInTheDocument();
     expect(password).toBeInTheDocument();
   });
   it('should render login button', () => {
     renderWrapper(<SignInForm />);
-    const button = screen.getByText('Entrar');
+    const button = screen.getByText('Sign In');
 
     expect(button).toBeInTheDocument();
   });
@@ -27,9 +27,9 @@ describe('<SignInForm />', () => {
   it('should render input errors when click login button after fill invalid e-mail', async () => {
     renderWrapper(<SignInForm />);
 
-    const button = screen.getByText('Entrar');
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
+    const button = screen.getByText('Sign In');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
 
     await act(async () => {
       await fireEvent.type(email, 'Invalid Email');
@@ -37,7 +37,7 @@ describe('<SignInForm />', () => {
       fireEvent.click(button);
     });
 
-    const message = screen.getByText('E-mail inválido');
+    const message = screen.getByText('Invalid email');
 
     await waitFor(() => {
       expect(message).toBeInTheDocument();
@@ -52,9 +52,9 @@ describe('<SignInForm />', () => {
 
     renderWrapper(<SignInForm />);
 
-    const button = screen.getByText('Entrar');
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
+    const button = screen.getByText('Sign In');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
 
     await act(async () => {
       await fireEvent.type(email, 'invalid@email.com');
@@ -65,7 +65,7 @@ describe('<SignInForm />', () => {
     await waitFor(() => {
       expect(
         screen.getByText(
-          'Esse e-mail não está cadastrado ou a senha está incorreta.'
+          'This email is not registered or the password is incorrect.'
         )
       ).toBeInTheDocument();
     });
@@ -86,9 +86,9 @@ describe('<SignInForm />', () => {
 
     renderWrapper(<SignInForm />);
 
-    const button = screen.getByText('Entrar');
-    const email = screen.getByText('E-mail');
-    const password = screen.getByText('Senha');
+    const button = screen.getByText('Sign In');
+    const email = screen.getByText('Email');
+    const password = screen.getByText('Password');
 
     await act(async () => {
       await fireEvent.type(email, 'wendel@horarioz.com');

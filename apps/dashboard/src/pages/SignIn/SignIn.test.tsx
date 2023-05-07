@@ -1,18 +1,18 @@
 import { screen } from '@testing-library/react';
-import { Login } from './Login';
+import { SignIn } from './SignIn';
 
 import { renderWrapper } from '../../utils/tests/helpers';
 
-describe('<Login />', () => {
+describe('<SignIn />', () => {
   it('renders page successfully', () => {
-    renderWrapper(<Login />);
-    const text = screen.getByText('Sign in into Horarioz ☀️');
+    renderWrapper(<SignIn />);
+    const text = screen.getByText('Faça login com sua conta');
 
     expect(text).toBeInTheDocument();
   });
 
   it('should render all inputs on login page', () => {
-    renderWrapper(<Login />);
+    renderWrapper(<SignIn />);
     const email = screen.getByText('E-mail');
     const password = screen.getByText('Senha');
 

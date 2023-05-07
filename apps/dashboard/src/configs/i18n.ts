@@ -22,7 +22,6 @@ const resources = {
 i18n.init({
   returnNull: false,
   resources,
-  lng: 'en',
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,

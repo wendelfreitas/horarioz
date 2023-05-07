@@ -6,7 +6,7 @@ import { renderWrapper } from '../../utils/tests/helpers';
 describe('<SignUp />', () => {
   it('renders page successfully', () => {
     renderWrapper(<SignUp />);
-    const text = screen.getByText('Sign Up into Horarioz ☀️');
+    const text = screen.getByText('Registre sua conta');
 
     expect(text).toBeInTheDocument();
   });

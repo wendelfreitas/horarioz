@@ -57,4 +57,18 @@ describe('<Button />', () => {
 
     expect(loading).toBeDefined();
   });
+
+  it('should render danger button', () => {
+    const onClick = jest.fn();
+
+    render(
+      <Button danger onClick={onClick}>
+        Hello World
+      </Button>
+    );
+
+    const button = screen.getByText('Hello World');
+
+    expect(button).toHaveClass('bg-red-500');
+  });
 });

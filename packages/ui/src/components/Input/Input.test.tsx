@@ -110,4 +110,11 @@ describe('<Input />', () => {
 
     await waitFor(() => expect(spyOnFocus).not.toHaveBeenCalled());
   });
+
+  it('should be render input with suffix', () => {
+    render(<Input label="Name" error="Name required" suffix="horarioz.com" />);
+    const text = screen.getByText('horarioz.com');
+
+    expect(text).toBeInTheDocument();
+  });
 });

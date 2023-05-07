@@ -1,10 +1,16 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useAuthStore, useSignOut } from '@horarioz/hooks';
+import {
+  HomeIcon,
+  CalendarIcon,
+  XMarkIcon,
+  ArrowLeftOnRectangleIcon,
+} from '@heroicons/react/24/outline';
+import { useSignOut } from '@horarioz/hooks';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+  { name: 'Calendário', href: '#', icon: CalendarIcon, current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -12,9 +18,12 @@ function classNames(...classes: string[]) {
 }
 
 export const Sidebar = () => {
-  const { user } = useAuthStore();
   const { mutate: signOut } = useSignOut();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleSignOut = () => {
+    signOut();
+  };
 
   return (
     <>
@@ -122,20 +131,25 @@ export const Sidebar = () => {
             <div className="flex flex-1 flex-col overflow-y-auto pt-8 pb-4">
               <div className="flex flex-shrink-0 items-center px-6">
                 <a href="#" className="group block w-full flex-shrink-0">
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-1">
+                    <img
+                      className="h-10 w-auto rounded-lg"
+                      src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png"
+                      alt="Synx"
+                    />
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                        {user?.user_metadata.name}
+                        Acme
                       </p>
                       <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-                        {user?.email}
+                        Tatto
                       </p>
                     </div>
                   </div>
                 </a>
               </div>
               <nav className="mt-10 flex-1" aria-label="Sidebar">
-                <div className="space-y-3 px-6">
+                <div className="space-y-1 px-6">
                   {navigation.map((item) => (
                     <a
                       key={item.name}
@@ -143,16 +157,14 @@ export const Sidebar = () => {
                       className={classNames(
                         item.current
                           ? ' text-gray-900'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                        'group flex items-center px-2 py-2 text-sm rounded-md'
+                          : 'text-gray-500 hover:text-gray-900',
+                        'group flex items-center px-1.5 py-2 text-sm rounded-md font-medium'
                       )}
                     >
                       <item.icon
                         className={classNames(
-                          item.current
-                            ? 'text-gray-900'
-                            : 'text-gray-400 group-hover:text-gray-500',
-                          'mr-3 h-6 w-6'
+                          item.current ? 'text-gray-900' : 'text-gray-400 ',
+                          'mr-2 h-6 w-6 mb-0.5'
                         )}
                         aria-hidden="true"
                       />
@@ -162,19 +174,15 @@ export const Sidebar = () => {
                 </div>
               </nav>
             </div>
-            <div className="flex flex-shrink-0 border-t border-gray-200 p-5">
-              <div className="group block w-full flex-shrink-0 hover:cursor-pointer">
-                <div className="flex items-center">
+            <div className="flex flex-shrink-0 border-t border-gray-200 p-5 hover:cursor-pointer">
+              <div className="group block w-full flex-shrink-0">
+                <div className="flex justify-center">
                   <div
-                    className="ml-3"
-                    onClick={() => {
-                      signOut();
-                    }}
+                    className="flex items-center align-middle space-x-3 text-red-600 pr-5"
+                    onClick={handleSignOut}
                   >
-                    <p className="text-sm font-medium text-gray-700">Logout</p>
-                    <p className="text-xs font-medium text-gray-500">
-                      See you soon!
-                    </p>
+                    <ArrowLeftOnRectangleIcon className="h-6" />
+                    <p className="text-sm font-normal ">Sair</p>
                   </div>
                 </div>
               </div>

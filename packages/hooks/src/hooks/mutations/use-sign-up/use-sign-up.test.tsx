@@ -58,7 +58,7 @@ describe('useSignUp', () => {
       wrapper: wrapper,
     });
 
-    act(() => {
+    await act(() => {
       result.current.mutate({
         email: 'invalid-user@horarioz.com',
         password: '1234356',

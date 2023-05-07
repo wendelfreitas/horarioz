@@ -8,4 +8,23 @@ describe('<Content />', () => {
 
     expect(text).toBeInTheDocument();
   });
+
+  it('renders component with submenus', () => {
+    render(
+      <Content
+        submenus={[
+          {
+            name: 'Submenu',
+            href: '/submenu',
+            current: false,
+          },
+        ]}
+      >
+        Hello World
+      </Content>
+    );
+    const text = screen.getByText('Submenu');
+
+    expect(text).toBeInTheDocument();
+  });
 });

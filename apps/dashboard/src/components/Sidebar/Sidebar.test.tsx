@@ -5,7 +5,7 @@ import { Sidebar } from './Sidebar';
 describe('<Sidebar />', () => {
   it('renders component successfully', () => {
     renderWrapper(<Sidebar />);
-    const text = screen.getByText('Logout');
+    const text = screen.getByText('Sair');
 
     expect(text).toBeInTheDocument();
   });

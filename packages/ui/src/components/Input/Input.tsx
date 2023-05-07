@@ -20,6 +20,10 @@ export type InputProps = {
    * If the button is disabled.
    */
   disabled?: boolean;
+  /**
+   * A word to add to the end of input.
+   */
+  suffix?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = ({ label, error, helper, ...props }: InputProps) => {
@@ -46,7 +50,13 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
     }
 
     if (props.disabled) {
-      style = cn(style, 'bg-gray-100', 'hover:cursor-not-allowed');
+      style = cn(
+        style,
+        'bg-gray-100',
+        'placeholder:text-gray-100',
+        '!text-gray-500',
+        'hover:cursor-not-allowed'
+      );
     }
 
     if (error) {
@@ -121,7 +131,7 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
         'bg-gray-100',
         'rounded',
         'hover:cursor-not-allowed',
-        'text-gray-400'
+        'text-gray-500'
       );
     }
 
@@ -132,13 +142,29 @@ export const Input = ({ label, error, helper, ...props }: InputProps) => {
     return cn(style, 'text-gray-500', 'peer-focus:text-black', 'bg-white');
   };
 
+  const getContainerClasses = () => {
+    let styles = cn('relative', 'rounded');
+
+    if (props.disabled) {
+      styles = cn(styles, 'bg-gray-100');
+    }
+
+    return styles;
+  };
+
   return (
     <div>
-      <div className="relative">
+      <div className={getContainerClasses()}>
         <input id={props.id} className={getInputClasses()} {...props} />
         <label htmlFor={props.id} className={getSpanClasses()}>
           {label}
         </label>
+
+        {props.suffix && (
+          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 border border-y-0 border-r-0 border-gray-300 text-xs ">
+            {props.suffix}
+          </span>
+        )}
       </div>
       <Transition
         show={Boolean(error)}

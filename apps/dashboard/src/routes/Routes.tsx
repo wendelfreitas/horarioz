@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes as Router } from 'react-router-dom';
-import { Layout } from '../components/Layout/Layout';
-import { Login } from '../pages/Login/Login';
+import { SignIn } from '../pages/SignIn/SignIn';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { SignUp } from '../pages/SignUp/SignUp';
+import { SettingsPage } from '../pages/Settings/Settings';
 
 export const Routes = () => {
   return (
@@ -13,7 +13,7 @@ export const Routes = () => {
           path="/sign-in"
           element={
             <PublicRoute>
-              <Login />
+              <SignIn />
             </PublicRoute>
           }
         />
@@ -26,10 +26,18 @@ export const Routes = () => {
           }
         />
         <Route
+          path="/settings"
+          element={
+            <PrivateRoute>
+              <SettingsPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
           path="/"
           element={
             <PrivateRoute>
-              <Layout />
+              <SettingsPage />
             </PrivateRoute>
           }
         />

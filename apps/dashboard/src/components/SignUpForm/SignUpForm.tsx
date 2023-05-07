@@ -19,17 +19,20 @@ export const SignUpForm = () => {
 
   const schema = Yup.object().shape({
     email: Yup.string()
-      .email(t('@SignInForm.email-invalid'))
+      .email(t('@SignUpForm.email-invalid'))
       .trim()
-      .required(t('teste')),
-    name: Yup.string().trim().required('Nome é obrigatório'),
+      .required(t('@SignUpForm.email-required')),
+    name: Yup.string().trim().required(t('@SignUpForm.name-required')),
     password: Yup.string()
-      .required(t('@SignInForm.password-required'))
+      .required(t('@SignUpForm.password-required'))
       .trim()
-      .oneOf([Yup.ref('confirm_password')], 'Passwords must match'),
+      .oneOf(
+        [Yup.ref('confirm_password')],
+        t('@SignUpForm.passwords-not-match')
+      ),
     confirm_password: Yup.string().oneOf(
       [Yup.ref('password')],
-      'Passwords must match'
+      t('@SignUpForm.passwords-not-match')
     ),
   });
 
@@ -64,8 +67,8 @@ export const SignUpForm = () => {
               id="name"
               required
               name="name"
-              label={t('@SignInForm.name')}
-              placeholder={t('@SignInForm.name')}
+              label={t('@SignUpForm.name')}
+              placeholder={t('@SignUpForm.name')}
             />
           </div>
 
@@ -75,8 +78,8 @@ export const SignUpForm = () => {
               id="email"
               name="email"
               required
-              label={t('@SignInForm.email')}
-              placeholder={t('@SignInForm.email')}
+              label={t('@SignUpForm.email')}
+              placeholder={t('@SignUpForm.email')}
             />
           </div>
 
@@ -86,8 +89,8 @@ export const SignUpForm = () => {
               id="password"
               required
               name="password"
-              label={t('@SignInForm.password')}
-              placeholder={t('@SignInForm.password')}
+              label={t('@SignUp.password')}
+              placeholder={t('@SignUp.password')}
             />
           </div>
 
@@ -97,28 +100,19 @@ export const SignUpForm = () => {
               id="confirm_password"
               required
               name="confirm_password"
-              label={t('@SignInForm.confirm_password')}
-              placeholder={t('@SignInForm.confirm_password')}
+              label={t('@SignUpForm.confirm_password')}
+              placeholder={t('@SignUpForm.confirm_password')}
             />
           </div>
 
-          <div className="col-span-6">
-            <a className="text-sm text-primary-500 mx-1 hover:cursor-pointer hover:text-primary-700">
-              {t('@SignInForm.forgot-password')}
-            </a>
-          </div>
-          <div className="col-span-6">
+          <div className="col-span-6 mt-5">
             <Button
               className="w-full"
               type="submit"
               disabled={!isValid || isLoading}
             >
-              {t('@SignInForm.sign-in')}
+              {t('@SignUpForm.sign-up')}
             </Button>
-          </div>
-
-          <div className="col-span-6">
-            <hr className="border-gray-100" />
           </div>
         </Form>
       )}

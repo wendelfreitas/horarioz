@@ -17,26 +17,33 @@ export type ButtonProps = {
    * The button loading state.
    */
   isLoading?: boolean;
+  /**
+   * The button is danger state.
+   */
+  danger?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
   variant = 'primary',
   children,
   isLoading = false,
+  danger = false,
   ...props
 }: ButtonProps) => {
   const Variants = {
     primary: cn(
-      'bg-primary-500',
+      danger ? 'bg-red-500' : 'bg-primary-500',
       isLoading || props.disabled || 'hover:bg-primary-600',
-      'text-white'
+      'text-white',
+      danger && 'hover:bg-red-600'
     ),
     secondary: cn(
       'bg-transparent',
       isLoading || props.disabled || 'hover:bg-gray-100/50',
-      'text-black',
       'border',
-      'boder-gray-100/50'
+      danger
+        ? 'hover:bg-white hover:text-red-700 text-red-600 border-red-400'
+        : ' text-black border-gray-100/50'
     ),
   };
 

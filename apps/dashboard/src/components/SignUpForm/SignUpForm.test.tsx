@@ -19,7 +19,7 @@ describe('<SignUpForm />', () => {
   });
   it('should render login button', () => {
     renderWrapper(<SignUpForm />);
-    const button = screen.getByText('Entrar');
+    const button = screen.getByText('Criar minha conta');
 
     expect(button).toBeInTheDocument();
   });
@@ -27,11 +27,11 @@ describe('<SignUpForm />', () => {
   it('should render input errors when click login button after fill invalid e-mail', async () => {
     renderWrapper(<SignUpForm />);
 
-    const button = screen.getByText('Entrar');
-    const name = screen.getByText('@SignInForm.name');
+    const button = screen.getByText('Criar minha conta');
+    const name = screen.getByText('Nome completo');
     const email = screen.getByText('E-mail');
     const password = screen.getByText('Senha');
-    const confirmPassword = screen.getByText('@SignInForm.confirm_password');
+    const confirmPassword = screen.getByText('Confirmar Senha');
 
     await act(async () => {
       await fireEvent.type(email, 'Invalid Email');
@@ -48,38 +48,34 @@ describe('<SignUpForm />', () => {
     });
   });
 
-  it.skip('should click on submit and dispatch login mutate and return some error on screen', async () => {
-    jest.spyOn(supabase.auth, 'signInWithPassword').mockResolvedValueOnce({
+  it('should click on submit and dispatch register mutate and got an error', async () => {
+    jest.spyOn(supabase.auth, 'signUp').mockResolvedValueOnce({
       data: { user: null, session: null },
-      error: new AuthError('Invalid login credentials', 400),
+      error: new AuthError('User already registered', 400),
     });
 
     renderWrapper(<SignUpForm />);
 
-    const button = screen.getByText('Entrar');
-    const name = screen.getByText('@SignInForm.name');
+    const button = screen.getByText('Criar minha conta');
+    const name = screen.getByText('Nome completo');
     const email = screen.getByText('E-mail');
     const password = screen.getByText('Senha');
-    const confirmPassword = screen.getByText('@SignInForm.confirm_password');
+    const confirmPassword = screen.getByText('Confirmar Senha');
 
     await act(async () => {
-      await fireEvent.type(email, 'invalid@gmail.com');
-      await fireEvent.type(name, 'Invalid User');
-      await fireEvent.type(password, 'invalid@email');
-      await fireEvent.type(confirmPassword, 'invalid@email');
-      fireEvent.click(button);
+      await fireEvent.type(name, 'Wendel Freitas');
+      await fireEvent.type(email, 'wendel@horarioz.com');
+      await fireEvent.type(password, 'test-password');
+      await fireEvent.type(confirmPassword, 'test-password');
+      await fireEvent.click(button);
     });
 
     await waitFor(() => {
-      expect(
-        screen.getByText(
-          'Esse e-mail não está cadastrado ou a senha está incorreta.'
-        )
-      ).toBeInTheDocument();
+      expect(screen.getByText('User already registered')).toBeInTheDocument();
     });
   });
 
-  it.skip('should click on submit and dispatch login mutate and redirect to /', async () => {
+  it('should click on submit and dispatch register mutate and redirect to /', async () => {
     jest.spyOn(supabase.auth, 'signUp').mockResolvedValueOnce({
       data: {
         user: {
@@ -94,18 +90,16 @@ describe('<SignUpForm />', () => {
 
     renderWrapper(<SignUpForm />);
 
-    const button = screen.getByText('Entrar');
-    const name = screen.getByText('@SignInForm.name');
+    const button = screen.getByText('Criar minha conta');
     const email = screen.getByText('E-mail');
     const password = screen.getByText('Senha');
-    const confirmPassword = screen.getByText('@SignInForm.confirm_password');
+    const confirmPassword = screen.getByText('Confirmar Senha');
 
     await act(async () => {
-      await fireEvent.type(email, 'invalid@gmail.com');
-      await fireEvent.type(name, 'Invalid User');
-      await fireEvent.type(password, 'invalid@email');
-      await fireEvent.type(confirmPassword, 'invalid@email');
-      fireEvent.click(button);
+      await fireEvent.type(email, 'wendel@horarioz.com');
+      await fireEvent.type(password, 'test-password');
+      await fireEvent.type(confirmPassword, 'test-password');
+      await fireEvent.click(button);
     });
 
     useAuthStore.setState({

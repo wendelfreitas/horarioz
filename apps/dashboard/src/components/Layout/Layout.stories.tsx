@@ -9,6 +9,6 @@ export default {
 
 export const Default: StoryFn = () => (
   <div className="h-screen">
-    <Layout />
+    <Layout>Hello World</Layout>
   </div>
 );

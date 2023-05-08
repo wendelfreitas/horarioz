@@ -1,5 +1,5 @@
 import { useMutation, MutateOptions } from '@tanstack/react-query';
-import { AuthResponse } from '@supabase/gotrue-js';
+import { AuthResponse, AuthError } from '@supabase/gotrue-js';
 import { useSupabase } from '../../services/use-supabase/use-supabase';
 
 type SignUpInput = {
@@ -9,7 +9,7 @@ type SignUpInput = {
 };
 
 export const useSignUp = (
-  options?: MutateOptions<AuthResponse, Error, SignUpInput>
+  options?: MutateOptions<AuthResponse, AuthError, SignUpInput>
 ) => {
   const supabase = useSupabase();
 

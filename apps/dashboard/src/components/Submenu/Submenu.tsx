@@ -12,7 +12,7 @@ export const Submenu = ({ menus }: SubmenuProps) => {
   if (!menus || !menus?.length) return null;
 
   return (
-    <nav className="flex overflow-x-auto border-b bg-gray-50  py-4 border-gray-200 ">
+    <nav className="flex fixed z-10 w-full overflow-x-auto border-b bg-gray-50 py-4 border-gray-200 ">
       <ul
         role="list"
         className="flex min-w-full flex-none gap-x-6 px-5 text-sm font-medium leading-6 text-gray-400 sm:px-6 lg:px-10"

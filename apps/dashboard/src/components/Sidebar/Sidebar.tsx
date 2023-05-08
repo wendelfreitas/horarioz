@@ -174,6 +174,7 @@ export const Sidebar = () => {
                 </div>
               </nav>
             </div>
+
             <div className="flex flex-shrink-0 border-t border-gray-200 p-5 hover:cursor-pointer">
               <div className="group block w-full flex-shrink-0">
                 <div className="flex justify-center">

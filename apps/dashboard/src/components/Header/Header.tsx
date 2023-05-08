@@ -10,7 +10,12 @@ export const Header = () => {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
         </span>
-        Seu site está publicado e operacional.
+        <p>
+          <span className="font-medium">
+            Bom dia, {user?.user_metadata.name}
+          </span>{' '}
+          seu site está publicado e operacional.
+        </p>
       </span>
       <div className="flex items-center space-x-3 h-full hover:cursor-pointer">
         <img
@@ -18,7 +23,7 @@ export const Header = () => {
           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
           alt=""
         />
-        <span aria-hidden="true" className="text-sm ">
+        <span aria-hidden="true" className="text-sm font-medium">
           {user?.user_metadata.name}
         </span>
       </div>

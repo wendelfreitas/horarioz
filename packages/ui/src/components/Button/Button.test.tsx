@@ -41,7 +41,7 @@ describe('<Button />', () => {
 
     const button = screen.getByText('Hello World');
 
-    expect(button).toHaveClass('bg-transparent');
+    expect(button).toHaveClass('bg-white');
   });
 
   it('should render a spinner when button is loading', () => {
@@ -69,6 +69,6 @@ describe('<Button />', () => {
 
     const button = screen.getByText('Hello World');
 
-    expect(button).toHaveClass('bg-red-500');
+    expect(button).toHaveClass('bg-red-600');
   });
 });

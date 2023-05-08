@@ -16,9 +16,10 @@ export const Content = ({ children, submenus }: ContentProps) => {
           className={cn(
             'absolute',
             'inset-0',
-            'py-8',
-            'px-4',
-            'sm:px-6',
+            'py-10',
+            'sm:py-5',
+            'px-5',
+            'sm:px-4',
             'lg:px-10',
             'grid',
             !submenus || !submenus?.length ? 'top-0' : 'top-12 sm:top-16 '

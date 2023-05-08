@@ -24,7 +24,7 @@ export const Avatar = ({ name, src }: AvatarProps) => {
       .toUpperCase();
 
   return (
-    <AvatarPrimitive.Root className="items-center w-14 h-14 bg-red-300 rounded-full inline-flex select-none overflow-hidden justify-center cursor-pointer">
+    <AvatarPrimitive.Root className="items-center w-14 h-14 rounded-full inline-flex select-none overflow-hidden justify-center cursor-pointer">
       <AvatarPrimitive.Image
         className="object-cover w-full h-full"
         src={src}

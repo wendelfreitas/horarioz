@@ -68,6 +68,7 @@ export const Select = ({
   const getOptionsListClasses = () => {
     return cn(
       'border',
+      'z-10',
       'border-black',
       'absolute',
       'mt-2',
@@ -128,10 +129,10 @@ export const Select = ({
   );
 
   return (
-    <Combobox name={props.name} defaultValue={defaultValue}>
+    <Combobox name={props.name} defaultValue={defaultValue} nullable>
       {({ open }) => (
         <Fragment>
-          <div className="relative mt-1">
+          <div className="relative">
             <div className="relative">
               <Combobox.Button
                 className={cn('w-full', {
@@ -183,7 +184,7 @@ export const Select = ({
                         'relative',
                         'cursor-default',
                         'select-none',
-                        'py-2',
+                        'py-3',
                         'pl-4',
                         'pr-4',
                         'text-gray-500',

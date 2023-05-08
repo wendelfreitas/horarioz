@@ -1,23 +1,25 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
-import { Input } from '@horarioz/ui';
+import { Input, Select } from '@horarioz/ui';
 import { Content } from '../../components/Content/Content';
 import { Layout } from '../../components/Layout/Layout';
 
 type CardProps = {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   description?: string;
 };
 
 const Card = ({ children, title, description }: CardProps) => {
   return (
-    <div className="overflow-hidden bg-white rounded-lg border-gray-200 border ">
+    <div className="overflow-hidden bg-white rounded-lg border-gray-200 border">
       <div className="px-4 py-5 sm:p-6">
-        <h1 className="text-md font-semibold">{title}</h1>
-        {description && (
-          <p className="text-sm text-gray-500 mt-2">{description}</p>
+        {title && (
+          <h1 className="text-sm sm:text-base font-semibold">{title}</h1>
         )}
-        <div className="mt-8">{children}</div>
+        {description && (
+          <p className="text-xs sm:text-sm text-gray-500">{description}</p>
+        )}
+        <div className="mt-7 sm:mt-5">{children}</div>
       </div>
     </div>
   );
@@ -34,12 +36,11 @@ export const SettingsPage = () => {
         ]}
       >
         <div className="space-y-5">
-          {/* <h1 className="text-lg font-semibold">Configurações Gerais</h1> */}
+          <h1 className="text-base sm:text-lg font-semibold">
+            Configurações Gerais
+          </h1>
 
-          <Card
-            title="Configurações Gerais"
-            description="Aqui voce irá encontrar as configurações gerais de sua empresa como nome, categoria, domínio"
-          >
+          <Card description="Aqui voce irá encontrar as configurações gerais de sua empresa como nome, categoria, domínio">
             <div className="flex align-middle items-center gap-5 mb-8 ml-2">
               <img
                 className="h-16 w-auto rounded-lg"
@@ -53,31 +54,54 @@ export const SettingsPage = () => {
             </div>
             <div className="grid grid-rows-1 gap-5">
               <div className="grid grid-cols-12 gap-5">
-                <div className="col-span-4">
+                <div className="col-span-12 sm:col-span-4">
                   <Input
                     placeholder="Nome da empresa"
                     label="Nome da empresa"
-                    value="Acme"
+                    defaultValue="Acme"
                   />
                 </div>
-                <div className="col-span-4">
-                  <Input
-                    placeholder="Categoria"
+                <div className="col-span-12 sm:col-span-4">
+                  <Select
+                    type="autocomplete"
+                    placeholder="Selecione uma categoria"
                     label="Categoria"
                     value="Tatto"
+                    options={[
+                      {
+                        value: '1',
+                        label: 'Tatto',
+                      },
+                      {
+                        value: '2',
+                        label: 'Artes',
+                      },
+                    ]}
                   />
                 </div>
 
-                <div className="col-span-4">
-                  <Input
+                <div className="col-span-12 sm:col-span-4">
+                  <Select
+                    type="autocomplete"
                     placeholder="Timezone"
                     label="Timezone"
-                    value="America/Sao_Paulo"
+                    required
+                    value="Tatto"
+                    options={[
+                      {
+                        value: '1',
+                        label: 'America/Brasilia',
+                      },
+                      {
+                        value: '2',
+                        label: 'America/Sao_Paulo',
+                      },
+                    ]}
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-6 gap-5 items-center">
-                <div className="col-span-2">
+              <div className="grid grid-cols-12 sm:grid-cols-6 gap-5 items-center">
+                <div className="col-span-12 sm:col-span-2">
                   <Input
                     placeholder="Meu site"
                     label="Meu site"

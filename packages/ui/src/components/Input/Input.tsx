@@ -32,7 +32,7 @@ export const getInputClasses = (props: InputProps) => {
     'block',
     'px-4',
     'pb-2.5',
-    'pt-3',
+    'pt-3.5',
     'w-full',
     'text-sm',
     'bg-transparent',

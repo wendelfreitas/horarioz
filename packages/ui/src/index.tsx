@@ -1,3 +1,4 @@
+// Components
 export * from './components/Button/Button';
 export * from './components/SocialButton/SocialButton';
 export * from './components/Avatar/Avatar';

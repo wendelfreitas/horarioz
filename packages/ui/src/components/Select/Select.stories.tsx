@@ -3,7 +3,7 @@ import { StoryFn, Meta } from '@storybook/react';
 import { SelectProps, Select } from './Select';
 
 export default {
-  title: 'Select',
+  title: 'Forms/Select',
   component: Select,
 } as Meta;
 
@@ -31,7 +31,6 @@ export const Autocomplete: StoryFn<SelectProps> = () => (
     type="autocomplete"
     label="Select pokemons"
     placeholder="Select the best pokemon"
-    // defaultValue="1"
     options={pokemons}
   />
 );

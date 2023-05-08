@@ -6,6 +6,6 @@ export type <%= component_name %>Props = {
   title?: string;
 };
 
-export const <%= component_name %> = ({ title = 'Hello Appetizer' }: <%= component_name %>Props) => {
+export const <%= component_name %> = ({ title = 'Hello Horarioz' }: <%= component_name %>Props) => {
   return <div>{title}</div>;
 };

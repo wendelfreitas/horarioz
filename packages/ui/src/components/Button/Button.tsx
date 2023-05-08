@@ -32,18 +32,19 @@ export const Button = ({
 }: ButtonProps) => {
   const Variants = {
     primary: cn(
-      danger ? 'bg-red-500' : 'bg-primary-500',
+      danger ? 'bg-red-600' : 'bg-primary-500',
       isLoading || props.disabled || 'hover:bg-primary-600',
       'text-white',
-      danger && 'hover:bg-red-600'
+      danger && 'hover:bg-red-700'
     ),
     secondary: cn(
-      'bg-transparent',
-      isLoading || props.disabled || 'hover:bg-gray-100/50',
+      'bg-white',
+      'border-gray-200',
+      isLoading || props.disabled || 'hover:bg-gray-50',
       'border',
       danger
         ? 'hover:bg-white hover:text-red-700 text-red-600 border-red-400'
-        : ' text-black border-gray-100/50'
+        : 'text-black bg-gray-100'
     ),
   };
 
@@ -52,7 +53,7 @@ export const Button = ({
   };
 
   const getClass = () => {
-    let style = `relative rounded-lg min-h-[3rem] text-sm font-semibold text-center px-5 ${getVariant()} ${
+    let style = `relative rounded-lg min-h-full h-11 text-sm font-medium text-center px-5 ${getVariant()} ${
       props.className
     }`;
 
@@ -73,7 +74,7 @@ export const Button = ({
         <PropagateLoader
           size={10}
           color="white"
-          className="pb-2"
+          className="pb-2 h-"
           data-testid="loading-indicator"
         />
       ) : (

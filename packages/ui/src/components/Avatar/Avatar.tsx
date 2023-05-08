@@ -11,6 +11,9 @@ export type AvatarProps = {
   src?: string;
 };
 
+/**
+ * Avatar component to render user images or initials.
+ */
 export const Avatar = ({ name, src }: AvatarProps) => {
   const getInitials = () =>
     name

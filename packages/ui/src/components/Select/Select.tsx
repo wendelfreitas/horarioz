@@ -51,6 +51,9 @@ export type SelectProps = {
   emptyLabel?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
+/**
+ * Select component for choose one option from a list.
+ */
 export const Select = ({
   label,
   options,

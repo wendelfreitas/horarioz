@@ -5,7 +5,7 @@ import en from '../locales/en/translation.json';
 import { locales } from '@horarioz/supabase';
 
 const resources = {
-  ptbr: {
+  'pt-BR': {
     translation: {
       ...ptbr,
       ...locales.ptbr,

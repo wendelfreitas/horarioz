@@ -8,12 +8,14 @@
     "email-invalid": "Invalid email",
     "email-required": "Email is required",
     "password-required": "Password is required",
-    "or-continue-with": "Or Continue With"
+    "or-continue-with": "Or Continue With",
+    "sign-in-with-google": "Sign in with Google"
   },
   "@SignIn": {
     "sign-in-your-account": "Sign in to your account",
     "not-registered": "Not registered? ",
-    "register-now": "Register now"
+    "register-now": "Register now",
+    "sign-in-with-google": "Sign in with Google"
   },
   "@SignUp": {
     "email": "Email",

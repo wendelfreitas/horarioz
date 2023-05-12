@@ -4,7 +4,7 @@ import { Input } from '../Input/Input';
 
 import * as Yup from 'yup';
 import { Form, Formik, FormikHelpers } from 'formik';
-import { useSignIn } from '@horarioz/hooks';
+import { useSignIn, useSignInWithGoogle } from '@horarioz/hooks';
 import { Fragment } from 'react';
 
 type Inputs = {
@@ -15,6 +15,8 @@ type Inputs = {
 export const SignInForm = () => {
   const { t } = useTranslation();
   const { mutate: login, isLoading } = useSignIn();
+  const { mutate: loginWithGoogle, isLoading: isLoadingGoogle } =
+    useSignInWithGoogle();
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -104,7 +106,12 @@ export const SignInForm = () => {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-4">
-          <SocialButton title="Google" network="github" />
+          <SocialButton
+            isLoading={isLoadingGoogle}
+            onClick={() => loginWithGoogle()}
+            title={t('@SignInForm.sign-in-with-google')}
+            network="google"
+          />
         </div>
       </div>
     </Fragment>

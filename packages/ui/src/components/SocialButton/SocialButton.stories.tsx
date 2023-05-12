@@ -9,6 +9,6 @@ export default {
 
 export const Github: StoryFn<SocialButtonProps> = () => (
   <div className="w-full">
-    <SocialButton network="github" title="Conecte-se com github" />
+    <SocialButton network="google" title="Conecte-se com github" />
   </div>
 );

@@ -3,8 +3,8 @@ import { SocialButton } from './SocialButton';
 
 describe('<SocialButton />', () => {
   it('renders component successfully', () => {
-    render(<SocialButton network="github" title="Welcome Github" />);
-    const text = screen.getByText('Welcome Github');
+    render(<SocialButton network="google" title="Sign in with Google" />);
+    const text = screen.getByText('Sign in with Google');
 
     expect(text).toBeInTheDocument();
   });
@@ -14,8 +14,8 @@ describe('<SocialButton />', () => {
 
     render(
       <SocialButton
-        network="github"
-        title="Welcome Github"
+        network="google"
+        title="Sign in with Google"
         onClick={onClick}
         isLoading
       >
@@ -23,8 +23,8 @@ describe('<SocialButton />', () => {
       </SocialButton>
     );
 
-    const text = screen.getByText('Welcome Github');
+    const text = screen.getByText('Sign in with Google');
 
-    expect(text).toHaveClass('hover:cursor-not-allowed');
+    expect(text).toHaveClass('cursor-not-allowed');
   });
 });

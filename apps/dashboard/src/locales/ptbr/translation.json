@@ -8,7 +8,8 @@
     "email-invalid": "E-mail inválido",
     "email-required": "O e-mail é obrigatório",
     "password-required": "A senha é obrigatória",
-    "or-continue-with": "Ou faça login com"
+    "or-continue-with": "Ou faça login com",
+    "sign-in-with-google": "Entrar com Google"
   },
   "@SignIn": {
     "sign-in-your-account": "Faça login com sua conta",

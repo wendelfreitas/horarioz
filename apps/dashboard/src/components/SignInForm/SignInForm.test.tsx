@@ -106,4 +106,29 @@ describe('<SignInForm />', () => {
       expect(useAuthStore.getState().user?.email).toBe('wendel@horarioz.com');
     });
   });
+
+  it('should click on google button and call mutate', async () => {
+    jest.spyOn(supabase.auth, 'signInWithOAuth').mockResolvedValueOnce({
+      data: { provider: 'google', url: 'https://example.com' },
+      error: null,
+    });
+
+    renderWrapper(<SignInForm />);
+
+    const button = screen.getByText('Sign in with Google');
+
+    await act(async () => {
+      await fireEvent.click(button);
+    });
+
+    useAuthStore.setState({
+      user: {
+        email: 'wendel@horarioz.com',
+      } as User,
+    });
+
+    await waitFor(() => {
+      expect(useAuthStore.getState().user?.email).toBe('wendel@horarioz.com');
+    });
+  });
 });

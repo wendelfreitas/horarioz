@@ -1,7 +1,9 @@
-import { useAuthStore } from '@horarioz/hooks';
+import { useUser } from '@horarioz/hooks';
 
 export const Header = () => {
-  const { user } = useAuthStore();
+  const { profile } = useUser();
+
+  const getFirstName = () => profile?.name.split(' ')[0];
 
   return (
     <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-8 py-0 h-16">
@@ -10,12 +12,7 @@ export const Header = () => {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
         </span>
-        <p>
-          <span className="font-medium">
-            Bom dia, {user?.user_metadata.name}
-          </span>{' '}
-          seu site está publicado e operacional.
-        </p>
+        <p>Seu site está publicado e operacional.</p>
       </span>
       <div className="flex items-center space-x-3 h-full hover:cursor-pointer">
         <img
@@ -24,7 +21,7 @@ export const Header = () => {
           alt=""
         />
         <span aria-hidden="true" className="text-sm font-medium">
-          {user?.user_metadata.name}
+          {getFirstName()}
         </span>
       </div>
     </div>

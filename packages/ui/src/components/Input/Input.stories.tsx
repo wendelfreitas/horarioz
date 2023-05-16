@@ -70,7 +70,6 @@ export const WithHelper: StoryFn<InputProps> = (args) => (
 WithHelper.args = {
   label: 'Full name',
   placeholder: 'Testing',
-  helper: 'This is a helper text',
   name: 'fullname',
 };
 
@@ -96,7 +95,19 @@ export const MultipleFields: StoryFn<InputProps> = (args) => (
   <div style={{ marginTop: 20 }}>
     <Input {...args} />
     <br />
-    <Input {...args} />
+    <Input
+      {...args}
+      mask="R$ price"
+      blocks={{
+        price: {
+          mask: Number,
+          padFractionalZeros: true,
+          thousandsSeparator: '.',
+          radix: ',',
+          mapToRadix: ['.'],
+        },
+      }}
+    />
   </div>
 );
 

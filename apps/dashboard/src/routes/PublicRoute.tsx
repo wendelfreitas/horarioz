@@ -1,16 +1,20 @@
-import { useAuthStore } from '@horarioz/hooks';
-import { Navigate } from 'react-router-dom';
+import { useUser } from '@horarioz/hooks';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type PublicRouteProps = {
   children: JSX.Element;
 };
 
 export const PublicRoute = ({ children }: PublicRouteProps) => {
-  const { user } = useAuthStore();
+  const { user } = useUser();
+  const navigate = useNavigate();
 
-  if (user) {
-    return <Navigate to="/" replace />;
-  }
+  useEffect(() => {
+    if (user) {
+      return navigate('/');
+    }
+  }, [user, navigate]);
 
   return children;
 };

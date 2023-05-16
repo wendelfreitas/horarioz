@@ -30,15 +30,14 @@ export type ModalProps = {
    */
   isOpen: boolean;
   /**
-   * The aria-label for the close button of the modal.
-   */
-  ariaCloseLabel?: string;
-  /**
    * Callback function to be called when the modal is closed.
    */
   onClose: () => void;
 };
 
+/**
+ * Modal to open a pop up with dynamic content.
+ */
 export const Modal = ({
   title,
   footer,
@@ -46,7 +45,6 @@ export const Modal = ({
   onClose,
   children,
   type,
-  ariaCloseLabel = 'Close',
 }: ModalProps) => {
   const buttonRef = useRef(null);
 
@@ -127,7 +125,6 @@ export const Modal = ({
                     className="rounded-md bg-white text-gray-400 hover:text-gray-500 "
                     onClick={onClose}
                   >
-                    <span className="sr-only">{ariaCloseLabel}</span>
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>

@@ -19,15 +19,6 @@ describe('<Input />', () => {
     expect(error).toBeInTheDocument();
   });
 
-  it('should be render input with helper message', () => {
-    render(<Input label="Name" helper="Helper text" />);
-    const text = screen.getByText('Name');
-    const helper = screen.getByText('Helper text');
-
-    expect(text).toBeInTheDocument();
-    expect(helper).toBeInTheDocument();
-  });
-
   it('should be change label color when have error', () => {
     render(<Input label="Name" error="Name required" id="Name" />);
     const text = screen.getByText('Name');

@@ -4,10 +4,15 @@ import { SignUpForm } from './SignUpForm';
 import { renderWrapper, supabase } from '../../utils/tests/helpers';
 import { AuthError, Session, User } from '@supabase/supabase-js';
 import { useAuthStore } from '@horarioz/hooks';
+import { supabase as createClient } from '@horarioz/supabase';
+
+jest.mock('@supabase/auth-helpers-react', () => ({
+  useSupabaseClient: createClient('example.com', 'some.api.key'),
+}));
 
 describe('<SignUpForm />', () => {
   beforeEach(() => {
-    jest.spyOn(console, 'error').mockImplementation(() => null);
+    // jest.spyOn(console, 'error').mockImplementation(() => null);
   });
 
   it('should render all inputs on login page', () => {
@@ -28,14 +33,12 @@ describe('<SignUpForm />', () => {
     renderWrapper(<SignUpForm />);
 
     const button = screen.getByText('Sign Up');
-    const name = screen.getByText('Full Name');
     const email = screen.getByText('Email');
     const password = screen.getByText('Password');
     const confirmPassword = screen.getByText('Confirm Password');
 
     await act(async () => {
       await fireEvent.type(email, 'Invalid Email');
-      await fireEvent.type(name, 'Invalid User');
       await fireEvent.type(password, 'invalid@email');
       await fireEvent.type(confirmPassword, 'invalid@email');
       fireEvent.click(button);
@@ -57,13 +60,11 @@ describe('<SignUpForm />', () => {
     renderWrapper(<SignUpForm />);
 
     const button = screen.getByText('Sign Up');
-    const name = screen.getByText('Full Name');
     const email = screen.getByText('Email');
     const password = screen.getByText('Password');
     const confirmPassword = screen.getByText('Confirm Password');
 
     await act(async () => {
-      await fireEvent.type(name, 'Wendel Freitas');
       await fireEvent.type(email, 'wendel@horarioz.com');
       await fireEvent.type(password, 'test-password');
       await fireEvent.type(confirmPassword, 'test-password');

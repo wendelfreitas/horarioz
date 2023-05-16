@@ -4,8 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useSignIn } from './use-sign-in';
 import { supabase as createClient } from '@horarioz/supabase';
 import { AuthError, User, Session } from '@supabase/supabase-js';
-import { SupabaseProvider } from '../../services/use-supabase/use-supabase';
-
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -17,9 +16,9 @@ const queryClient = new QueryClient({
 const supabase = createClient('https://example.com', 'some.api.key');
 
 const wrapper = ({ children }: { children: ReactNode }) => (
-  <SupabaseProvider value={supabase}>
+  <SessionContextProvider supabaseClient={supabase}>
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  </SupabaseProvider>
+  </SessionContextProvider>
 );
 
 describe('useSignIn', () => {

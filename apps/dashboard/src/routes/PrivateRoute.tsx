@@ -1,16 +1,26 @@
-import { Navigate } from 'react-router-dom';
-import { useAuthStore } from '@horarioz/hooks';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '@horarioz/hooks';
+import { useEffect } from 'react';
 
 type PrivateRouteProps = {
   children: JSX.Element;
 };
 
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const { user } = useAuthStore();
+  const { user, profile } = useUser();
+  const navigate = useNavigate();
 
-  if (!user) {
-    return <Navigate to="/sign-in" replace />;
-  }
+  useEffect(() => {
+    if (!user) {
+      return navigate('/sign-in');
+    }
+
+    if (profile) {
+      return navigate('/');
+    }
+
+    return navigate('/onboarding');
+  }, [user, profile, navigate]);
 
   return children;
 };

@@ -1,28 +1,35 @@
-import { ThemeProvider } from '@horarioz/ui';
+import { Loading, ThemeProvider } from '@horarioz/ui';
 import { I18nextProvider } from 'react-i18next';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import i18n from './configs/i18n';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { AuthMiddleware } from './components/AuthMiddleware/AuthMiddleware';
-import { SupabaseProvider } from '@horarioz/hooks';
+import { AuthProvider } from '@horarioz/hooks';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { supabase } from './services/supabase';
+import HashLoader from 'react-spinners/HashLoader';
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <SupabaseProvider value={supabase}>
+    <SessionContextProvider supabaseClient={supabase}>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
           <I18nextProvider i18n={i18n}>
-            <AuthMiddleware>
+            <AuthProvider
+              fallback={
+                <div className="grid h-screen place-items-center">
+                  <Loading />
+                </div>
+              }
+            >
               <App />
-            </AuthMiddleware>
+            </AuthProvider>
           </I18nextProvider>
         </ThemeProvider>
       </QueryClientProvider>
-    </SupabaseProvider>
+    </SessionContextProvider>
   </React.StrictMode>
 );

@@ -7,7 +7,7 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import { useSignIn } from '@horarioz/hooks';
 import { Fragment } from 'react';
 
-type Inputs = {
+type SignInInput = {
   email: string;
   password: string;
 };
@@ -30,8 +30,8 @@ export const SignInForm = () => {
   };
 
   const onSubmit = (
-    { email, password }: Inputs,
-    actions: FormikHelpers<Inputs>
+    { email, password }: SignInInput,
+    actions: FormikHelpers<SignInInput>
   ) =>
     login(
       { email, password },
@@ -48,7 +48,7 @@ export const SignInForm = () => {
         onSubmit={onSubmit}
       >
         {({ isValid, dirty }) => (
-          <Form className="mt-8 grid grid-cols-6 gap-6">
+          <Form className="mt-8 grid grid-cols-6">
             <div className="col-span-6">
               <Input
                 type="email"
@@ -76,11 +76,12 @@ export const SignInForm = () => {
                 {t('@SignInForm.forgot-password')}
               </a>
             </div>
-            <div className="col-span-6">
+            <div className="col-span-6 mt-5">
               <Button
                 className="w-full"
                 type="submit"
-                disabled={!dirty || !isValid || isLoading}
+                isLoading={isLoading}
+                disabled={!dirty || !isValid}
               >
                 {t('@SignInForm.sign-in')}
               </Button>

@@ -2,12 +2,12 @@ import { ThemeProvider } from '@horarioz/ui';
 import { I18nextProvider } from 'react-i18next';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import i18n from './configs/i18n';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { AuthMiddleware } from './components/AuthMiddleware/AuthMiddleware';
 import { SupabaseProvider } from '@horarioz/hooks';
 import { supabase } from './services/supabase';
+import { App } from './App';
 
 const queryClient = new QueryClient();
 

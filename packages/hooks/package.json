@@ -9,8 +9,8 @@
   "scripts": {
     "lint": "eslint src --max-warnings=0",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --detectOpenHandles",
-    "test:watch": "yarn test --watch"
+    "test": "jest --detectOpenHandles --maxWorkers=1",
+    "test:watch": "jest --detectOpenHandles --watch"
   },
   "dependencies": {
     "react": "^18.2.0",

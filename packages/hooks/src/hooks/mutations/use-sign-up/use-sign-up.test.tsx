@@ -41,7 +41,6 @@ describe('useSignUp', () => {
       result.current.mutate({
         email: 'invalid-user@horarioz.com',
         password: '1234356',
-        name: 'Invalid User',
       });
     });
 
@@ -62,7 +61,6 @@ describe('useSignUp', () => {
       result.current.mutate({
         email: 'invalid-user@horarioz.com',
         password: '1234356',
-        name: 'Invalid User',
       });
     });
 

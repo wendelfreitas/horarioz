@@ -41,5 +41,30 @@
     "email-invalid": "E-mail inválido",
     "email-required": "O e-mail é obrigatório",
     "password-required": "A senha é obrigatória"
+  },
+  "@Steps": {
+    "welcome": "Bem-vindo ao Horarioz, vamos começar?",
+    "introduction": "Vamos fazer algumas poucas perguntas para configurar sua conta, não se preocupe, vai levar menos de 5 minutos.",
+    "start": "Começar",
+    "you-can-change-later": "Lembre-se, você poderá alterar tudo isso quando quiser.",
+    "you-done": "Você terminou!",
+    "you-answered-all-questions": "Você respondeu a todas as perguntas. Muito obrigado! Esperamos que você tenha todo o sucesso do mundo com essa empresa incrível.",
+    "go-to-my-dashboard": "Salvar e ir para o meu dashboard",
+    "back": "Voltar",
+    "type-here": "Digite aqui...",
+    "name-required": "O nome é obrigatório",
+    "phone-required": "O número de celular é obrigatório",
+    "company-name-required": "O nome da empresa é obrigatório",
+    "phone-invalid": "O número de celular é inválido",
+    "slug-required": "O domínio da empresa é obrigatório",
+    "slug-invalid": "O domínio da empresa é inválido",
+    "your-url-will-be": "O seu site ficará assim:",
+    "whats-your-name": "Qual seu nome completo?",
+    "whats-your-phone-number": "Qual o número do seu celular (com Whatsapp)?",
+    "whats-your-company-name": "Qual o nome da sua empresa?",
+    "whats-your-company-slug": "Qual será o domínio do seu site?",
+    "slug-information": "Iremos criar um site para você no final. Com esse site, as pessoas poderão acessar, ficar informadas das novidades e agendar serviços de forma rápida e fácil. Para isso, você deve registrar um domínio para que as pessoas possam acessá-lo. Lembre-se de escolher algo simples, que seja fácil de lembrar e esteja relacionado ao nome da sua empresa ou ao seu negócio.",
+    "next": "Continuar",
+    "or-press-enter": "ou aperte Enter"
   }
 }

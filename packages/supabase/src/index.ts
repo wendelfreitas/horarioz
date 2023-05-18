@@ -1,6 +1,8 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import type { Database } from './@types/supabase';
+export type { Database } from './@types/supabase';
 
-let client: SupabaseClient;
+let client: SupabaseClient<Database>;
 
 export const supabase = (SUPABASE_URL: string, SUPABASE_KEY: string) => {
   if (!SUPABASE_URL || !SUPABASE_KEY) {
@@ -10,10 +12,10 @@ export const supabase = (SUPABASE_URL: string, SUPABASE_KEY: string) => {
   }
 
   if (!client) {
-    client = createClient(SUPABASE_URL, SUPABASE_KEY);
+    client = createClient<Database>(SUPABASE_URL, SUPABASE_KEY);
   }
 
-  return client;
+  return createClient<Database>(SUPABASE_URL, SUPABASE_KEY);
 };
 
 export * from './locales';

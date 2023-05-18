@@ -70,7 +70,6 @@ export const WithHelper: StoryFn<InputProps> = (args) => (
 WithHelper.args = {
   label: 'Full name',
   placeholder: 'Testing',
-  helper: 'This is a helper text',
   name: 'fullname',
 };
 

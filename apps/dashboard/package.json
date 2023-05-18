@@ -10,6 +10,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "preview": "vite preview",
     "test": "jest --no-cache",
+    "test:ci": "jest --detectOpenHandles --silent",
     "test:watch": "yarn test --watch",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",

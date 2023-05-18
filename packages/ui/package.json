@@ -9,6 +9,7 @@
     "lint": "eslint src --max-warnings=0",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "jest",
+    "test:ci": "jest --detectOpenHandles --silent",
     "test:watch": "yarn test --watch",
     "build-storybook": "storybook build -s public",
     "make:component": "hygen new component"

@@ -16,6 +16,7 @@
     "storybook": "turbo run storybook --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
+    "test:ci": "turbo run test:ci",
     "typecheck": "turbo run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"

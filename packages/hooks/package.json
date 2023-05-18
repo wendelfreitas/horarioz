@@ -14,8 +14,8 @@
     "test:watch": "jest --detectOpenHandles --watch"
   },
   "dependencies": {
-    "react": "^18.2.0",
     "@horarioz/supabase": "*",
-    "@tanstack/react-query": "^4.29.5"
+    "@tanstack/react-query": "^4.29.7",
+    "react": "^18.2.0"
   }
 }

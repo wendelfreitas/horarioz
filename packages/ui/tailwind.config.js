@@ -5,11 +5,17 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          300: '#726ac8',
-          400: '#6057c1',
-          500: '#4F46BA',
-          600: '#473ea8',
-          700: '#3f3795',
+          50: '#fff9ec',
+          100: '#fff2d2',
+          200: '#ffe1a4',
+          300: '#ffca6b',
+          400: '#ffa82f',
+          500: '#ff8b07',
+          600: '#f96f00',
+          700: '#e05a00',
+          800: '#a34109',
+          900: '#83370b',
+          950: '#471a03',
         },
         content: '#FAFAFA',
         white: '#FFFFFF',
@@ -17,5 +23,10 @@ module.exports = {
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [require('@tailwindcss/forms'), require('tailwindcss-radix')()],
+  plugins: [
+    require('tailwindcss-animated'),
+    require('@tailwindcss/forms'),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('tailwindcss-radix')(),
+  ],
 };

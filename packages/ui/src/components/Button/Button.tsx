@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { ButtonHTMLAttributes } from 'react';
-import PropagateLoader from 'react-spinners/PropagateLoader';
+import HashLoader from 'react-spinners/HashLoader';
 
 type ButtonVariantsType = 'primary' | 'secondary';
 
@@ -53,15 +53,20 @@ export const Button = ({
   };
 
   const getClass = () => {
-    let style = `relative rounded-lg min-h-full h-11 text-sm font-medium text-center px-5 ${getVariant()} ${
-      props.className
-    }`;
+    let style = cn(
+      'relative rounded-lg min-h-full h-12 text-sm font-medium text-center px-5',
+      getVariant()
+    );
 
     if (isLoading || props.disabled) {
       style = cn(style, 'opacity-70 cursor-not-allowed');
     }
 
-    return style;
+    if (isLoading) {
+      style = cn(style, 'flex justify-center items-center');
+    }
+
+    return cn(style, props.className);
   };
 
   return (
@@ -71,10 +76,10 @@ export const Button = ({
       disabled={isLoading || props.disabled}
     >
       {isLoading ? (
-        <PropagateLoader
-          size={10}
+        <HashLoader
+          size={20}
           color="white"
-          className="pb-2 h-"
+          className="self-auto"
           data-testid="loading-indicator"
         />
       ) : (

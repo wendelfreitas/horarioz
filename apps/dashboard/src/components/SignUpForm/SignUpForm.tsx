@@ -6,8 +6,7 @@ import * as Yup from 'yup';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useSignUp } from '@horarioz/hooks';
 
-type Inputs = {
-  name: string;
+type SignUpInput = {
   email: string;
   password: string;
   confirm_password: string;
@@ -22,7 +21,6 @@ export const SignUpForm = () => {
       .email(t('@SignUpForm.email-invalid'))
       .trim()
       .required(t('@SignUpForm.email-required')),
-    name: Yup.string().trim().required(t('@SignUpForm.name-required')),
     password: Yup.string()
       .required(t('@SignUpForm.password-required'))
       .trim()
@@ -39,16 +37,15 @@ export const SignUpForm = () => {
   const initialValues = {
     email: '',
     password: '',
-    name: '',
     confirm_password: '',
   };
 
   const onSubmit = (
-    { email, password, name }: Inputs,
-    actions: FormikHelpers<Inputs>
+    { email, password }: SignUpInput,
+    actions: FormikHelpers<SignUpInput>
   ) =>
     signUp(
-      { email, password, name },
+      { email, password },
       {
         onError: (error) => actions.setErrors({ email: t(error.message) }),
       }
@@ -61,17 +58,7 @@ export const SignUpForm = () => {
       onSubmit={onSubmit}
     >
       {({ isValid }) => (
-        <Form className="mt-8 grid grid-cols-6 gap-6">
-          <div className="col-span-6">
-            <Input
-              id="name"
-              required
-              name="name"
-              label={t('@SignUpForm.name')}
-              placeholder={t('@SignUpForm.name')}
-            />
-          </div>
-
+        <Form className="mt-8 grid grid-cols-6">
           <div className="col-span-6">
             <Input
               type="email"

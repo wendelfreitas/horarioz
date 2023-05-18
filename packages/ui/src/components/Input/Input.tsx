@@ -1,7 +1,8 @@
 import { InputHTMLAttributes } from 'react';
-import { Transition } from '@headlessui/react';
+import { IMaskInput } from 'react-imask';
 import uniqid from 'uniqid';
 import cn from 'classnames';
+import { AnyMaskedOptions } from 'imask';
 
 export type InputProps = {
   /**
@@ -9,14 +10,9 @@ export type InputProps = {
    */
   error?: string;
   /**
-   * Add a helper text below the input.
-   */
-  helper?: string;
-  /**
    * The input label, if the label and placeholder have same value this label will be a floating label.
    */
   label?: string;
-  icon?: React.ReactNode;
   /**
    * If the button is disabled.
    */
@@ -25,6 +21,9 @@ export type InputProps = {
    * A word to add to the end of input.
    */
   suffix?: string;
+
+  mask?: string;
+  blocks?: { [key: string]: AnyMaskedOptions };
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const getInputClasses = (props: InputProps) => {
@@ -152,36 +151,37 @@ export const Input = (props: InputProps) => {
 
   return (
     <div>
-      <div className={getContainerClasses()}>
-        <input id={id} className={getInputClasses(props)} {...props} />
-        <label htmlFor={id} className={getLabelClasses(props)}>
-          {props.label}
-        </label>
+      <div className="h-[4rem] mb-5">
+        <div className={getContainerClasses()}>
+          <IMaskInput
+            id={props.name || id}
+            className={getInputClasses(props)}
+            {...props}
+          />
+          <label htmlFor={props.name || id} className={getLabelClasses(props)}>
+            {props.label}
+          </label>
 
-        {props.suffix && (
-          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 border border-y-0 border-r-0 border-gray-300 text-xs ">
-            {props.suffix}
-          </span>
+          {props.suffix && (
+            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 border border-y-0 border-r-0 border-gray-300 text-xs ">
+              {props.suffix}
+            </span>
+          )}
+        </div>
+        {props.error && (
+          <legend
+            className={cn(
+              'text-red-500',
+              'text-xs',
+              'mt-2',
+              'ml-2',
+              'animate-fade-down'
+            )}
+          >
+            {props.error}
+          </legend>
         )}
       </div>
-      <Transition
-        show={Boolean(props.error)}
-        enter="transition-opacity duration-500"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-200"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <legend className={cn('text-red-500', 'text-xs', 'mt-2', 'ml-2')}>
-          {props.error}
-        </legend>
-      </Transition>
-      {props.helper && (
-        <legend className={cn('text-xs', 'mt-2', 'ml-2')}>
-          {props.helper}
-        </legend>
-      )}
     </div>
   );
 };

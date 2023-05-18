@@ -3,7 +3,6 @@ import { AuthResponse, AuthError } from '@supabase/gotrue-js';
 import { useSupabase } from '../../services/use-supabase/use-supabase';
 
 type SignUpInput = {
-  name: string;
   email: string;
   password: string;
 };
@@ -15,15 +14,10 @@ export const useSignUp = (
 
   return useMutation(
     ['sign-in'],
-    async ({ email, password, name }: SignUpInput) => {
+    async ({ email, password }: SignUpInput) => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          data: {
-            name,
-          },
-        },
       });
 
       if (error) {

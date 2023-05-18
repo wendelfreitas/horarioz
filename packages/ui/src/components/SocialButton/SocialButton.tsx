@@ -23,7 +23,6 @@ export const SocialButton = ({
   isLoading = false,
   ...props
 }: SocialButtonProps) => {
-  console.log(isLoading);
   const networks = {
     google: (
       <button

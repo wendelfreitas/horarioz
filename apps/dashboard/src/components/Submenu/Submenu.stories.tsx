@@ -8,13 +8,15 @@ export default {
 } as Meta;
 
 export const Default: StoryFn<SubmenuProps> = () => (
-  <Submenu
-    menus={[
-      {
-        name: 'Submenu',
-        href: '/submenu',
-        current: false,
-      },
-    ]}
-  />
+  <div className="relative">
+    <Submenu
+      menus={[
+        {
+          name: 'Submenu',
+          href: '/submenu',
+          current: false,
+        },
+      ]}
+    />
+  </div>
 );

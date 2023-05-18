@@ -68,6 +68,7 @@
     "@radix-ui/react-label": "^2.0.1",
     "react-imask": "^6.6.1",
     "react-spinners": "^0.13.8",
+    "tailwindcss-animated": "^1.0.0",
     "tailwindcss-radix": "^2.8.0",
     "uniqid": "^5.4.0"
   }

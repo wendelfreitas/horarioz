@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint src --max-warnings=0",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --detectOpenHandles --maxWorkers=1",
+    "test": "jest --detectOpenHandles",
     "test:watch": "jest --detectOpenHandles --watch"
   },
   "dependencies": {

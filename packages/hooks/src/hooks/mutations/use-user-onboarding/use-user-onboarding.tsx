@@ -25,9 +25,13 @@ export const useUserOnboarding = (
   return useMutation(
     ['user-onboarding'],
     async (input: OnboardingInput) => {
+      if (!user) {
+        throw Error('User not authenticated');
+      }
+
       const { data, error } = await supabase
         .rpc('create_profile_and_company_with_studio', {
-          user_id: '94b75031-4623-4585-969a-0ce27d9da894',
+          user_id: user.id,
           name: input.name,
           phone: input.phone,
           company_name: input.company_name,

@@ -1,5 +1,5 @@
 import { screen, fireEvent } from '@testing-library/react';
-import { renderWrapper } from '../../utils/tests/helpers';
+import { renderWrapper } from '@utils/tests/helpers';
 import { Steps } from './Steps';
 
 jest.mock('@lottiefiles/react-lottie-player');

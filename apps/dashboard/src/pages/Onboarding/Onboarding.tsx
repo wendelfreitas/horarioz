@@ -1,4 +1,4 @@
-import { Steps } from '../../components/Steps/Steps';
+import { Steps } from '@components/Steps/Steps';
 
 export const Onboarding = () => (
   <div className="bg-gray-50 w-full min-h-screen flex justify-center">

@@ -21,5 +21,10 @@ module.exports = {
   modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@locales/(.*)$': '<rootDir>/src/locales/$1',
+    '^@assets/(.*)$': '<rootDir>/src/assets/$1',
   },
 };

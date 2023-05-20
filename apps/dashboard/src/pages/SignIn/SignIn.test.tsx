@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { SignIn } from './SignIn';
 
-import { renderWrapper } from '../../utils/tests/helpers';
+import { renderWrapper } from '@utils/tests/helpers';
 
 describe('<SignIn />', () => {
   it('renders page successfully', () => {

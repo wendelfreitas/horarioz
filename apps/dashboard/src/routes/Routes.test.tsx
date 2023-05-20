@@ -5,9 +5,9 @@ import { Routes } from './Routes';
 import { SupabaseProvider, useAuthStore } from '@horarioz/hooks';
 import { PrivateRoute } from './PrivateRoute';
 import { User } from '@supabase/supabase-js';
-import i18n from '../configs/i18n';
+import i18n from '@/configs/i18n';
 import { PublicRoute } from './PublicRoute';
-import { supabase } from '../utils/tests/helpers';
+import { supabase } from '@utils/tests/helpers';
 
 describe('<Routes />', () => {
   beforeEach(() => {

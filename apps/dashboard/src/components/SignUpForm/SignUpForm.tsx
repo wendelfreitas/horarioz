@@ -1,6 +1,6 @@
 import { Button } from '@horarioz/ui';
 import { useTranslation } from 'react-i18next';
-import { Input } from '../Input/Input';
+import { Input } from '@components/Input/Input';
 
 import * as Yup from 'yup';
 import { Form, Formik, FormikHelpers } from 'formik';

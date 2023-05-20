@@ -1,7 +1,7 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { Input, Select } from '@horarioz/ui';
-import { Content } from '../../components/Content/Content';
-import { Layout } from '../../components/Layout/Layout';
+import { Content } from '@components/Content/Content';
+import { Layout } from '@components/Layout/Layout';
 
 type CardProps = {
   children: React.ReactNode;

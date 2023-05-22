@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
 const supabase = createClient('https://example.com', 'some.api.key');
 
 const wrapper = ({ children }: { children: ReactNode }) => (
-  <SupabaseProvider value={supabase}>
+  <SupabaseProvider supabaseClient={supabase}>
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   </SupabaseProvider>
 );

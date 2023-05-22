@@ -4,6 +4,7 @@ export * from './components/SocialButton/SocialButton';
 export * from './components/Avatar/Avatar';
 export * from './components/Alert/Alert';
 export * from './components/Modal/Modal';
+export * from './components/Loading/Loading';
 
 // Forms
 export * from './components/Input/Input';

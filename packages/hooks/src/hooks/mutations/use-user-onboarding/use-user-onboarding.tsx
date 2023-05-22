@@ -2,7 +2,7 @@ import { useMutation, MutateOptions } from '@tanstack/react-query';
 import { useSupabase } from '../../services/use-supabase/use-supabase';
 import { PostgrestError } from '@supabase/supabase-js';
 import { Database } from '@horarioz/supabase';
-import { useAuthStore } from '../../stores/use-auth/use-auth';
+import { useUser } from '../../providers/use-user/use-user';
 
 type OnboardingInput = {
   name: string;
@@ -19,7 +19,7 @@ type ReturnType = {
 export const useUserOnboarding = (
   options?: MutateOptions<ReturnType, PostgrestError, OnboardingInput>
 ) => {
-  const { user } = useAuthStore();
+  const { user } = useUser();
   const supabase = useSupabase();
 
   return useMutation(

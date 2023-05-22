@@ -1,16 +1,15 @@
-import { useContext, useMemo } from 'react';
-import { createContext } from 'react';
 import { SupabaseClient } from '@supabase/supabase-js';
+import { useMemo } from 'react';
 import { Database } from '@horarioz/supabase';
+import {
+  SessionContextProvider,
+  useSupabaseClient,
+} from '@supabase/auth-helpers-react';
 
-export const Context = createContext<SupabaseClient | undefined>(undefined);
-export const SupabaseProvider = Context.Provider;
-export const SupabaseContext = Context.Consumer;
+export const SupabaseProvider = SessionContextProvider;
 
 export function useSupabase(): SupabaseClient<Database> {
-  const supabase = useContext(Context);
-  if (supabase === undefined)
-    throw Error('No supabase client has been specified using Provider.');
+  const supabase = useSupabaseClient<Database>();
 
   return useMemo(() => supabase, [supabase]);
 }

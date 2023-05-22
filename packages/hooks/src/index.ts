@@ -9,3 +9,7 @@ export * from './hooks/mutations/use-user-onboarding/use-user-onboarding';
 export * from './hooks/stores/use-auth/use-auth';
 
 export * from './hooks/services/use-supabase/use-supabase';
+
+// Providers
+
+export * from './hooks/providers/use-user/use-user';

@@ -22,7 +22,7 @@ const wrapper = ({ children }: { children: ReactNode }) => (
   </SessionContextProvider>
 );
 
-describe.skip('useSignIn', () => {
+describe('useSignIn', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });

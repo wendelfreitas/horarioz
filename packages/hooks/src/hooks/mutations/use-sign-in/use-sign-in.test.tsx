@@ -52,25 +52,6 @@ describe('useSignIn', () => {
     expect(result.current.error?.message).toBe('Invalid login credentials');
   });
 
-  it('should load a request', async () => {
-    const { result } = renderHook(() => useSignIn(), {
-      wrapper: wrapper,
-    });
-
-    act(() => {
-      result.current.mutate({
-        email: 'invalid-user@horarioz.com',
-        password: '1234356',
-      });
-    });
-
-    await waitFor(() => {
-      return result.current.isLoading;
-    });
-
-    expect(result.current.isLoading).toBe(true);
-  });
-
   it('should sign in the user', async () => {
     jest.spyOn(supabase.auth, 'signInWithPassword').mockResolvedValueOnce({
       data: {

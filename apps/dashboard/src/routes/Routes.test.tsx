@@ -72,9 +72,16 @@ describe('<Routes />', () => {
         <QueryClientProvider client={new QueryClient()}>
           <I18nextProvider i18n={i18n}>
             <MemoryRouter>
-              <PublicRoute>
-                <p>Hello Horarioz - Public Page</p>
-              </PublicRoute>
+              <AuthContext.Provider
+                value={{
+                  isLoading: false,
+                  user: null,
+                }}
+              >
+                <PublicRoute>
+                  <p>Hello Horarioz - Public Page</p>
+                </PublicRoute>
+              </AuthContext.Provider>
             </MemoryRouter>
           </I18nextProvider>
         </QueryClientProvider>

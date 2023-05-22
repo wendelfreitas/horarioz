@@ -1,20 +1,23 @@
 import { useUser } from '@horarioz/hooks';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Loading } from '@horarioz/ui';
+import { Navigate } from 'react-router-dom';
 
 type PublicRouteProps = {
   children: JSX.Element;
 };
 
-export const PublicRoute = ({ children }: PublicRouteProps) => {
-  const { user } = useUser();
-  const navigate = useNavigate();
+const Fallback = () => (
+  <div className="grid h-screen place-items-center">
+    <Loading />
+  </div>
+);
 
-  useEffect(() => {
-    if (user) {
-      return navigate('/');
-    }
-  }, [user, navigate]);
+export const PublicRoute = ({ children }: PublicRouteProps) => {
+  const { user, isLoading } = useUser();
+
+  if (isLoading) return <Fallback />;
+
+  if (user) return <Navigate to="/" />;
 
   return children;
 };

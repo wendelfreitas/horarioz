@@ -10,7 +10,7 @@ import {
 } from './Table';
 
 export default {
-  title: 'Table',
+  title: 'Components/Table',
   component: Table,
 } as Meta;
 

@@ -3,7 +3,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { DataTable } from './DataTable';
 
 export default {
-  title: 'DataTable',
+  title: 'Components/DataTable',
   component: DataTable,
 } as Meta;
 

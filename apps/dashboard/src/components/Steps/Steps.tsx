@@ -154,7 +154,7 @@ export const Steps = () => {
         >
           <ArrowUturnLeftIcon className="w-4 h-4 mr-3" /> {t('@Steps.back')}
         </button>
-        <h1 className="text-3xl font-medium text-gray-800 ">{title}</h1>
+        <h1 className="text-3xl font-medium text-black ">{title}</h1>
         {children}
         <div className="space-x-5">
           <Button
@@ -195,7 +195,7 @@ export const Steps = () => {
                   loop
                   className="w-56 sm:w-96 "
                 />
-                <h1 className="text-3xl font-semibold text-gray-800 mb-5  mt-16 text-center">
+                <h1 className="text-3xl font-semibold text-black mb-5  mt-16 text-center">
                   {t('@Steps.welcome')}
                 </h1>
                 <p className="text-center text-gray-400 text-sm sm:text-base max-w-xl">
@@ -331,7 +331,7 @@ export const Steps = () => {
                     loop
                     className="w-56 sm:w-70"
                   />
-                  <h1 className="text-3xl font-semibold text-gray-800 mb-7 mt-5 text-center">
+                  <h1 className="text-3xl font-semibold text-black mb-7 mt-5 text-center">
                     {t('@Steps.you-done')}
                   </h1>
                   <p className="text-center text-gray-400 text-sm sm:text-base max-w-xl mb-12">

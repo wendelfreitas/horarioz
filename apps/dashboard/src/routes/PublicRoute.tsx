@@ -1,16 +1,23 @@
-import { useAuthStore } from '@horarioz/hooks';
+import { useUser } from '@horarioz/hooks';
+import { Loading } from '@horarioz/ui';
 import { Navigate } from 'react-router-dom';
 
 type PublicRouteProps = {
   children: JSX.Element;
 };
 
-export const PublicRoute = ({ children }: PublicRouteProps) => {
-  const { user } = useAuthStore();
+const Fallback = () => (
+  <div className="grid h-screen place-items-center">
+    <Loading />
+  </div>
+);
 
-  if (user) {
-    return <Navigate to="/" replace />;
-  }
+export const PublicRoute = ({ children }: PublicRouteProps) => {
+  const { user, isLoading } = useUser();
+
+  if (isLoading) return <Fallback />;
+
+  if (user) return <Navigate to="/" />;
 
   return children;
 };

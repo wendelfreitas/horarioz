@@ -2,9 +2,9 @@ import { renderHook, act, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useSignInWithGoogle } from './use-sign-in-with-google';
 import { supabase as createClient } from '@horarioz/supabase';
-import { SupabaseProvider } from '../../services/use-supabase/use-supabase';
 import { ReactNode } from 'react';
 import { AuthError } from '@supabase/supabase-js';
+import { SupabaseProvider } from '../../services/use-supabase/use-supabase';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
 const supabase = createClient('https://example.com', 'some.api.key');
 
 const wrapper = ({ children }: { children: ReactNode }) => (
-  <SupabaseProvider value={supabase}>
+  <SupabaseProvider supabaseClient={supabase}>
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   </SupabaseProvider>
 );

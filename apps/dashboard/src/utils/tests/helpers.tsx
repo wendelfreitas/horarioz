@@ -15,7 +15,7 @@ i18n.changeLanguage('en');
 export const renderWrapper = (children: React.ReactNode): RenderResult => {
   return render(
     <Router>
-      <SupabaseProvider value={supabase}>
+      <SupabaseProvider supabaseClient={supabase}>
         <QueryClientProvider client={queryClient}>
           <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
         </QueryClientProvider>

@@ -45,7 +45,7 @@ export const getInputClasses = (props: InputProps) => {
   );
 
   if (props.placeholder !== props.label) {
-    style = cn(style, 'placeholder:text-gray-500');
+    style = cn(style, 'placeholder:text-gray-400');
   }
 
   if (props.disabled) {
@@ -99,6 +99,7 @@ export const getLabelClasses = (props: InputProps) => {
       'hover:cursor-text',
       'select-none',
       'absolute',
+      'text-gray-500',
       'text-base',
       'duration-300',
       'transform',

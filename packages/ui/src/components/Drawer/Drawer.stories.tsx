@@ -6,9 +6,27 @@ import { Input } from '../Input/Input';
 import IMask from 'imask';
 
 export default {
-  title: 'Drawer',
+  title: 'Components/Drawer',
   component: Drawer,
 } as Meta;
+
+export const Default: StoryFn<DrawerProps> = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <Button onClick={() => setIsOpen(true)}>Open Drawer</Button>
+      <Drawer
+        title="Hello World"
+        description="Tokyo Drift..."
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        <div>Hello Horarioz</div>
+      </Drawer>
+    </div>
+  );
+};
 
 export const WithFooter: StoryFn<DrawerProps> = () => {
   const [isOpen, setIsOpen] = useState(false);

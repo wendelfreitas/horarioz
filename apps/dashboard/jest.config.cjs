@@ -26,5 +26,6 @@ module.exports = {
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
     '^@locales/(.*)$': '<rootDir>/src/locales/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^@pages/(.*)$': '<rootDir>/src/pages/$1',
   },
 };

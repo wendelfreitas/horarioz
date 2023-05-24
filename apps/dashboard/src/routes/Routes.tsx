@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes as Router } from 'react-router-dom';
-import { SignIn } from '../pages/SignIn/SignIn';
+import { SignIn } from '@pages/SignIn/SignIn';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
-import { SignUp } from '../pages/SignUp/SignUp';
-import { SettingsPage } from '../pages/Settings/Settings';
-import { Onboarding } from '../pages/Onboarding/Onboarding';
+import { SignUp } from '@pages/SignUp/SignUp';
+import { SettingsPage } from '@pages/Settings/Settings';
+import { Onboarding } from '@pages/Onboarding/Onboarding';
 
 export const Routes = () => {
   return (

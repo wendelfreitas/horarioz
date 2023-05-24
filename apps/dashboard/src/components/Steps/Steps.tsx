@@ -1,12 +1,12 @@
 import { Button } from '@horarioz/ui';
 import cn from 'classnames';
-import welcomeAnimation from '../../assets/animations/welcome.json';
-import successAnimation from '../../assets/animations/success.json';
+import welcomeAnimation from '@assets/animations/welcome.json';
+import successAnimation from '@assets/animations/success.json';
 import { Form, Formik } from 'formik';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { KeyboardEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '../Input/Input';
+import { Input } from '@components/Input/Input';
 
 import { ArrowUturnLeftIcon } from '@heroicons/react/20/solid';
 import { useUserOnboarding } from '@horarioz/hooks';

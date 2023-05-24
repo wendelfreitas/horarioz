@@ -6,7 +6,7 @@ import { AuthContext, SupabaseProvider } from '@horarioz/hooks';
 import { PrivateRoute } from './PrivateRoute';
 import i18n from '../configs/i18n';
 import { PublicRoute } from './PublicRoute';
-import { supabase } from '../utils/tests/helpers';
+import { supabase } from '@/utils/tests/helpers';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('<Routes />', () => {

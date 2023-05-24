@@ -1,7 +1,7 @@
 import { useSignOut } from '@horarioz/hooks';
 import { Button } from '@horarioz/ui';
 import { useTranslation } from 'react-i18next';
-import { Steps } from '../../components/Steps/Steps';
+import { Steps } from '@components/Steps/Steps';
 
 export const Onboarding = () => {
   const { t } = useTranslation();

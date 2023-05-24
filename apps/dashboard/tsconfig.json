@@ -5,6 +5,15 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+      "@locales/*": ["locales/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"]
+    }
   }
 }

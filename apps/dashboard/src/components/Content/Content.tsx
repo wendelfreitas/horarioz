@@ -1,5 +1,5 @@
-import { Submenu, Menu } from '../Submenu/Submenu';
-import { MyAgenda } from '../MyAgenda/MyAgenda';
+import { Submenu, Menu } from '@components/Submenu/Submenu';
+import { MyAgenda } from '@components/MyAgenda/MyAgenda';
 import cn from 'classnames';
 
 export type ContentProps = {

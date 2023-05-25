@@ -12,20 +12,4 @@ describe('<Tooltip />', () => {
 
     expect(text).toBeInTheDocument();
   });
-
-  // it('should have a cursor not allowed style when social button is loading', () => {
-  //   const onClick = jest.fn();
-
-  //   render(
-  //     <Tooltip
-  //       content="google"
-  //     >
-  //       Hello World
-  //     </Tooltip>
-  //   );
-
-  //   const text = screen.getByText('Sign in with Google');
-
-  //   expect(text).toHaveClass('cursor-not-allowed');
-  // });
 });

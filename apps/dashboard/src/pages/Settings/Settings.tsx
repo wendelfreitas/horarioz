@@ -1,5 +1,5 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
-import { Input, Select } from '@horarioz/ui';
+import { Button, Input, Select, Tooltip } from '@horarioz/ui';
 import { Content } from '../../components/Content/Content';
 import { Layout } from '../../components/Layout/Layout';
 
@@ -118,6 +118,11 @@ export const SettingsPage = () => {
                   <p className="text-gray-400 text-xs">
                     O site https://acme.horarioz.com não está disponível.
                   </p>
+                </div>
+                <div className="col-span-12 sm:col-span-4">
+                  <Tooltip content="Hello World">
+                    <Button variant="primary">Hello World</Button>
+                  </Tooltip>
                 </div>
               </div>
             </div>

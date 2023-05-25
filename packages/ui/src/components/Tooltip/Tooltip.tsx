@@ -10,7 +10,7 @@ export type TooltipProps = {
 export const Tooltip = ({ content, children }: TooltipProps) => {
   return (
     <TooltipPrimitive.Provider>
-      <TooltipPrimitive.Root open>
+      <TooltipPrimitive.Root>
         <TooltipPrimitive.Trigger asChild>
           <span>{children}</span>
         </TooltipPrimitive.Trigger>

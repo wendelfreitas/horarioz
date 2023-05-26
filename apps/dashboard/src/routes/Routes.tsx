@@ -5,6 +5,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { SignUp } from '../pages/SignUp/SignUp';
 import { SettingsPage } from '../pages/Settings/Settings';
 import { Onboarding } from '../pages/Onboarding/Onboarding';
+import { Services } from '../pages/Services/Services';
 
 export const Routes = () => {
   return (
@@ -42,6 +43,15 @@ export const Routes = () => {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/services"
+          element={
+            <PrivateRoute>
+              <Services />
+            </PrivateRoute>
+          }
+        />
+
         <Route
           path="/settings"
           element={

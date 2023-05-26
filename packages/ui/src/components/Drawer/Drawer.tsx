@@ -75,7 +75,7 @@ export const Drawer = ({
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
                     <div className="h-0 flex-1 overflow-y-auto">
-                      <div className="bg-primary-500 px-4 py-6 sm:px-6">
+                      <div className="bg-primary-700 px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-base font-medium leading-6 text-white">
                             {title}
@@ -83,7 +83,7 @@ export const Drawer = ({
                           <div className="ml-3 flex h-7 items-center">
                             <button
                               type="button"
-                              className="rounded-md bg-primary-500 text-white focus:outline-none focus:ring-2 focus:ring-white"
+                              className="rounded-md bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
                               onClick={onClose}
                             >
                               <span className="sr-only">Close panel</span>

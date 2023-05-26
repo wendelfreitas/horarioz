@@ -1,38 +1,17 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { Input, Select } from '@horarioz/ui';
+import { Card } from '../../components/Card/Card';
 import { Content } from '../../components/Content/Content';
 import { Layout } from '../../components/Layout/Layout';
-
-type CardProps = {
-  children: React.ReactNode;
-  title?: string;
-  description?: string;
-};
-
-const Card = ({ children, title, description }: CardProps) => {
-  return (
-    <div className="overflow-hidden bg-white rounded-lg border-gray-200 border">
-      <div className="px-4 py-5 sm:p-6">
-        {title && (
-          <h1 className="text-sm sm:text-base font-semibold">{title}</h1>
-        )}
-        {description && (
-          <p className="text-xs sm:text-sm text-gray-500">{description}</p>
-        )}
-        <div className="mt-7 sm:mt-5">{children}</div>
-      </div>
-    </div>
-  );
-};
 
 export const SettingsPage = () => {
   return (
     <Layout>
       <Content
         submenus={[
-          { name: 'Gerais', href: '#', current: true },
-          { name: 'Integrações', href: '#', current: false },
-          { name: 'Domínio Customizado', href: '#', current: false },
+          { name: 'Gerais', href: '/', current: true },
+          { name: 'Integrações', href: '/integrations', current: false },
+          { name: 'Domínio Customizado', href: '/domains', current: false },
         ]}
       >
         <div className="space-y-5">

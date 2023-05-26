@@ -66,5 +66,17 @@
     "slug-information": "Iremos criar um site para você no final. Com esse site, as pessoas poderão acessar, ficar informadas das novidades e agendar serviços de forma rápida e fácil. Para isso, você deve registrar um domínio para que as pessoas possam acessá-lo. Lembre-se de escolher algo simples, que seja fácil de lembrar e esteja relacionado ao nome da sua empresa ou ao seu negócio.",
     "next": "Continuar",
     "or-press-enter": "ou aperte Enter"
+  },
+  "@Services": {},
+  "@ServiceForm": {
+    "create-service": "Criar Serviço",
+    "create-service-description": "Aqui você pode criar um novo serviço, que será exibido no seu site e agendado pelos seus clientes.",
+    "cancel": "Cancelar",
+    "service-name": "Nome",
+    "service-name-placeholder": "\"Treino personalizado\"",
+    "service-price": "Preço do serviço",
+    "service-description": "Descrição",
+    "service-description-placeholder": "\"Uma hora de treino, com o melhor personal trainer da região. Treino personalizado para você atingir seus objetivos.\"",
+    "estimated-duration": "Duração estimada do serviço"
   }
 }

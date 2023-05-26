@@ -1,5 +1,4 @@
 import { Submenu, Menu } from '../Submenu/Submenu';
-import { MyAgenda } from '../MyAgenda/MyAgenda';
 import cn from 'classnames';
 
 export type ContentProps = {
@@ -28,7 +27,6 @@ export const Content = ({ children, submenus }: ContentProps) => {
           <div className="h-full rounded-lg col-span-12">{children}</div>
         </div>
       </main>
-      <MyAgenda />
     </div>
   );
 };

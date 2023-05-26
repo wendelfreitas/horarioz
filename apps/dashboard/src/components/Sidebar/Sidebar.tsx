@@ -5,25 +5,34 @@ import {
   CalendarIcon,
   XMarkIcon,
   ArrowLeftOnRectangleIcon,
+  BriefcaseIcon,
 } from '@heroicons/react/24/outline';
 import { useSignOut } from '@horarioz/hooks';
-
-const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Calendário', href: '#', icon: CalendarIcon, current: false },
-];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 export const Sidebar = () => {
   const { mutate: signOut } = useSignOut();
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleSignOut = () => {
     signOut();
   };
+
+  const navigation = [
+    { name: 'Dashboard', href: '/', icon: HomeIcon },
+    {
+      name: 'Calendário',
+      href: '/calendar',
+      icon: CalendarIcon,
+    },
+    {
+      name: 'Serviços',
+      href: '/services',
+      icon: BriefcaseIcon,
+    },
+  ];
 
   return (
     <>
@@ -89,27 +98,24 @@ export const Sidebar = () => {
                   <nav aria-label="Sidebar" className="mt-5">
                     <div className="space-y-1 px-2">
                       {navigation.map((item) => (
-                        <a
+                        <NavLink
                           key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                            'group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                          )}
+                          to={item.href}
+                          className={({ isActive }) =>
+                            classNames(
+                              isActive
+                                ? ' text-gray-900'
+                                : 'text-gray-500 hover:text-gray-900',
+                              'group flex items-center px-1.5 py-2 text-sm rounded-md font-medium'
+                            )
+                          }
                         >
                           <item.icon
-                            className={classNames(
-                              item.current
-                                ? 'text-gray-500'
-                                : 'text-gray-400 group-hover:text-gray-500',
-                              'mr-4 h-6 w-6'
-                            )}
+                            className={classNames('mr-2 h-6 w-6 mb-0.5')}
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </NavLink>
                       ))}
                     </div>
                   </nav>
@@ -151,25 +157,24 @@ export const Sidebar = () => {
               <nav className="mt-10 flex-1" aria-label="Sidebar">
                 <div className="space-y-1 px-6">
                   {navigation.map((item) => (
-                    <a
+                    <NavLink
                       key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? ' text-gray-900'
-                          : 'text-gray-500 hover:text-gray-900',
-                        'group flex items-center px-1.5 py-2 text-sm rounded-md font-medium'
-                      )}
+                      to={item.href}
+                      className={({ isActive }) =>
+                        classNames(
+                          isActive
+                            ? ' text-gray-900'
+                            : 'text-gray-500 hover:text-gray-900',
+                          'group flex items-center px-1.5 py-2 text-sm rounded-md font-medium'
+                        )
+                      }
                     >
                       <item.icon
-                        className={classNames(
-                          item.current ? 'text-gray-900' : 'text-gray-400 ',
-                          'mr-2 h-6 w-6 mb-0.5'
-                        )}
+                        className={classNames('mr-2 h-6 w-6 mb-0.5')}
                         aria-hidden="true"
                       />
                       {item.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               </nav>

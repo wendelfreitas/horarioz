@@ -23,6 +23,7 @@
     "@horarioz/ui": "*",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@supabase/supabase-js": "^2.22.0",
+    "@tanstack/react-query-devtools": "^4.29.11",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

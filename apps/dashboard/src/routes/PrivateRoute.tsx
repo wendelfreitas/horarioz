@@ -13,20 +13,15 @@ const Fallback = () => (
 );
 
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
+  const location = useLocation();
   const { user, profile, isLoading } = useUser();
 
-  console.log(user);
-  console.log(profile);
-  console.log(isLoading);
-
-  const location = useLocation();
   if (isLoading) return <Fallback />;
 
   if (!user) return <Navigate to="/sign-in" />;
 
-  if (!profile && location.pathname !== '/onboarding')
+  if (!profile && !location.pathname.includes('onboarding'))
     return <Navigate to="/onboarding" />;
 
-  console.log(children);
   return children;
 };

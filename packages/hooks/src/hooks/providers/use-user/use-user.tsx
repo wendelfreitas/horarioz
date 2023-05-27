@@ -1,26 +1,26 @@
-import React, {
-  useContext,
-  useEffect,
-  useState,
-  createContext,
-  useCallback,
-} from 'react';
+import React, { useContext, createContext } from 'react';
 import { User } from '@supabase/supabase-js';
 import { useSession } from '@supabase/auth-helpers-react';
-import { useSupabase } from '../../services/use-supabase/use-supabase';
 import { Database } from '@horarioz/supabase';
+import { useInitialInformations } from '../../queries/use-initial-informations/use-initial-informations';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
+type Company = Database['public']['Tables']['companies']['Row'];
+type Studio = Database['public']['Tables']['studios']['Row'];
 
 type AuthContextType = {
   user: User | null;
   profile: Profile | null;
+  company: Company | null;
+  studio: Studio | null;
   isLoading: boolean;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
   profile: null,
+  company: null,
+  studio: null,
   isLoading: true,
 });
 
@@ -30,38 +30,16 @@ type AuthProviderProps = {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const session = useSession();
-  const supabase = useSupabase();
+  const queries = useInitialInformations();
+  const [profile, company, studio] = queries;
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [profile, setProfile] = useState<Profile | null>(null);
-
-  const getProfile = useCallback(async () => {
-    setIsLoading(true);
-    const { data: profiles } = await supabase
-      .from('profiles')
-      .select()
-      .eq('id', session?.user.id)
-      .maybeSingle();
-
-    setProfile(profiles);
-    setIsLoading(false);
-  }, [session, supabase]);
-
-  useEffect(() => {
-    if (session?.user) {
-      getProfile();
-    }
-
-    if (!session?.user) {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
-    }
-  }, [session, getProfile]);
+  const isLoading = queries.some((query) => query.isInitialLoading);
 
   const value = {
     user: session?.user ?? null,
-    profile: profile,
+    profile: profile.data ?? null,
+    company: company.data ?? null,
+    studio: studio.data ?? null,
     isLoading,
   };
 

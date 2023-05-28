@@ -1,5 +1,8 @@
 {
   "@HelloWorld": "Hello Horarioz",
+  "@ConfirmationEmail": {
+    "resend-confirmation-email": "Reenviar e-mail de confirmação"
+  },
   "@SignInForm": {
     "email": "E-mail",
     "password": "Senha",

@@ -5,6 +5,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { SignUp } from '@pages/SignUp/SignUp';
 import { SettingsPage } from '@pages/Settings/Settings';
 import { Onboarding } from '@pages/Onboarding/Onboarding';
+import { ConfirmationEmail } from '@/pages/ConfirmationEmail/ConfirmationEmail';
 
 export const Routes = () => {
   return (
@@ -40,6 +41,14 @@ export const Routes = () => {
             <PrivateRoute>
               <Onboarding />
             </PrivateRoute>
+          }
+        />
+        <Route
+          path="/confirmation-email"
+          element={
+            <PublicRoute>
+              <ConfirmationEmail />
+            </PublicRoute>
           }
         />
         <Route

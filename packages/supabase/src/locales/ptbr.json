@@ -1,4 +1,6 @@
 {
   "Invalid login credentials": "Esse e-mail não está cadastrado ou a senha está incorreta.",
-  "Failed to fetch": "Algo deu errado. Tente novamente mais tarde."
+  "Failed to fetch": "Algo deu errado. Tente novamente mais tarde.",
+  "Password should be at least 6 characters": "A senha deve ter pelo menos 6 caracteres.",
+  "Email not confirmed": "E-mail não confirmado."
 }

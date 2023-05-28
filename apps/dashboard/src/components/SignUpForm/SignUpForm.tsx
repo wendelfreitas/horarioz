@@ -5,6 +5,7 @@ import { Input } from '@components/Input/Input';
 import * as Yup from 'yup';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useSignUp } from '@horarioz/hooks';
+import { useNavigate } from 'react-router-dom';
 
 type SignUpInput = {
   email: string;
@@ -13,6 +14,7 @@ type SignUpInput = {
 };
 
 export const SignUpForm = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { mutate: signUp, isLoading } = useSignUp();
 
@@ -47,9 +49,23 @@ export const SignUpForm = () => {
     signUp(
       { email, password },
       {
-        onError: (error) => actions.setErrors({ email: t(error.message) }),
+        onError: (error) => {
+          actions.setErrors({
+            [getKeyToSetError(error.message)]: t(error.message),
+          });
+        },
+        onSuccess: () => navigate(`/confirmation-email?email=${email}`),
       }
     );
+
+  const getKeyToSetError = (message: string) => {
+    switch (message) {
+      case 'Password should be at least 6 characters':
+        return 'password';
+      default:
+        return 'email';
+    }
+  };
 
   return (
     <Formik
@@ -94,6 +110,7 @@ export const SignUpForm = () => {
 
           <div className="col-span-6 mt-5">
             <Button
+              isLoading={isLoading}
               className="w-full"
               type="submit"
               disabled={!isValid || isLoading}

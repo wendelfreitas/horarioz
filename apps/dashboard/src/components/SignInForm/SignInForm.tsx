@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useSignIn, useSignInWithGoogle } from '@horarioz/hooks';
 import { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type SignInInput = {
   email: string;
@@ -13,6 +14,7 @@ type SignInInput = {
 };
 
 export const SignInForm = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { mutate: login, isLoading } = useSignIn();
   const { mutate: loginWithGoogle, isLoading: isLoadingGoogle } =
@@ -38,7 +40,13 @@ export const SignInForm = () => {
     login(
       { email, password },
       {
-        onError: (error) => actions.setErrors({ email: t(error.message) }),
+        onError: (error) => {
+          if (error.message === 'Email not confirmed') {
+            navigate(`/confirmation-email?email=${email}`);
+          }
+
+          actions.setErrors({ email: t(error.message) });
+        },
       }
     );
 

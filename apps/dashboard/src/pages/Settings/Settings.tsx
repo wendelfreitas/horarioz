@@ -120,7 +120,7 @@ export const SettingsPage = () => {
                   </p>
                 </div>
                 <div className="col-span-12 sm:col-span-4">
-                  <Tooltip content="Hello World">
+                  <Tooltip content="Hello World" distance={11}>
                     <Button variant="primary">Hello World</Button>
                   </Tooltip>
                 </div>

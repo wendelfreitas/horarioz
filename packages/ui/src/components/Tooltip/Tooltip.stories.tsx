@@ -10,7 +10,7 @@ export default {
 
 export const Default: StoryFn<TooltipProps> = () => (
   <div className="w-full">
-    <Tooltip content="This is an example to Tooltip">
+    <Tooltip content="This is an example to Tooltip" distance={11}>
       <Button>Button Test</Button>
     </Tooltip>
   </div>

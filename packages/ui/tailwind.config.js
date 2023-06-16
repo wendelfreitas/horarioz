@@ -1,35 +1,24 @@
-import colors from 'tailwindcss/colors';
-
-delete colors['lightBlue'];
-delete colors['warmGray'];
-delete colors['trueGray'];
-delete colors['coolGray'];
-delete colors['blueGray'];
-
 /** @type {import('tailwindcss').Config} */
 export const content = ['./src/**/*.{js,ts,jsx,tsx}'];
 export const theme = {
-  colors: {
-    ...colors,
-    black: '#262626',
-  },
   extend: {
     colors: {
       primary: {
-        50: '#fff9ec',
-        100: '#fff2d2',
-        200: '#ffe1a4',
-        300: '#ffca6b',
-        400: '#ffa82f',
-        500: '#ff8b07',
-        600: '#f96f00',
-        700: '#e05a00',
-        800: '#a34109',
-        900: '#83370b',
-        950: '#471a03',
+        50: '#f2f3fc',
+        100: '#e2e4f7',
+        200: '#cbcef2',
+        300: '#a8b0e8',
+        400: '#7f88db',
+        500: '#6064d1',
+        600: '#504cc4',
+        700: '#473ea8',
+        800: '#453b92',
+        900: '#393375',
+        950: '#272348',
       },
       content: '#FAFAFA',
       white: '#FFFFFF',
+      black: '#262626',
     },
   },
 };

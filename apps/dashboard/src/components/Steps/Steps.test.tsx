@@ -140,7 +140,7 @@ describe('<Steps />', () => {
 
     expect(screen.getByText(/You're done!/)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByText('Save and go to my dashboard'));
+    fireEvent.click(screen.getByText('Go to my dashboard'));
 
     expect(screen.getByText(/Welcome to Horarioz/)).toBeInTheDocument();
   });

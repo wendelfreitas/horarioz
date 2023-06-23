@@ -40,6 +40,9 @@
     "email-required": "Email is required",
     "password-required": "Password is required"
   },
+  "@Onboarding": {
+    "sign-out": "Sign Out"
+  },
   "@Steps": {
     "welcome": "Welcome to Horarioz, let's get started?",
     "introduction": "We'll ask you a few questions to set up your account. Don't worry, it'll take less than 5 minutes.",
@@ -47,17 +50,20 @@
     "you-can-change-later": "Remember, you can change all of this whenever you want.",
     "you-done": "You're done!",
     "you-answered-all-questions": "You've answered all the questions. Thank you very much! We wish you all the success in the world with this amazing company.",
-    "go-to-my-dashboard": "Save and go to my dashboard",
+    "go-to-my-dashboard": "Go to my dashboard",
     "back": "Back",
     "type-here": "Type here...",
     "name-required": "Name is required",
     "phone-required": "Phone number is required",
+    "whats-your-company-name": "What's your company name?",
     "company-name-required": "Company name is required",
     "phone-invalid": "Invalid phone number",
     "slug-required": "Company domain is required",
     "slug-invalid": "Invalid company domain",
     "your-url-will-be": "Your URL will be:",
     "whats-your-name": "What's your full name?",
+    "slug-information": "We will create a website for you at the end. With this website, people will be able to access, stay informed about updates, and schedule services quickly and easily. For this, you must register a domain so that people can access it. Remember to choose something simple, easy to remember, and related to your company's name or your business.",
+    "whats-your-company-slug": "What will be your website's domain?",
     "whats-your-phone-number": "What's your phone number (with WhatsApp)?",
     "next": "Continue",
     "or-press-enter": "or press Enter"

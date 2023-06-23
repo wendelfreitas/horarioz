@@ -18,6 +18,9 @@ describe('<Routes />', () => {
             <AuthContext.Provider
               value={{
                 isLoading: false,
+                company: null,
+                studio: null,
+                profile: null,
                 user: null,
               }}
             >
@@ -41,6 +44,9 @@ describe('<Routes />', () => {
               <AuthContext.Provider
                 value={{
                   isLoading: false,
+                  company: null,
+                  studio: null,
+                  profile: null,
                   user: {
                     user_metadata: {},
                     app_metadata: {},
@@ -75,6 +81,9 @@ describe('<Routes />', () => {
               <AuthContext.Provider
                 value={{
                   isLoading: false,
+                  company: null,
+                  studio: null,
+                  profile: null,
                   user: null,
                 }}
               >

@@ -6,7 +6,7 @@ import {
   XMarkIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/react/24/outline';
-import { useSignOut } from '@horarioz/hooks';
+import { useSignOut, useUser } from '@horarioz/hooks';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -19,6 +19,7 @@ function classNames(...classes: string[]) {
 
 export const Sidebar = () => {
   const { mutate: signOut } = useSignOut();
+  const { company } = useUser();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleSignOut = () => {
@@ -139,7 +140,7 @@ export const Sidebar = () => {
                     />
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                        Acme
+                        {company?.name}
                       </p>
                       <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
                         Tatto

@@ -8,7 +8,7 @@ describe('<Tooltip />', () => {
         <button>Teste</button>
       </Tooltip>
     );
-    const text = screen.getByText('Hello World');
+    const text = screen.getByText('Teste');
 
     expect(text).toBeInTheDocument();
   });

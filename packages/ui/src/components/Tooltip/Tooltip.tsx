@@ -2,15 +2,46 @@ import { ReactNode } from 'react';
 import cn from 'classnames';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 
-export type TooltipProps = {
+/**
+ * Props for the Tooltip component.
+ */
+export interface TooltipProps {
+  /**
+   * The distance (in pixels) between the tooltip and the target element.
+   */
   distance: number;
+  /**
+   * The content to be displayed in the tooltip.
+   */
   content: string;
+  /**
+   * The delay (in milliseconds) before the tooltip appears when hovering over the target element.
+   * @default 500
+   */
+  delay?: number;
+  /**
+   * The child elements or component that will trigger the display of the tooltip when hovered over.
+   */
   children: ReactNode;
-};
+}
 
-export const Tooltip = ({ content, children, distance }: TooltipProps) => {
+/**
+ * Tooltip Component
+ *
+ * A UI component that provides additional information or context when hovering or interacting with another element.
+ * It renders a tooltip that appears near the target element and displays the specified content.
+ *
+ * @param props - The props for the Tooltip component.
+ * @returns The rendered Tooltip component.
+ */
+export const Tooltip = ({
+  content,
+  children,
+  distance,
+  delay = 500,
+}: TooltipProps) => {
   return (
-    <TooltipPrimitive.Provider>
+    <TooltipPrimitive.Provider delayDuration={delay}>
       <TooltipPrimitive.Root>
         <TooltipPrimitive.Trigger asChild>
           <span className="mt-4">{children}</span>
@@ -20,14 +51,11 @@ export const Tooltip = ({ content, children, distance }: TooltipProps) => {
             sideOffset={distance}
             className={cn(
               'bg-white',
-              'border-2',
+              'border',
               'animate-duration-300',
               'will-change-transform',
               'text-sm',
-              'radix-side-top:animate-slide-down-fade',
-              'radix-side-right:animate-slide-left-fade',
-              'radix-side-bottom:animate-slide-up-fade',
-              'radix-side-left:animate-slide-right-fade',
+              'animate-fade',
               'inline-flex',
               'items-center',
               'rounded-md',

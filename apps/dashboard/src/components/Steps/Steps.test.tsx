@@ -1,5 +1,5 @@
 import { screen, fireEvent } from '@testing-library/react';
-import { renderWrapper } from '../../utils/tests/helpers';
+import { renderWrapper } from '@utils/tests/helpers';
 import { Steps } from './Steps';
 
 jest.mock('@lottiefiles/react-lottie-player');
@@ -140,7 +140,7 @@ describe('<Steps />', () => {
 
     expect(screen.getByText(/You're done!/)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByText('Save and go to my dashboard'));
+    fireEvent.click(screen.getByText('Go to my dashboard'));
 
     expect(screen.getByText(/Welcome to Horarioz/)).toBeInTheDocument();
   });

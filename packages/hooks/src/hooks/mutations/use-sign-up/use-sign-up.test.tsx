@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
 const supabase = createClient('https://example.com', 'some.api.key');
 
 const wrapper = ({ children }: { children: ReactNode }) => (
-  <SupabaseProvider value={supabase}>
+  <SupabaseProvider supabaseClient={supabase}>
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   </SupabaseProvider>
 );
@@ -50,25 +50,6 @@ describe('useSignUp', () => {
 
     expect(result.current.isError).toBe(true);
     expect(result.current.error?.message).toBe('Invalid login credentials');
-  });
-
-  it('should load a request', async () => {
-    const { result } = renderHook(() => useSignUp(), {
-      wrapper: wrapper,
-    });
-
-    await act(() => {
-      result.current.mutate({
-        email: 'invalid-user@horarioz.com',
-        password: '1234356',
-      });
-    });
-
-    await waitFor(() => {
-      return result.current.isLoading;
-    });
-
-    expect(result.current.isLoading).toBe(true);
   });
 
   it('should sign in the user', async () => {

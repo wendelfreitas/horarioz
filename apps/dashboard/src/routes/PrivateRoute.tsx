@@ -1,16 +1,27 @@
-import { Navigate } from 'react-router-dom';
-import { useAuthStore } from '@horarioz/hooks';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useUser } from '@horarioz/hooks';
+import { Loading } from '@horarioz/ui';
 
 type PrivateRouteProps = {
   children: JSX.Element;
 };
 
-export const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const { user } = useAuthStore();
+const Fallback = () => (
+  <div className="grid h-screen place-items-center">
+    <Loading />
+  </div>
+);
 
-  if (!user) {
-    return <Navigate to="/sign-in" replace />;
-  }
+export const PrivateRoute = ({ children }: PrivateRouteProps) => {
+  const location = useLocation();
+  const { user, profile, isLoading } = useUser();
+
+  if (isLoading) return <Fallback />;
+
+  if (!user) return <Navigate to="/sign-in" />;
+
+  if (!profile && !location.pathname.includes('onboarding'))
+    return <Navigate to="/onboarding" />;
 
   return children;
 };

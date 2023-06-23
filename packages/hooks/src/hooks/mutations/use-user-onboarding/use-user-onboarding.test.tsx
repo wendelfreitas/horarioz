@@ -3,8 +3,9 @@ import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useUserOnboarding } from './use-user-onboarding';
 import { supabase as createClient } from '@horarioz/supabase';
-import { SupabaseProvider } from '../../services/use-supabase/use-supabase';
 import { useAuthStore } from '../../stores/use-auth/use-auth';
+import { SupabaseProvider } from '../../services/use-supabase/use-supabase';
+import { AuthContext } from '../../providers/use-user/use-user';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +18,7 @@ const queryClient = new QueryClient({
 const supabase = createClient('https://example.com', 'some.api.key');
 
 const wrapper = ({ children }: { children: ReactNode }) => (
-  <SupabaseProvider value={supabase}>
+  <SupabaseProvider supabaseClient={supabase}>
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   </SupabaseProvider>
 );
@@ -42,17 +43,6 @@ describe('useUserOnboarding', () => {
   });
 
   it('should create an profile, company and studio for this user', async () => {
-    useAuthStore.setState({
-      user: {
-        user_metadata: {},
-        app_metadata: {},
-        created_at: new Date().toDateString(),
-        aud: 'authenticated',
-
-        id: '94b75031-4623-4585-969a-0ce27d9da894',
-      },
-    });
-
     supabase.rpc = jest.fn().mockReturnValue({
       single: jest.fn().mockReturnValue(mock),
     });
@@ -63,6 +53,52 @@ describe('useUserOnboarding', () => {
       company_name: 'Acme',
       slug: 'acme',
     };
+
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <AuthContext.Provider
+        value={{
+          isLoading: false,
+          studio: {
+            id: '1',
+            company_id: '1',
+            domain: 'acme.horarioz.com',
+            title: 'Acme',
+            description: '',
+            created_at: new Date().toDateString(),
+            updated_at: new Date().toDateString(),
+          },
+          company: {
+            id: '1',
+            name: 'Acme',
+            user_id: '94b75031-4623-4585-969a-0ce27d9da894',
+            created_at: new Date().toDateString(),
+            updated_at: new Date().toDateString(),
+          },
+          profile: {
+            name: 'Wendel Freitas',
+            id: '94b75031-4623-4585-969a-0ce27d9da894',
+            phone: '5515999999999',
+            photo: '',
+            created_at: new Date().toDateString(),
+            updated_at: new Date().toDateString(),
+          },
+          user: {
+            user_metadata: {},
+            app_metadata: {},
+            created_at: new Date().toDateString(),
+            aud: 'authenticated',
+
+            id: '94b75031-4623-4585-969a-0ce27d9da894',
+          },
+        }}
+      >
+        <SupabaseProvider supabaseClient={supabase}>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </SupabaseProvider>
+      </AuthContext.Provider>
+    );
 
     const { result } = renderHook(() => useUserOnboarding(), {
       wrapper: wrapper,

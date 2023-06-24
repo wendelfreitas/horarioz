@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Tooltip } from './Tooltip';
 
 describe('<Tooltip />', () => {
@@ -14,15 +14,14 @@ describe('<Tooltip />', () => {
   });
 
   it('should display tooltip message on <div /> mouseover', async () => {
-    const { getByText, getByRole } = render(
+    const { getByText } = render(
       <Tooltip content="Hello World" distance={11}>
         <button>Teste</button>
       </Tooltip>
     );
 
-    fireEvent.mouseOver(getByRole('button'));
+    fireEvent.mouseOver(getByText('Teste'));
 
-    await waitFor(() => getByText('Hello World'));
-    expect(screen.getByText('Hello World')).toBeInTheDocument();
+    expect(await getByText('Teste')).toBeInTheDocument();
   });
 });

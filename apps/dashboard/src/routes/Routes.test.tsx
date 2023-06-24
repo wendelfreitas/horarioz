@@ -6,7 +6,7 @@ import { AuthContext, SupabaseProvider } from '@horarioz/hooks';
 import { PrivateRoute } from './PrivateRoute';
 import i18n from '../configs/i18n';
 import { PublicRoute } from './PublicRoute';
-import { supabase } from '../utils/tests/helpers';
+import { supabase } from '@/utils/tests/helpers';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('<Routes />', () => {
@@ -18,6 +18,9 @@ describe('<Routes />', () => {
             <AuthContext.Provider
               value={{
                 isLoading: false,
+                company: null,
+                studio: null,
+                profile: null,
                 user: null,
               }}
             >
@@ -41,6 +44,9 @@ describe('<Routes />', () => {
               <AuthContext.Provider
                 value={{
                   isLoading: false,
+                  company: null,
+                  studio: null,
+                  profile: null,
                   user: {
                     user_metadata: {},
                     app_metadata: {},
@@ -75,6 +81,9 @@ describe('<Routes />', () => {
               <AuthContext.Provider
                 value={{
                   isLoading: false,
+                  company: null,
+                  studio: null,
+                  profile: null,
                   user: null,
                 }}
               >

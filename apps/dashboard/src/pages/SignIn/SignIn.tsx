@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { SignInForm } from '../../components/SignInForm/SignInForm';
+import { SignInForm } from '@components/SignInForm/SignInForm';
 
 export const SignIn = () => {
   const { t } = useTranslation();

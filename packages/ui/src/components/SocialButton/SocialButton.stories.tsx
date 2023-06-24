@@ -7,8 +7,8 @@ export default {
   component: SocialButton,
 } as Meta;
 
-export const Github: StoryFn<SocialButtonProps> = () => (
+export const Google: StoryFn<SocialButtonProps> = () => (
   <div className="w-full">
-    <SocialButton network="google" title="Conecte-se com github" />
+    <SocialButton network="google" title="Conecte-se com Google" />
   </div>
 );

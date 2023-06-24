@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { renderWrapper } from '../../utils/tests/helpers';
+import { renderWrapper } from '@/utils/tests/helpers';
 import { Layout } from './Layout';
 import 'intersection-observer';
 

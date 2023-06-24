@@ -4,7 +4,10 @@ export * from './components/SocialButton/SocialButton';
 export * from './components/Avatar/Avatar';
 export * from './components/Alert/Alert';
 export * from './components/Modal/Modal';
+export * from './components/Tooltip/Tooltip';
 export * from './components/Loading/Loading';
+export * from './components/Table/Table';
+export * from './components/DataTable/DataTable';
 export * from './components/Drawer/Drawer';
 
 // Forms

@@ -3,6 +3,11 @@
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "/src/*": ["src/*"],
+      "@services/*": ["src/hooks/services/*"]
+    }
   }
 }

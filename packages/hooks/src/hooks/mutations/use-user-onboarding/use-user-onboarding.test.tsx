@@ -58,6 +58,30 @@ describe('useUserOnboarding', () => {
       <AuthContext.Provider
         value={{
           isLoading: false,
+          studio: {
+            id: '1',
+            company_id: '1',
+            domain: 'acme.horarioz.com',
+            title: 'Acme',
+            description: '',
+            created_at: new Date().toDateString(),
+            updated_at: new Date().toDateString(),
+          },
+          company: {
+            id: '1',
+            name: 'Acme',
+            user_id: '94b75031-4623-4585-969a-0ce27d9da894',
+            created_at: new Date().toDateString(),
+            updated_at: new Date().toDateString(),
+          },
+          profile: {
+            name: 'Wendel Freitas',
+            id: '94b75031-4623-4585-969a-0ce27d9da894',
+            phone: '5515999999999',
+            photo: '',
+            created_at: new Date().toDateString(),
+            updated_at: new Date().toDateString(),
+          },
           user: {
             user_metadata: {},
             app_metadata: {},

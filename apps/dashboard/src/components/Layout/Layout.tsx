@@ -1,5 +1,5 @@
-import { Header } from '../Header/Header';
-import { Sidebar } from '../Sidebar/Sidebar';
+import { Header } from '@components/Header/Header';
+import { Sidebar } from '@components/Sidebar/Sidebar';
 
 type LayoutProps = {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
+import { CURRENCIES } from '@horarioz/utils';
 import { InputProps } from '@horarioz/ui';
 import { useTranslation } from 'react-i18next';
-import { currencies } from '../../utils/contants/constants';
 import { Input } from '../Input/Input';
 
 type CurrencyFieldProps = InputProps;
@@ -10,7 +10,7 @@ export const CurrencyField = ({
   ...props
 }: CurrencyFieldProps) => {
   const { i18n } = useTranslation();
-  const currency = currencies[i18n.language];
+  const currency = CURRENCIES[i18n.language];
 
   const getPlaceholder = () => {
     if (placeholder) {

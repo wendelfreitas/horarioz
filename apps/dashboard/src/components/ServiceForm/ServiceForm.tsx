@@ -6,9 +6,9 @@ import { Input } from '../Input/Input';
 import { CurrencyField } from '../CurrencyField/CurrencyField';
 import { TimeField } from '../TimeField/TimeField';
 import { useCreateService, useUser } from '@horarioz/hooks';
+import { getCurrencyInFloatNumber } from '@horarioz/utils';
 import * as Yup from 'yup';
 import cn from 'classnames';
-import i18n from '@/configs/i18n';
 
 type ServiceFormProps = {
   isOpen: boolean;
@@ -36,21 +36,9 @@ type ServiceInput = {
   duration: string;
 };
 
-const getCurrencyInFloatNumber = (currency: string) => {
-  const result = currency.replace(/[$]|R\$/g, '').trim();
-
-  const currencies: {
-    [key: string]: number;
-  } = {
-    USD: parseFloat(result.replace(',', '')),
-    BRL: parseFloat(result.replace('.', '').replace(/,/g, '.')),
-  };
-
-  return currencies[i18n.language];
-};
-
 export const ServiceForm = ({ isOpen, onClose }: ServiceFormProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
   const { mutate: createService, isLoading } = useCreateService();
   const { company } = useUser();
 
@@ -85,7 +73,7 @@ export const ServiceForm = ({ isOpen, onClose }: ServiceFormProps) => {
         {
           ...values,
           company_id: company?.id,
-          price: getCurrencyInFloatNumber(values.price),
+          price: getCurrencyInFloatNumber(values.price, i18n.language),
         },
         {
           onSuccess: ({ data: service }) => {

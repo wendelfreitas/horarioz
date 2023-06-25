@@ -1,0 +1,16 @@
+{
+  "name": "@horarioz/utils",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "files": [
+    "./src/index.ts"
+  ],
+  "scripts": {
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "jest --detectOpenHandles",
+    "test:ci": "jest --detectOpenHandles --silent",
+    "test:watch": "jest --detectOpenHandles --watch"
+  }
+}

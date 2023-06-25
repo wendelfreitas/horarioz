@@ -27,7 +27,7 @@ describe('<Button />', () => {
 
     const button = screen.getByText('Hello World');
 
-    expect(button).toHaveClass('bg-primary-500');
+    expect(button).toHaveClass('bg-primary-700');
   });
 
   it('renders secondary button', () => {

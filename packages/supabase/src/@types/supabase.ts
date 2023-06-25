@@ -31,6 +31,14 @@ export interface Database {
           updated_at?: string | null;
           user_id?: string | null;
         };
+        Relationships: [
+          {
+            foreignKeyName: 'companies_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'profiles';
+            referencedColumns: ['id'];
+          }
+        ];
       };
       profiles: {
         Row: {
@@ -57,6 +65,54 @@ export interface Database {
           photo?: string | null;
           updated_at?: string | null;
         };
+        Relationships: [
+          {
+            foreignKeyName: 'profiles_id_fkey';
+            columns: ['id'];
+            referencedRelation: 'users';
+            referencedColumns: ['id'];
+          }
+        ];
+      };
+      services: {
+        Row: {
+          company_id: string;
+          created_at: string | null;
+          description: string | null;
+          duration: string;
+          id: string;
+          name: string;
+          price: number | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          company_id: string;
+          created_at?: string | null;
+          description?: string | null;
+          duration: string;
+          id?: string;
+          name: string;
+          price?: number | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          company_id?: string;
+          created_at?: string | null;
+          description?: string | null;
+          duration?: string;
+          id?: string;
+          name?: string;
+          price?: number | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'services_company_id_fkey';
+            columns: ['company_id'];
+            referencedRelation: 'companies';
+            referencedColumns: ['id'];
+          }
+        ];
       };
       studios: {
         Row: {
@@ -86,6 +142,14 @@ export interface Database {
           title?: string | null;
           updated_at?: string | null;
         };
+        Relationships: [
+          {
+            foreignKeyName: 'studios_company_id_fkey';
+            columns: ['company_id'];
+            referencedRelation: 'companies';
+            referencedColumns: ['id'];
+          }
+        ];
       };
     };
     Views: {

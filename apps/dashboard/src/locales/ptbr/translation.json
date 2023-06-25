@@ -71,7 +71,10 @@
   "@ServiceForm": {
     "create-service": "Criar Serviço",
     "create-service-description": "Aqui você pode criar um novo serviço, que será exibido no seu site e agendado pelos seus clientes.",
+    "service-created-successfully": "O serviço \"{{name}}\" foi criado com sucesso.",
     "cancel": "Cancelar",
+    "duration-invalid-format": "A duração do serviço está no formato inválido, deve seguir o padrão: HH:MM",
+    "time-required": "A duração do serviço é obrigatória",
     "service-name": "Nome",
     "service-name-placeholder": "\"Treino personalizado\"",
     "service-price": "Preço do serviço",

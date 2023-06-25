@@ -56,6 +56,7 @@
     "@supabase/supabase-js": "^2.22.0",
     "@tanstack/react-query": "^4.29.7",
     "dotenv-cli": "^7.2.1",
+    "react-hot-toast": "^2.4.1",
     "uniqid": "^5.4.0",
     "zustand": "^4.3.8"
   }

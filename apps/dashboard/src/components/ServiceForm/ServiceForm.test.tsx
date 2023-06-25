@@ -1,5 +1,5 @@
 import { ServiceForm } from './ServiceForm';
-import { screen, waitFor, act } from '@testing-library/react';
+import { screen, act } from '@testing-library/react';
 import fireEvent from '@testing-library/user-event';
 import { renderWrapper } from '@/utils/tests/helpers';
 

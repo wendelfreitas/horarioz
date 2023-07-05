@@ -5,7 +5,6 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { useEffect } from 'react';
 import { Button } from '../Button/Button';
 
 import {

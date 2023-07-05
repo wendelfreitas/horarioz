@@ -12,6 +12,11 @@ export type DrawerProps = {
   title: string;
 
   /**
+   * Whether the element should be unmounted or hidden based on the open/closed state.
+   */
+  unmount?: boolean;
+
+  /**
    * The description of the Drawer. Shown below the title.
    * @optional
    */
@@ -54,10 +59,16 @@ export const Drawer = ({
   footer,
   isOpen,
   onClose,
+  unmount = true,
 }: DrawerProps) => {
   return (
     <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog
+        as="div"
+        className="relative z-10"
+        onClose={onClose}
+        unmount={unmount}
+      >
         <div className="fixed inset-0" />
 
         <div className="fixed inset-0 overflow-hidden">
@@ -80,19 +91,6 @@ export const Drawer = ({
                           <Dialog.Title className="text-base font-medium leading-6 text-white">
                             {title}
                           </Dialog.Title>
-                          <div className="ml-3 flex h-7 items-center">
-                            <button
-                              type="button"
-                              className="rounded-md bg-primary-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
-                              onClick={onClose}
-                            >
-                              <span className="sr-only">Close panel</span>
-                              <XMarkIcon
-                                className="h-6 w-6"
-                                aria-hidden="true"
-                              />
-                            </button>
-                          </div>
                         </div>
                         {description && (
                           <div className="mt-1">

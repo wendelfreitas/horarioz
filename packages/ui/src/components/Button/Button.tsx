@@ -72,7 +72,7 @@ export const Button = ({
     style = cn(style, sizes[size]);
 
     if (isLoading || props.disabled) {
-      style = cn(style, 'opacity-70 cursor-not-allowed');
+      style = cn(style, 'opacity-80 cursor-not-allowed');
     }
 
     if (isLoading) {

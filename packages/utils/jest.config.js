@@ -2,7 +2,11 @@ module.exports = {
   testEnvironment: 'node',
   testPathIgnorePatterns: ['/node_modules/'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts(x)?', '!src/helpers/index.ts'],
+  collectCoverageFrom: [
+    'src/**/*.ts(x)?',
+    '!src/helpers/index.ts',
+    '!src/index.ts',
+  ],
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': [
       'ts-jest',

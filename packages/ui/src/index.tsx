@@ -9,6 +9,7 @@ export * from './components/Loading/Loading';
 export * from './components/Table/Table';
 export * from './components/DataTable/DataTable';
 export * from './components/Drawer/Drawer';
+export * from './components/DropdownMenu/DropdownMenu';
 
 // Forms
 export * from './components/Input/Input';

@@ -5,29 +5,25 @@ import { toast } from 'react-hot-toast';
 import { Input } from '../Input/Input';
 import { CurrencyField } from '../CurrencyField/CurrencyField';
 import { TimeField } from '../TimeField/TimeField';
-import { useCreateService, useUser } from '@horarioz/hooks';
-import { getCurrencyInFloatNumber } from '@horarioz/utils';
+import {
+  useCreateService,
+  useGetServiceById,
+  useUpdateService,
+  useUser,
+} from '@horarioz/hooks';
+import {
+  getCurrencyInFloatNumber,
+  getNumberInCurrencyFormat,
+} from '@horarioz/utils';
 import * as Yup from 'yup';
-import cn from 'classnames';
+import { KeyboardEvent } from 'react';
+import { useServiceStore } from '@/stores/use-service-store/use-service-store';
 
 type ServiceFormProps = {
+  serviceId?: string;
   isOpen: boolean;
   onClose: () => void;
 };
-
-const getInputStyle = () =>
-  cn(
-    'w-full',
-    'h-16',
-    'text-5xl',
-    'font-semibold',
-    'bg-transparent',
-    'text-gray-900',
-    'placeholder:text-gray-300',
-    'caret-gray-300',
-    'text-center',
-    'focus:outline-none'
-  );
 
 type ServiceInput = {
   name: string;
@@ -36,17 +32,34 @@ type ServiceInput = {
   duration: string;
 };
 
-export const ServiceForm = ({ isOpen, onClose }: ServiceFormProps) => {
+export const ServiceForm = ({
+  serviceId,
+  onClose,
+  isOpen,
+}: ServiceFormProps) => {
+  const serviceStore = useServiceStore((state) => state);
+  const isEditing = !!serviceId;
+
   const { t, i18n } = useTranslation();
 
-  const { mutate: createService, isLoading } = useCreateService();
+  const { mutate: createService, isLoading: isCreatingService } =
+    useCreateService();
+  const { mutate: updateService, isLoading: isUpdatingService } =
+    useUpdateService({
+      column: 'id',
+      value: serviceId,
+    });
+
+  const { data } = useGetServiceById(serviceId);
   const { company } = useUser();
 
   const initialValues = {
-    name: '',
-    duration: '',
-    price: '',
-    description: '',
+    name: data?.service?.name || '',
+    duration: data?.service?.duration || '',
+    price: data?.service?.price
+      ? getNumberInCurrencyFormat(Number(data?.service?.price), i18n.language)
+      : '',
+    description: data?.service?.description || '',
   };
 
   const schema = Yup.object().shape({
@@ -69,63 +82,114 @@ export const ServiceForm = ({ isOpen, onClose }: ServiceFormProps) => {
     { resetForm }: FormikHelpers<ServiceInput>
   ) => {
     if (company) {
-      createService(
-        {
-          ...values,
-          company_id: company?.id,
-          price: getCurrencyInFloatNumber(values.price, i18n.language),
-        },
-        {
-          onSuccess: ({ data: service }) => {
-            resetForm();
-            onClose();
-            toast.success(
-              t('@ServiceForm.service-created-successfully', {
-                name: service?.name,
-              })
-            );
+      if (serviceId) {
+        updateService(
+          {
+            ...values,
+            price: getCurrencyInFloatNumber(values.price, i18n.language),
           },
-        }
-      );
+          {
+            onSuccess: ({ data: service }) => {
+              if (service) {
+                onClose();
+                serviceStore.updateService(service);
+                toast.success(
+                  t('@ServiceForm.service-updated-successfully', {
+                    name: service?.name,
+                  })
+                );
+              }
+            },
+          }
+        );
+      } else {
+        createService(
+          {
+            ...values,
+            company_id: company?.id,
+            price: getCurrencyInFloatNumber(values.price, i18n.language),
+          },
+          {
+            onSuccess: ({ data: service }) => {
+              if (service) {
+                onClose();
+                serviceStore.addService(service);
+                toast.success(
+                  t('@ServiceForm.service-created-successfully', {
+                    name: service?.name,
+                  })
+                );
+                resetForm();
+              }
+            },
+          }
+        );
+      }
     }
   };
 
   return (
     <Formik
+      enableReinitialize
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={onSubmit}
     >
       {({ handleSubmit, resetForm }) => {
         const onCloseDrawer = () => {
-          resetForm();
           onClose();
+          resetForm();
+        };
+
+        const onKeyDown = (e: KeyboardEvent<HTMLFormElement>) => {
+          if (e.key === 'Enter') {
+            handleSubmit();
+          }
         };
 
         return (
-          <Form>
+          <Form onKeyDown={onKeyDown}>
             <Drawer
-              title={t('@ServiceForm.create-service')}
+              title={t(
+                isEditing
+                  ? '@ServiceForm.edit-service'
+                  : '@ServiceForm.create-service'
+              )}
+              unmount
               description={t('@ServiceForm.create-service-description')}
               isOpen={isOpen}
               onClose={onCloseDrawer}
               footer={
                 <div className="flex flex-shrink-0 justify-end px-4 py-4 space-x-3">
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    onClick={onCloseDrawer}
-                  >
-                    {t('@ServiceForm.cancel')}
-                  </Button>
+                  <div>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      onClick={onCloseDrawer}
+                    >
+                      {t('@ServiceForm.cancel')}
+                    </Button>
+                    <span className="sr-only">
+                      {t('@ServiceForm.close-service-form-a11y')}
+                    </span>
+                  </div>
+
                   <Button
                     type="submit"
                     className="w-36"
-                    isLoading={isLoading}
-                    data-testid="create-service-button"
+                    isLoading={isCreatingService || isUpdatingService}
+                    data-testid={
+                      isEditing
+                        ? 'edit-service-button'
+                        : 'create-service-button'
+                    }
                     onClick={() => handleSubmit()}
                   >
-                    {t('@ServiceForm.create-service')}
+                    {t(
+                      isEditing
+                        ? '@ServiceForm.edit-service'
+                        : '@ServiceForm.create-service'
+                    )}
                   </Button>
                 </div>
               }
@@ -160,12 +224,7 @@ export const ServiceForm = ({ isOpen, onClose }: ServiceFormProps) => {
                   </label>
 
                   <div>
-                    <TimeField
-                      className={getInputStyle()}
-                      placeholder="HH:MM"
-                      autoFocus={isOpen}
-                      name="duration"
-                    />
+                    <TimeField bigger placeholder="HH:MM" name="duration" />
                   </div>
                 </div>
               </div>

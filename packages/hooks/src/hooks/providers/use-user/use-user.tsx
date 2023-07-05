@@ -2,7 +2,7 @@ import React, { useContext, createContext } from 'react';
 import { User } from '@supabase/supabase-js';
 import { useSession } from '@supabase/auth-helpers-react';
 import { Database } from '@horarioz/supabase';
-import { useInitialInformations } from '../../queries/use-initial-informations/use-initial-informations';
+import { useInitialInformations } from '@horarioz/hooks';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 type Company = Database['public']['Tables']['companies']['Row'];

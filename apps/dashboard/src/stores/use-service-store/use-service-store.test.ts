@@ -71,7 +71,7 @@ describe('useServiceStore', () => {
     });
 
     expect(useServiceStore.getState().services.length).toBe(2);
-    expect(useServiceStore.getState().services[1].name).toBe('Service Updated');
-    expect(useServiceStore.getState().services[0].name).toBe(service.name);
+    expect(useServiceStore.getState().services[0].name).toBe('Service Updated');
+    expect(useServiceStore.getState().services[1].name).toBe(service.name);
   });
 });

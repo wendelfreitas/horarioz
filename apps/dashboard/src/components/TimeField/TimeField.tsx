@@ -1,11 +1,30 @@
 import { InputProps } from '@horarioz/ui';
 import IMask from 'imask';
+import cn from 'classnames';
 import { Input } from '../Input/Input';
 
-export const TimeField = (props: InputProps) => {
+export type TimeFieldProps = {
+  bigger?: boolean;
+} & InputProps;
+
+export const TimeField = ({ bigger, ...props }: TimeFieldProps) => {
+  const getBiggerStyle = cn(
+    'w-full',
+    'h-16',
+    'text-5xl',
+    'font-semibold',
+    'bg-transparent',
+    'text-gray-900',
+    'placeholder:text-gray-300',
+    'caret-gray-300',
+    'text-center',
+    'focus:outline-none'
+  );
+
   return (
     <Input
       {...props}
+      className={cn(props.className, bigger && getBiggerStyle)}
       inputMode="numeric"
       mask="HH:MM"
       blocks={{

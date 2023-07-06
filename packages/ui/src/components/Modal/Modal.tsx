@@ -124,7 +124,7 @@ export const Modal = ({
                 <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
                     type="button"
-                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 "
+                    className="rounded-md bg-white text-gray-400 ring-0  outline-none hover:text-gray-500"
                     onClick={onClose}
                   >
                     <span className="sr-only">{ariaCloseLabel}</span>

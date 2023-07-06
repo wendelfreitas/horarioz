@@ -33,7 +33,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const queries = useInitialInformations();
   const [profile, company, studio] = queries;
 
-  const isLoading = queries.some((query) => query.isInitialLoading);
+  const isLoading = queries.some(
+    (query) => query.isInitialLoading || query.isLoading
+  );
 
   const value = {
     user: session?.user ?? null,

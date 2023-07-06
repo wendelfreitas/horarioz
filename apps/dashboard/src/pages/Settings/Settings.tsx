@@ -1,8 +1,8 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
-import { Card } from '../../components/Card/Card';
+import { Card } from '@/components/Card/Card';
 import { Button, Input, Select, Tooltip } from '@horarioz/ui';
-import { Content } from '../../components/Content/Content';
-import { Layout } from '../../components/Layout/Layout';
+import { Content } from '@/components/Content/Content';
+import { Layout } from '@/components/Layout/Layout';
 
 export const SettingsPage = () => {
   return (

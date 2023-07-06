@@ -74,10 +74,9 @@ export const useServiceStore = create<ServiceState>()(
         set(() => ({ isCreateServiceFormOpen: true, editing: undefined })),
       close: () =>
         set(() => ({
+          editing: undefined,
           isCreateServiceFormOpen: false,
           isDeletingServiceModalOpen: false,
-          editing: undefined,
-          removing: undefined,
         })),
       setServices: (services) => set(() => ({ services: services })),
       addService: (service) =>

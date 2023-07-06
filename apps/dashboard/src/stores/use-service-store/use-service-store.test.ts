@@ -50,7 +50,6 @@ describe('useServiceStore', () => {
     serviceStore.close();
 
     expect(useServiceStore.getState().isDeletingServiceModalOpen).toBe(false);
-    expect(useServiceStore.getState().removing).toBeUndefined();
   });
 
   it('should add and update a specific service', async () => {

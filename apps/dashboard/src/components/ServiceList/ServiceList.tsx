@@ -5,7 +5,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-  Loading,
 } from '@horarioz/ui';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +21,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { useServiceStore } from '@/stores/use-service-store/use-service-store';
 import { EllipsisHorizontalIcon } from '@heroicons/react/20/solid';
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { LoadingState } from '../LoadingState/LoadingState';
 
 type Service = Database['public']['Tables']['services']['Row'];
 
@@ -119,23 +119,10 @@ export const ServiceList = () => {
   if (isLoading) {
     return (
       <div className="flex flex-col justify-center w-full h-[85vh] rounded-lg border-2 border-dashed border-gray-300 p-12 text-center">
-        <Loading />
-        <h3 className="mt-2 text-md font-semibold text-gray-900">
-          Carregando Serviços
-          {/* {t('@ServiceList.no-services')} */}
-        </h3>
-        <p className="mt-1 text-md text-gray-500">
-          Estamos carregando seus serviços por favor aguarde.
-          {/* {t('@ServiceList.lets-start-creating-service')} */}
-        </p>
-        <div className="mt-6 flex items-center justify-center">
-          <p className="text-primary-700 text-xs italic">
-            {/* Clique aqui para criar seu primeiro serviço
-             */}
-            O DNA humano, quando totalmente esticado, pode se estender por uma
-            distância de cerca de 10 bilhões de quilômetros.
-          </p>
-        </div>
+        <LoadingState
+          title={t('@ServiceList.loading-services')}
+          description={t('@ServiceList.loading-services-please-wait')}
+        />
       </div>
     );
   }
@@ -149,19 +136,13 @@ export const ServiceList = () => {
       >
         <Player src={noDataAnimation} autoplay loop className="w-56 sm:w-96" />
         <h3 className="mt-2 text-md font-semibold text-gray-900">
-          {/* Sem serviços  */}
           {t('@ServiceList.no-services')}
         </h3>
         <p className="mt-1 text-md text-gray-500">
-          {/* Voce não tem serviços cadastrados, comece criando seu primeiro
-          serviço. */}
-
           {t('@ServiceList.lets-start-creating-service')}
         </p>
         <div className="mt-6 flex items-center justify-center">
           <p className="text-primary-700">
-            {/* Clique aqui para criar seu primeiro serviço
-             */}
             {t('@ServiceList.click-to-create-service')}
           </p>
         </div>

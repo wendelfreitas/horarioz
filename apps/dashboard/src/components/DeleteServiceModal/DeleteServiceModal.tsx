@@ -46,12 +46,12 @@ export const DeleteServiceModal = ({
           <Button
             size="small"
             danger
+            autoFocus
             className="w-40"
             onClick={() => deleteService()}
             isLoading={isLoading}
           >
             {t('@DeleteServiceModal.delete')}
-            Deletar
           </Button>
         </div>
       }

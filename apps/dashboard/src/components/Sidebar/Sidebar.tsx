@@ -10,8 +10,10 @@ import {
 import { useSignOut, useUser } from '@horarioz/hooks';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 export const Sidebar = () => {
+  const { t } = useTranslation();
   const { mutate: signOut } = useSignOut();
   const { company } = useUser();
 
@@ -22,14 +24,14 @@ export const Sidebar = () => {
   };
 
   const navigation = [
-    { name: 'Dashboard', href: '/', icon: HomeIcon },
+    { name: t('@Sidebar.dashboard'), href: '/', icon: HomeIcon },
     {
-      name: 'Calendário',
+      name: t('@Sidebar.calendar'),
       href: '/calendar',
       icon: CalendarIcon,
     },
     {
-      name: 'Serviços',
+      name: t('@Sidebar.services'),
       href: '/services',
       icon: BriefcaseIcon,
     },
@@ -120,11 +122,6 @@ export const Sidebar = () => {
                       ))}
                     </div>
                   </nav>
-                </div>
-                <div className="flex flex-shrink-0 border-t border-gray-200 p-4">
-                  <p className="text-base font-medium text-gray-700 group-hover:text-gray-900">
-                    + Invite new member
-                  </p>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

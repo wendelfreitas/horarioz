@@ -1,5 +1,10 @@
 {
   "@HelloWorld": "Hello Horarioz",
+  "@Sidebar": {
+    "dashboard": "Dashboard",
+    "calendar": "Calendário",
+    "services": "Serviços"
+  },
   "@SignInForm": {
     "email": "E-mail",
     "password": "Senha",

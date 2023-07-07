@@ -1,4 +1,9 @@
-import { Fragment, InputHTMLAttributes, useState } from 'react';
+import {
+  Fragment,
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+  useState,
+} from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { getInputClasses, getLabelClasses } from '../Input/Input';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
@@ -49,7 +54,8 @@ export type SelectProps = {
    * Label to show when options is empty.
    */
   emptyLabel?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & InputHTMLAttributes<HTMLInputElement> &
+  TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 /**
  * Select component for choose one option from a list.

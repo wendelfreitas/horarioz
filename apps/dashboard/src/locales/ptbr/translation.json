@@ -1,5 +1,10 @@
 {
   "@HelloWorld": "Hello Horarioz",
+  "@Sidebar": {
+    "dashboard": "Dashboard",
+    "calendar": "Calendário",
+    "services": "Serviços"
+  },
   "@SignInForm": {
     "email": "E-mail",
     "password": "Senha",
@@ -66,5 +71,55 @@
     "slug-information": "Iremos criar um site para você no final. Com esse site, as pessoas poderão acessar, ficar informadas das novidades e agendar serviços de forma rápida e fácil. Para isso, você deve registrar um domínio para que as pessoas possam acessá-lo. Lembre-se de escolher algo simples, que seja fácil de lembrar e esteja relacionado ao nome da sua empresa ou ao seu negócio.",
     "next": "Continuar",
     "or-press-enter": "ou aperte Enter"
+  },
+  "@Services": {
+    "create-service": "Criar Serviço",
+    "my-services": "Meus Serviços"
+  },
+  "@ServiceList": {
+    "loading-services": "Carregando Serviços",
+    "loading-services-please-wait": "Estamos carregando seus serviços por favor aguarde.",
+    "no-services": "Nenhum serviço cadastrado",
+    "lets-start-creating-service": "Vamos começar criando o seu primeiro serviço!",
+    "click-to-create-service": "Clique aqui para criar um serviço",
+    "name": "Nome",
+    "price": "Preço",
+    "duration": "Duração",
+    "created_at": "Criado em",
+    "actions": "Ações",
+    "edit": "Editar",
+    "delete": "Excluir"
+  },
+  "@ServiceForm": {
+    "create-service": "Criar Serviço",
+    "edit-service": "Editar Serviço",
+    "create-service-description": "Aqui você pode criar ou editar um serviço que será exibido em seu site e agendado por seus clientes.",
+    "service-created-successfully": "O serviço \"{{name}}\" foi criado com sucesso.",
+    "service-updated-successfully": "O serviço \"{{name}}\" foi atualizado com sucesso.",
+    "cancel": "Cancelar",
+    "duration-invalid-format": "A duração do serviço está no formato inválido, deve seguir o padrão: HH:MM",
+    "time-required": "A duração do serviço é obrigatória",
+    "service-name": "Nome",
+    "service-name-placeholder": "\"Treino personalizado\"",
+    "service-price": "Preço do serviço",
+    "service-description": "Descrição",
+    "service-description-placeholder": "\"Uma hora de treino, com o melhor personal trainer da região. Treino personalizado para você atingir seus objetivos.\"",
+    "estimated-duration": "Duração estimada do serviço"
+  },
+  "@DeleteServiceModal": {
+    "delete-service-title": "Excluir serviço?",
+    "confirm-delete": "Você tem certeza que deseja excluir o serviço \"{{name}}\"?",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "deleted-successfully": "Serviço deletado com sucesso!"
+  },
+  "@LoadingState": {
+    "curiosities": {
+      "0": "O DNA humano, quando totalmente esticado, pode se estender por uma distância de cerca de 10 bilhões de quilômetros.",
+      "1": "O metal mercúrio é líquido à temperatura ambiente, tornando-o único entre os elementos metálicos.",
+      "2": "O cérebro humano é mais ativo durante a noite do que durante o dia.",
+      "3": "A luz leva aproximadamente 8 minutos e 20 segundos para viajar do Sol até a Terra.",
+      "4": "Cientistas descobriram que as abelhas podem reconhecer rostos humanos, o que é uma habilidade impressionante para um inseto."
+    }
   }
 }

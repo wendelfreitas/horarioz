@@ -50,6 +50,7 @@ export const Tooltip = ({
           <TooltipPrimitive.Content
             sideOffset={distance}
             className={cn(
+              'z-50',
               'bg-white',
               'border',
               'animate-duration-300',
@@ -63,7 +64,7 @@ export const Tooltip = ({
               'py-2.5'
             )}
           >
-            <span>{content}</span>
+            <span className="text-xs">{content}</span>
             <TooltipPrimitive.Arrow className="fill-current text-gray-200 opacity-100" />
           </TooltipPrimitive.Content>
         </TooltipPrimitive.Portal>

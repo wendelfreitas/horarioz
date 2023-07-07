@@ -79,7 +79,7 @@ export const Steps = () => {
   };
 
   const handleKeyDown = (
-    e: KeyboardEvent<HTMLInputElement>,
+    e: KeyboardEvent<HTMLInputElement> | KeyboardEvent<HTMLTextAreaElement>,
     error: boolean
   ) => {
     if (e.key === 'Enter' && !error) {

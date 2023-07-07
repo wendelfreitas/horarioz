@@ -21,19 +21,24 @@ export type ButtonProps = {
    * The button is danger state.
    */
   danger?: boolean;
+  /**
+   * The 3 button sizes: 'small', 'medium', 'large'.
+   */
+  size?: 'small' | 'medium' | 'large';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
   variant = 'primary',
   children,
   isLoading = false,
+  size = 'medium',
   danger = false,
   ...props
 }: ButtonProps) => {
   const Variants = {
     primary: cn(
-      danger ? 'bg-red-600' : 'bg-primary-500',
-      isLoading || props.disabled || 'hover:bg-primary-600',
+      danger ? 'bg-red-600' : 'bg-primary-700',
+      isLoading || props.disabled || 'hover:bg-primary-800',
       'text-white',
       danger && 'hover:bg-red-700'
     ),
@@ -53,13 +58,21 @@ export const Button = ({
   };
 
   const getClass = () => {
+    const sizes = {
+      small: cn('h-9', 'text-xs'),
+      medium: cn('h-11', 'text-sm'),
+      large: cn('h-12', 'text-sm'),
+    };
+
     let style = cn(
-      'relative rounded-lg min-h-full h-12 text-sm font-medium text-center px-5',
+      'relative rounded-lg min-h-full font-medium text-center px-5',
       getVariant()
     );
 
+    style = cn(style, sizes[size]);
+
     if (isLoading || props.disabled) {
-      style = cn(style, 'opacity-70 cursor-not-allowed');
+      style = cn(style, 'opacity-80 cursor-not-allowed');
     }
 
     if (isLoading) {

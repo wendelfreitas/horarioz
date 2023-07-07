@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 
 export const supabase = createClient('https://example.com', 'some.api.key');
 
-i18n.changeLanguage('en');
+i18n.changeLanguage('en-US');
 
 export const renderWrapper = (children: React.ReactNode): RenderResult => {
   return render(

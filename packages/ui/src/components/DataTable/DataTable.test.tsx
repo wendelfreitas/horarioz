@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DataTable } from './DataTable';
 import { ColumnDef } from '@tanstack/react-table';
 
@@ -14,7 +15,7 @@ const payments: Payment[] = [
     id: '728ed52f',
     amount: 100,
     status: 'pending',
-    email: 'm@example.com',
+    email: 'wendel@example.com',
   },
   {
     id: '489e1d42',
@@ -48,10 +49,24 @@ describe('<DataTable />', () => {
     expect(text).toBeInTheDocument();
   });
 
-  it('should render all data rows', () => {
-    render(<DataTable data={payments} columns={columns} />);
-    const text = screen.getByText('pending');
+  it('should render all data rows', async () => {
+    render(<DataTable data={payments} columns={columns} perPage={1} />);
+    const previous = screen.getByTestId('previous');
+    const next = screen.getByTestId('next');
 
-    expect(text).toBeInTheDocument();
+    userEvent.click(next);
+
+    await waitFor(() =>
+      expect(screen.getByText('example@gmail.com')).toBeInTheDocument()
+    );
+
+    userEvent.click(previous);
+
+    await waitFor(() =>
+      expect(screen.getByText('wendel@example.com')).toBeInTheDocument()
+    );
+
+    expect(previous).toBeInTheDocument();
+    expect(next).toBeInTheDocument();
   });
 });

@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 
 /**
  * Props for the Drawer component.
@@ -10,6 +9,11 @@ export type DrawerProps = {
    * The title of the Drawer. Shown on the top of the Drawer.
    */
   title: string;
+
+  /**
+   * Whether the element should be unmounted or hidden based on the open/closed state.
+   */
+  unmount?: boolean;
 
   /**
    * The description of the Drawer. Shown below the title.
@@ -54,10 +58,16 @@ export const Drawer = ({
   footer,
   isOpen,
   onClose,
+  unmount = true,
 }: DrawerProps) => {
   return (
     <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog
+        as="div"
+        className="relative z-10"
+        onClose={onClose}
+        unmount={unmount}
+      >
         <div className="fixed inset-0" />
 
         <div className="fixed inset-0 overflow-hidden">
@@ -75,24 +85,11 @@ export const Drawer = ({
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
                     <div className="h-0 flex-1 overflow-y-auto">
-                      <div className="bg-primary-500 px-4 py-6 sm:px-6">
+                      <div className="bg-primary-700 px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-base font-medium leading-6 text-white">
                             {title}
                           </Dialog.Title>
-                          <div className="ml-3 flex h-7 items-center">
-                            <button
-                              type="button"
-                              className="rounded-md bg-primary-500 text-white focus:outline-none focus:ring-2 focus:ring-white"
-                              onClick={onClose}
-                            >
-                              <span className="sr-only">Close panel</span>
-                              <XMarkIcon
-                                className="h-6 w-6"
-                                aria-hidden="true"
-                              />
-                            </button>
-                          </div>
                         </div>
                         {description && (
                           <div className="mt-1">

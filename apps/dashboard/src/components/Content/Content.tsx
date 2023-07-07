@@ -1,5 +1,4 @@
-import { Submenu, Menu } from '@components/Submenu/Submenu';
-import { MyAgenda } from '@components/MyAgenda/MyAgenda';
+import { Submenu, Menu } from '../Submenu/Submenu';
 import cn from 'classnames';
 
 export type ContentProps = {
@@ -22,13 +21,14 @@ export const Content = ({ children, submenus }: ContentProps) => {
             'sm:px-4',
             'lg:px-10',
             'grid',
-            !submenus || !submenus?.length ? 'top-0' : 'top-12 sm:top-16 '
+            !submenus || !submenus?.length
+              ? '-top-4 sm:top-0'
+              : 'top-12 sm:top-16 '
           )}
         >
           <div className="h-full rounded-lg col-span-12">{children}</div>
         </div>
       </main>
-      <MyAgenda />
     </div>
   );
 };

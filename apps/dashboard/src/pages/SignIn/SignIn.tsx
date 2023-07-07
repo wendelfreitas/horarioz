@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { SignInForm } from '@components/SignInForm/SignInForm';
+import { SignInForm } from '@/components/SignInForm/SignInForm';
+import logo from '@/assets/logo.png';
 
 export const SignIn = () => {
   const { t } = useTranslation();
@@ -10,11 +11,7 @@ export const SignIn = () => {
     <Fragment>
       <div className="flex min-h-full flex-1 flex-col justify-center py-5 md:py-16 sm:px-6 lg:px-8 bg-white sm:bg-gray-100">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Horarioz"
-          />
+          <img className="h-16 mx-auto w-auto" src={logo} alt="Horarioz" />
         </div>
 
         <div className="mt-6 sm:mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">

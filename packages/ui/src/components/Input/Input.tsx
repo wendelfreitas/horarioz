@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import { IMaskInput } from 'react-imask';
 import uniqid from 'uniqid';
 import cn from 'classnames';
@@ -22,12 +22,18 @@ export type InputProps = {
    */
   suffix?: string;
 
+  unmask?: boolean | 'typed';
+
   mask?: string;
+
+  as?: 'input' | 'textarea';
   blocks?: { [key: string]: AnyMaskedOptions };
-} & InputHTMLAttributes<HTMLInputElement>;
+} & InputHTMLAttributes<HTMLInputElement> &
+  TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const getInputClasses = (props: InputProps) => {
   let style = cn(
+    'min-h-[3rem]',
     'block',
     'px-4',
     'pb-2.5',
@@ -40,13 +46,11 @@ export const getInputClasses = (props: InputProps) => {
     'appearance-none',
     'focus:outline-none',
     'peer',
-    'placeholder:text-white',
+    props.placeholder !== props.label
+      ? 'placeholder:text-gray-400'
+      : 'placeholder:text-white',
     'focus:ring-0'
   );
-
-  if (props.placeholder !== props.label) {
-    style = cn(style, 'placeholder:text-gray-400');
-  }
 
   if (props.disabled) {
     style = cn(
@@ -139,6 +143,9 @@ export const getLabelClasses = (props: InputProps) => {
 
 export const Input = (props: InputProps) => {
   const id = props.id || uniqid('input_');
+  const type = props.as || 'input';
+
+  const isTextArea = type === 'textarea';
 
   const getContainerClasses = () => {
     let styles = cn('relative', 'rounded');
@@ -152,15 +159,24 @@ export const Input = (props: InputProps) => {
 
   return (
     <div>
-      <div className="h-[4rem] mb-5">
+      <div className={cn(!isTextArea && 'h-16', 'mb-5')}>
         <div className={getContainerClasses()}>
-          <IMaskInput
-            id={props.name || id}
-            className={getInputClasses(props)}
-            {...props}
-          />
+          {type === 'textarea' ? (
+            <textarea
+              id={props.name || id}
+              className={getInputClasses(props)}
+              {...props}
+            />
+          ) : (
+            <IMaskInput
+              id={props.name || id}
+              className={getInputClasses(props)}
+              {...props}
+            />
+          )}
           <label htmlFor={props.name || id} className={getLabelClasses(props)}>
-            {props.label}
+            {props.label}{' '}
+            {props.required && <span className="text-red-500">*</span>}
           </label>
 
           {props.suffix && (

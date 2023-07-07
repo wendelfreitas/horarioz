@@ -11,7 +11,7 @@ const resources = {
       ...locales.ptbr,
     },
   },
-  en: {
+  ['en-US']: {
     translation: {
       ...en,
       ...locales.en,
@@ -22,7 +22,7 @@ const resources = {
 i18n.init({
   returnNull: false,
   resources,
-  fallbackLng: 'en',
+  fallbackLng: 'en-US',
   interpolation: {
     escapeValue: false,
   },

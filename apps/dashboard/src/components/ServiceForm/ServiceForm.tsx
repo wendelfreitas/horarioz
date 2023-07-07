@@ -12,6 +12,7 @@ import {
   useUser,
 } from '@horarioz/hooks';
 import {
+  formatDurationToString,
   getCurrencyInFloatNumber,
   getNumberInCurrencyFormat,
 } from '@horarioz/utils';
@@ -69,10 +70,12 @@ export const ServiceForm = ({
       .transform((value) => value.replace(/[$]|R\$/g, '').trim())
       .required(t('@ServiceForm.price-required')),
 
+    description: Yup.string().trim(),
     duration: Yup.string()
       .required(t('@ServiceForm.time-required'))
+      .trim()
       .matches(
-        /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/,
+        /^([01]?[0-9]|2[0-3]):([0-5][0-9]|[1-9][0-9])$/,
         t('@ServiceForm.duration-invalid-format')
       ),
   });
@@ -135,7 +138,7 @@ export const ServiceForm = ({
       validationSchema={schema}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit, resetForm }) => {
+      {({ handleSubmit, resetForm, values }) => {
         const onCloseDrawer = () => {
           onClose();
           resetForm();
@@ -219,13 +222,16 @@ export const ServiceForm = ({
                 />
 
                 <div className="justify-start items-start flex flex-col">
-                  <label htmlFor="time" className="text-sm text-gray-500">
-                    {t('@ServiceForm.estimated-duration')}
-                  </label>
-
-                  <div>
-                    <TimeField bigger placeholder="HH:MM" name="duration" />
+                  <div className="w-full justify-between flex items-center">
+                    <label htmlFor="time" className="text-sm text-gray-500">
+                      {t('@ServiceForm.estimated-duration')}{' '}
+                    </label>
+                    <i className="text-gray-400 text-xs">
+                      {formatDurationToString(values.duration, i18n.language)}
+                    </i>
                   </div>
+
+                  <TimeField bigger placeholder="HH:MM" name="duration" />
                 </div>
               </div>
             </Drawer>

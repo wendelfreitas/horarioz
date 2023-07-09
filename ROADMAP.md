@@ -5,5 +5,5 @@ Horarioz is a personal project that aims to become a business in a short period 
 Thinking in business terms and considering that project is personal
 and carried out in free time, we built a possible roadmap, which has not yet been prioritized.
 
+<br>
 ![Horarioz Roadmap](https://github.com/wendelfreitas/horarioz/assets/34070817/477ed706-317c-487b-ab6a-be5703f25e8c#gh-dark-mode-only)
-![Horarioz Roadmap](https://github.com/wendelfreitas/horarioz/assets/34070817/3e6d3d52-6b89-4d02-867e-caddead92c71#gh-light-mode-only)

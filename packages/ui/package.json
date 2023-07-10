@@ -70,6 +70,8 @@
     "@radix-ui/react-label": "^2.0.1",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@tanstack/react-table": "^8.9.1",
+    "date-fns-timezone": "^0.1.4",
+    "react-day-picker": "^8.8.0",
     "react-imask": "^6.6.1",
     "react-spinners": "^0.13.8",
     "tailwindcss-animated": "^1.0.0",

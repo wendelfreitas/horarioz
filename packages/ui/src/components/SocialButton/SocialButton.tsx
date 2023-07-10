@@ -7,7 +7,7 @@ export type SocialButtonProps = {
    */
   title: string;
   /**
-   * The type of button according to the social network (github).
+   * The type of button according to the social network (google).
    */
   network: 'google';
 

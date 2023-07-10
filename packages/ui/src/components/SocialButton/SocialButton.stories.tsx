@@ -9,6 +9,6 @@ export default {
 
 export const Google: StoryFn<SocialButtonProps> = () => (
   <div className="w-full">
-    <SocialButton network="google" title="Conecte-se com Google" />
+    <SocialButton network="google" title="Sign in with Google" />
   </div>
 );

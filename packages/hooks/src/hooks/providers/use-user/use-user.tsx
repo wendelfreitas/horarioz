@@ -1,6 +1,6 @@
 import React, { useContext, createContext } from 'react';
 import { User } from '@supabase/supabase-js';
-import { useSession } from '@supabase/auth-helpers-react';
+import { useSession, useSessionContext } from '@supabase/auth-helpers-react';
 import { Database } from '@horarioz/supabase';
 import { useInitialInformations } from '@horarioz/hooks';
 
@@ -30,10 +30,14 @@ type AuthProviderProps = {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const session = useSession();
+  const { isLoading: isLoadingSession } = useSessionContext();
   const queries = useInitialInformations();
   const [profile, company, studio] = queries;
 
-  const isLoading = queries.some((query) => query.isInitialLoading);
+  const isLoading = queries.some(
+    (query) =>
+      (query.isLoading && query.fetchStatus !== 'idle') || isLoadingSession
+  );
 
   const value = {
     user: session?.user ?? null,

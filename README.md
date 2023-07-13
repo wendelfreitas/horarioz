@@ -28,7 +28,6 @@
 
 https://github.com/wendelfreitas/horarioz/assets/34070817/eaa1c132-e8ee-45a8-a138-7d6c7bff02d2
 
-
 ## :dizzy: **Roadmap**
 
 Check the [Roadmap](/ROADMAP.md) for more detailed information about the project.
@@ -65,4 +64,8 @@ Copyright (c) 2023 [Wendel de Freitas Branco](https://www.linkedin.com/in/wendel
 
 ## :art: **Creators**
 
-_TODO_
+<div align="center">
+  <a href="https://github.com/wendelfreitas/horarioz/graphs/contributors" >
+    <img src="https://contrib.rocks/image?repo=wendelfreitas/horarioz" />
+  </a>
+</div>

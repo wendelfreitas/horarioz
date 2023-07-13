@@ -24,14 +24,14 @@ export const Avatar = ({ name, src }: AvatarProps) => {
       .toUpperCase();
 
   return (
-    <AvatarPrimitive.Root className="items-center w-14 h-14 rounded-full inline-flex select-none overflow-hidden justify-center cursor-pointer">
+    <AvatarPrimitive.Root className="items-center w-10 h-10 rounded-full inline-flex select-none overflow-hidden justify-center cursor-pointer">
       <AvatarPrimitive.Image
         className="object-cover w-full h-full"
         src={src}
         alt={name}
         draggable={false}
       />
-      <AvatarPrimitive.Fallback className="bg-primary-300 w-full h-full justify-center items-center flex text-white font-medium text-base">
+      <AvatarPrimitive.Fallback className="bg-primary-500 w-full h-full justify-center items-center flex text-white font-medium text-sm">
         {getInitials()}
       </AvatarPrimitive.Fallback>
     </AvatarPrimitive.Root>

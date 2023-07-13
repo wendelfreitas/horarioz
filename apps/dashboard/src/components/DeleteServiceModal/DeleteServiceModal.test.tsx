@@ -18,9 +18,9 @@ describe('<DeleteServiceModal />', () => {
     renderWrapper(
       <DeleteServiceModal isOpen service={service} onClose={jest.fn()} />
     );
-    const title = screen.getByText('@DeleteServiceModal.delete-service-title');
+    const title = screen.getByText('Delete service?');
 
-    const name = screen.getByText('@DeleteServiceModal.confirm-delete');
+    const name = screen.getByTestId('confirm-delete-button');
 
     expect(title).toBeInTheDocument();
     expect(name).toBeInTheDocument();

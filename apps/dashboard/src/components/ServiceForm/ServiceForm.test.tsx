@@ -7,7 +7,7 @@ describe('<ServiceForm />', () => {
   it('renders component successfully', () => {
     const onClose = jest.fn();
     renderWrapper(<ServiceForm isOpen onClose={onClose} />);
-    const text = screen.getByText('@ServiceForm.service-name');
+    const text = screen.getByText('Name');
 
     expect(text).toBeInTheDocument();
   });
@@ -15,7 +15,7 @@ describe('<ServiceForm />', () => {
   it('should close the service form drawer', () => {
     const onClose = jest.fn();
     renderWrapper(<ServiceForm isOpen onClose={onClose} />);
-    const close = screen.getByText('@ServiceForm.cancel');
+    const close = screen.getByText('Cancel');
 
     expect(close).toBeInTheDocument();
 
@@ -29,8 +29,8 @@ describe('<ServiceForm />', () => {
     renderWrapper(<ServiceForm isOpen onClose={onClose} />);
 
     const button = screen.getByTestId('create-service-button');
-    const name = screen.getByText('@ServiceForm.service-name');
-    const price = screen.getByText('@ServiceForm.service-price');
+    const name = screen.getByText('Name');
+    const price = screen.getByText('Service Price');
     const duration = screen.getByPlaceholderText('HH:MM');
 
     await act(async () => {

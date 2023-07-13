@@ -54,12 +54,13 @@
     "you-can-change-later": "Lembre-se, você poderá alterar tudo isso quando quiser.",
     "you-done": "Você terminou!",
     "you-answered-all-questions": "Você respondeu a todas as perguntas. Muito obrigado! Esperamos que você tenha todo o sucesso do mundo com essa empresa incrível.",
-    "go-to-my-dashboard": "Salvar e ir para o meu dashboard",
+    "go-to-my-dashboard": "Ir para o meu dashboard",
     "back": "Voltar",
     "type-here": "Digite aqui...",
     "name-required": "O nome é obrigatório",
     "phone-required": "O número de celular é obrigatório",
     "company-name-required": "O nome da empresa é obrigatório",
+    "domain-already-exists": "Este domínio já é utilizado por outra empresa",
     "phone-invalid": "O número de celular é inválido",
     "slug-required": "O domínio da empresa é obrigatório",
     "slug-invalid": "O domínio da empresa é inválido",
@@ -68,7 +69,7 @@
     "whats-your-phone-number": "Qual o número do seu celular (com Whatsapp)?",
     "whats-your-company-name": "Qual o nome da sua empresa?",
     "whats-your-company-slug": "Qual será o domínio do seu site?",
-    "slug-information": "Iremos criar um site para você no final. Com esse site, as pessoas poderão acessar, ficar informadas das novidades e agendar serviços de forma rápida e fácil. Para isso, você deve registrar um domínio para que as pessoas possam acessá-lo. Lembre-se de escolher algo simples, que seja fácil de lembrar e esteja relacionado ao nome da sua empresa ou ao seu negócio.",
+    "slug-information": "Com esse site, as pessoas poderão acessar, ficar informadas das novidades e agendar serviços de forma rápida e fácil. Para isso, você deve registrar um domínio para que as pessoas possam acessá-lo. Lembre-se de escolher algo simples, que seja fácil de lembrar e esteja relacionado ao nome da sua empresa ou ao seu negócio.",
     "next": "Continuar",
     "or-press-enter": "ou aperte Enter"
   },
@@ -100,6 +101,8 @@
     "duration-invalid-format": "A duração do serviço está no formato inválido, deve seguir o padrão: HH:MM",
     "time-required": "A duração do serviço é obrigatória",
     "service-name": "Nome",
+    "name-required": "Nome do serviço é obrigatório",
+    "price-required": "É obrigatório um preço para o serviço ou coloque 0 para gratuito",
     "service-name-placeholder": "\"Treino personalizado\"",
     "service-price": "Preço do serviço",
     "service-description": "Descrição",
@@ -112,6 +115,9 @@
     "cancel": "Cancelar",
     "delete": "Excluir",
     "deleted-successfully": "Serviço deletado com sucesso!"
+  },
+  "@Onboarding": {
+    "sign-out": "Sair"
   },
   "@LoadingState": {
     "curiosities": {

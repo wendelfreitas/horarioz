@@ -145,9 +145,7 @@ export const Sidebar = () => {
                       <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
                         {company?.name}
                       </p>
-                      <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-                        Tatto
-                      </p>
+                      <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700"></p>
                     </div>
                   </div>
                 </a>

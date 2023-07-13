@@ -4,7 +4,7 @@
 
 </h1>
 
-<p align="center">A minimal, clean and beautiful application to manage your appointments and save every second of your life.</p>
+<p align="center">A minimal, clean, and beautiful application to manage your appointments and save every second of your life.</p>
 
 <p align="center"><i>Save your time, enjoy your life</p>
 
@@ -25,6 +25,9 @@
   <a href="#tophat-license">License</a> •
   <a href="#art-creators">Creators</a>
 </p>
+
+https://github.com/wendelfreitas/horarioz/assets/34070817/eaa1c132-e8ee-45a8-a138-7d6c7bff02d2
+
 
 ## :dizzy: **Roadmap**
 

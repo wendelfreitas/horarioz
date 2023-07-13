@@ -1,15 +1,15 @@
 import { Button } from '@horarioz/ui';
 import cn from 'classnames';
-import welcomeAnimation from '@assets/animations/welcome.json';
-import successAnimation from '@assets/animations/success.json';
+import welcomeAnimation from '@/assets/animations/welcome.json';
+import successAnimation from '@/assets/animations/success.json';
 import { Form, Formik } from 'formik';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { KeyboardEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@components/Input/Input';
-
+import { Input } from '@/components/Input/Input';
 import { ArrowUturnLeftIcon } from '@heroicons/react/20/solid';
-import { useUserOnboarding } from '@horarioz/hooks';
+import { useGetDomains, useUserOnboarding } from '@horarioz/hooks';
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
 const STEPS = {
@@ -43,9 +43,13 @@ const getInputStyle = () =>
 
 export const Steps = () => {
   const { t } = useTranslation();
+
   const { mutate: saveOnboard, isLoading } = useUserOnboarding();
 
   const [step, setStep] = useState(STEPS.WELCOME);
+  const { data: domains } = useGetDomains({
+    enabled: step === STEPS.COMPANY_SLUG,
+  });
 
   const goNext = () => {
     const current = Object.keys(STEPS).indexOf(step);
@@ -80,10 +84,15 @@ export const Steps = () => {
 
   const handleKeyDown = (
     e: KeyboardEvent<HTMLInputElement> | KeyboardEvent<HTMLTextAreaElement>,
-    error: boolean
+    error: boolean,
+    onNext?: () => void
   ) => {
     if (e.key === 'Enter' && !error) {
-      goNext();
+      if (onNext) {
+        onNext();
+      } else {
+        goNext();
+      }
     }
 
     if (e.key === 'Escape') {
@@ -109,6 +118,16 @@ export const Steps = () => {
       .matches(
         /^(?!https:\/\/)([a-zA-Z0-9-]+)(?!\.[a-zA-Z]+)$/,
         t('@Steps.slug-invalid')
+      )
+      .test(
+        'verify-domain',
+        t('@Steps.domain-already-exists'),
+        (value) =>
+          new Promise((resolve) =>
+            resolve(
+              !domains?.find((domain) => domain === `${value}.horarioz.com`)
+            )
+          )
       ),
   });
 
@@ -128,8 +147,8 @@ export const Steps = () => {
         slug: values.slug,
       },
       {
-        onError: (error) => console.log(error),
-        onSuccess: (error) => console.log(error),
+        onError: (error) => toast.error(error.message),
+        onSuccess: () => goNext(),
       }
     );
 
@@ -139,11 +158,13 @@ export const Steps = () => {
     title,
     error,
     children,
+    onNext = goNext,
   }: {
     title: string;
     step: string;
     error?: boolean;
     children: React.ReactNode;
+    onNext?: () => void;
   }) => {
     return (
       <div className={cn(getStepStyle(step), 'animate-fade-left', 'w-full')}>
@@ -159,8 +180,9 @@ export const Steps = () => {
         <div className="space-x-5">
           <Button
             type="button"
+            isLoading={isLoading}
             className="!rounded-full"
-            onClick={() => goNext()}
+            onClick={onNext}
             disabled={error}
           >
             {t('@Steps.next')}
@@ -285,8 +307,9 @@ export const Steps = () => {
             {isTheCurrentStep(STEPS.COMPANY_SLUG) && (
               <Wrapper
                 title={t('@Steps.whats-your-company-slug')}
-                step={STEPS.COMPANY_NAME}
+                step={STEPS.COMPANY_SLUG}
                 error={!values.slug.trim() || !!errors?.slug}
+                onNext={handleSubmit}
               >
                 <div className="flex items-center">
                   <Input
@@ -298,7 +321,11 @@ export const Steps = () => {
                     }
                     placeholder={t('@Steps.type-here')}
                     onKeyDown={(e) =>
-                      handleKeyDown(e, !values.slug.trim() || !!errors?.slug)
+                      handleKeyDown(
+                        e,
+                        !values.slug.trim() || !!errors?.slug,
+                        handleSubmit
+                      )
                     }
                     autoFocus
                   />
@@ -341,9 +368,8 @@ export const Steps = () => {
                     variant="primary"
                     aria-label={t('@Steps.go-to-my-dashboard')}
                     type="button"
-                    isLoading={isLoading}
                     className="!rounded-full col-span-3 w-80 text-md"
-                    onClick={() => handleSubmit()}
+                    onClick={() => window.location.reload()}
                   >
                     {t('@Steps.go-to-my-dashboard')}
                   </Button>

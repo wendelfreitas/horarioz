@@ -1,0 +1,132 @@
+{
+  "@HelloWorld": "Hello Horarioz",
+  "@Sidebar": {
+    "dashboard": "Dashboard",
+    "calendar": "Calendar",
+    "services": "Services"
+  },
+  "@SignInForm": {
+    "email": "Email",
+    "password": "Password",
+    "sign-in": "Sign In",
+    "forgot-password": "Forgot your password?",
+    "email-invalid": "Invalid email",
+    "email-required": "Email is required",
+    "password-required": "Password is required",
+    "or-continue-with": "Or continue with",
+    "sign-in-with-google": "Sign in with Google"
+  },
+  "@SignIn": {
+    "sign-in-your-account": "Sign in to your account",
+    "not-registered": "Not registered? ",
+    "register-now": "Register now"
+  },
+  "@SignUp": {
+    "email": "Email",
+    "password": "Password",
+    "sign-in": "Sign In",
+    "forgot-password": "Forgot your password?",
+    "email-invalid": "Invalid email",
+    "email-required": "Email is required",
+    "password-required": "Password is required",
+    "register-your-account": "Register your account",
+    "already-registered": "Already registered? ",
+    "sign-in-now": "Sign in now"
+  },
+  "@SignUpForm": {
+    "name": "Full Name",
+    "name-required": "Name is required",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "passwords-not-match": "Passwords do not match",
+    "sign-in": "Sign In",
+    "sign-up": "Sign Up",
+    "forgot-password": "Forgot your password?",
+    "email-invalid": "Invalid email",
+    "email-required": "Email is required",
+    "password-required": "Password is required"
+  },
+  "@Steps": {
+    "welcome": "Welcome to Horarioz, let's get started?",
+    "introduction": "We will ask you a few questions to set up your account. Don't worry, it will take less than 5 minutes.",
+    "start": "Start",
+    "you-can-change-later": "Remember, you can change all of this later whenever you want.",
+    "you-done": "You're done!",
+    "you-answered-all-questions": "You have answered all the questions. Thank you! We wish you all the success in the world with this incredible company.",
+    "go-to-my-dashboard": "Go to my dashboard",
+    "back": "Back",
+    "type-here": "Type here...",
+    "name-required": "Name is required",
+    "phone-required": "Phone number is required",
+    "company-name-required": "Company name is required",
+    "domain-already-exists": "This domain is already in use by another company",
+    "phone-invalid": "Invalid phone number",
+    "slug-required": "Company domain is required",
+    "slug-invalid": "Invalid company domain",
+    "your-url-will-be": "Your website URL will be:",
+    "whats-your-name": "What's your full name?",
+    "whats-your-phone-number": "What's your phone number?",
+    "whats-your-company-name": "What's your company name?",
+    "whats-your-company-slug": "What will be your website domain?",
+    "slug-information": "With this website, people can access and stay informed about your company's news and book services quickly and easily. To do that, you need to register a domain so that people can access it. Remember to choose something simple, easy to remember, and related to your company name or business.",
+    "next": "Continue",
+    "or-press-enter": "or press Enter"
+  },
+  "@Services": {
+    "create-service": "Create Service",
+    "my-services": "My Services"
+  },
+  "@ServiceList": {
+    "loading-services": "Loading Services",
+    "loading-services-please-wait": "We are loading your services, please wait.",
+    "no-services": "No services registered",
+    "lets-start-creating-service": "Let's start by creating your first service!",
+    "click-to-create-service": "Click here to create a service",
+    "name": "Name",
+    "price": "Price",
+    "duration": "Duration",
+    "created_at": "Created At",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "@ServiceForm": {
+    "create-service": "Create Service",
+    "edit-service": "Edit Service",
+    "create-service-description": "Here you can create or edit a service that will be displayed on your website and scheduled by your clients.",
+    "service-created-successfully": "The service \"{{name}}\" has been created successfully.",
+    "service-updated-successfully": "The service \"{{name}}\" has been updated successfully.",
+    "cancel": "Cancel",
+    "duration-invalid-format": "The service duration is in an invalid format. It should follow the pattern: HH:MM",
+    "time-required": "Service duration is required",
+    "service-name": "Name",
+    "name-required": "Service name is required",
+    "price-required": "A price for the service is required or put 0 for free",
+
+    "service-name-placeholder": "\"Personalized Training\"",
+    "service-price": "Service Price",
+    "service-description": "Description",
+    "service-description-placeholder": "\"One hour of training with the best personal trainer in the region. Personalized training to help you achieve your goals.\"",
+    "estimated-duration": "Estimated service duration"
+  },
+  "@DeleteServiceModal": {
+    "delete-service-title": "Delete service?",
+    "confirm-delete": "Are you sure you want to delete the service \"{{name}}\"?",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleted-successfully": "Service deleted successfully!"
+  },
+  "@Onboarding": {
+    "sign-out": "Logout"
+  },
+  "@LoadingState": {
+    "curiosities": {
+      "0": "The human DNA, when fully stretched, can reach a distance of about 10 billion kilometers.",
+      "1": "The metal mercury is liquid at room temperature, making it unique among metallic elements.",
+      "2": "The human brain is more active at night than during the day.",
+      "3": "Light takes approximately 8 minutes and 20 seconds to travel from the Sun to the Earth.",
+      "4": "Scientists have discovered that bees can recognize human faces, which is an impressive ability for an insect."
+    }
+  }
+}

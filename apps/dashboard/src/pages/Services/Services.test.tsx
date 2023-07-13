@@ -6,14 +6,14 @@ import { Services } from './Services';
 describe('<Services />', () => {
   it('renders component successfully', () => {
     renderWrapper(<Services />);
-    const text = screen.getByText('@Services.my-services');
+    const text = screen.getByText('My Services');
 
     expect(text).toBeInTheDocument();
   });
 
   it('should open and close create service form', async () => {
     renderWrapper(<Services />);
-    const button = screen.getByText('@Services.create-service');
+    const button = screen.getByText('Create Service');
 
     userEvent.click(button);
 
@@ -21,9 +21,9 @@ describe('<Services />', () => {
 
     const text = screen.getByTestId('create-service-button');
 
-    userEvent.click(screen.getByText('@ServiceForm.cancel'));
+    userEvent.click(screen.getByText('Cancel'));
 
-    await waitFor(() => screen.getByText('@ServiceForm.cancel'));
+    await waitFor(() => screen.getByText('Cancel'));
 
     expect(text).toBeInTheDocument();
   });

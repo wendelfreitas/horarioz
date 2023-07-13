@@ -11,6 +11,7 @@ export * from './hooks/mutations/use-delete-service/use-delete-service';
 // Queries
 
 export * from './hooks/queries/use-get-service-by-id/use-get-service-by-id';
+export * from './hooks/queries/use-get-domains/use-get-domains';
 export * from './hooks/queries/use-get-services-by-company-id/use-get-services-by-company-id';
 export * from './hooks/queries/use-initial-informations/use-initial-informations';
 

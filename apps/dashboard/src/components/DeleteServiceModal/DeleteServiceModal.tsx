@@ -50,6 +50,7 @@ export const DeleteServiceModal = ({
             className="w-40"
             onClick={() => deleteService()}
             isLoading={isLoading}
+            data-testid="confirm-delete-button"
           >
             {t('@DeleteServiceModal.delete')}
           </Button>

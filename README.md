@@ -26,7 +26,8 @@
   <a href="#art-creators">Creators</a>
 </p>
 
-https://github.com/wendelfreitas/horarioz/assets/34070817/eaa1c132-e8ee-45a8-a138-7d6c7bff02d2
+
+https://github.com/wendelfreitas/horarioz/assets/34070817/1a0a10a0-1965-4d36-a6a1-1992ba45115a
 
 ## :dizzy: **Roadmap**
 
